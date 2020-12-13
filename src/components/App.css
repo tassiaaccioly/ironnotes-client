@@ -10,4 +10,5 @@ body {
     color: white;
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-size: 10px; 
+    width: 100vw;
 }
