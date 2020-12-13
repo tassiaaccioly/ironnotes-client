@@ -3,7 +3,8 @@
 }
 
 .formBox {
-    margin-left: 600px;
+    margin: auto;
+    width: 350px;
 }
 
 .labelName {
@@ -25,3 +26,4 @@
     color: white;
     font-weight: bold;
 }
+
