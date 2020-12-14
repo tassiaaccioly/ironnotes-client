@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 
 import "./NavBar.css";
 
-function NavBar() {
+function NavBar(props) {
   const [mobile, setMobile] = useState(false);
 
   function handleClick() {
     setMobile(!mobile);
+  }
+
+  function handleLogoutClick() {
+    localStorage.clear();
+    props.history.push("/");
   }
 
   return (
@@ -27,7 +32,7 @@ function NavBar() {
           <a href="https://ironhack.com">Ironhack</a>
         </li>
         <li className={!mobile ? "" : "link-active"}>
-          <Link to="/logout">
+          <Link onClick={handleLogoutClick} to="/logout">
             <img
               type="image/svg+xml"
               src="./images/power-button.svg"
