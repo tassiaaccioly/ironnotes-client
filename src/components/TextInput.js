@@ -1,4 +1,5 @@
 import React from "react";
+import './TextInput.css';
 
 function TextInput(props) {
   return (
@@ -6,7 +7,7 @@ function TextInput(props) {
       <label htmlFor={props.id}>{props.label}</label>
       <input
         type={props.type}
-        className={`form-control ${props.error ? "is-invalid" : ""}`}
+        className="sign-input"
         id={props.id}
         name={props.name}
         value={props.value}
