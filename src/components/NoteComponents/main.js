@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 //Importações de componentes internos para montar troca de temas
 import { GlobalStyle } from "./NoteStyles/globalStyles";
@@ -15,8 +15,7 @@ import Page from "./page";
 //------------------------------------//
 
 function MainPage() {
-
-    //State para controlar qual tema será usado
+  //State para controlar qual tema será usado
   const [theme, setTheme] = useState("light");
 
   return (
