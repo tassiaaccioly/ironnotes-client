@@ -1,20 +1,45 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import "./App.css";
-import NavBar from '../components/navbar/NavBar';
-import "bootstrap/dist/css/bootstrap.min.css";
-import Greetings from '../components/greetings/Greetings';
-import { BrowserRouter, Route, Link } from "react-router-dom"; 
-import Login from '../components/login/Login';
-import SignUp from '../components/signup/SignUp';
+
+import NavBar from "./navbar/NavBar";
+import Home from "./home/Home";
+import AuthRouter from "../routeComponents/auth/AuthRouter";
+import PagesRouter from "../routeComponents/pages/PagesRouter";
+
+import InternalServerError from "./internalservererror/InternalServerError";
+import NoMatch from "./nomatch/NoMatch";
+
+import { AuthContextComponent } from "../contexts/authContext";
 
 function App() {
-  return <div className="App">
-    <NavBar />
-    <Route exact path='/' component={Greetings} />
-    <Route exact path='/login' component={Login} />
-    <Route exact path='/signup' component={SignUp} />
-  </div>;
-}
+  return (
+    <div>
+      <BrowserRouter>
+        <AuthContextComponent>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
 
+            {/* Login, Signup, Logout and Profile routes */}
+            <Route path="/auth" component={AuthRouter} />
+
+            {/* Pages routes */}
+            <Route path="/pages" component={PagesRouter} />
+
+            {/* error handling routes  */}
+
+            <Route
+              path="/internalservererror"
+              component={InternalServerError}
+            />
+            <Route path="*" component={NoMatch} />
+          </Switch>
+        </AuthContextComponent>
+      </BrowserRouter>
+    </div>
+  );
+}
 
 export default App;
