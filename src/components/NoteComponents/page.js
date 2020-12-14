@@ -1,8 +1,8 @@
 //Bibliotecas
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
+import api from '../../apis/pagesApi';
+import { AuthContext } from "../../contexts/authContext";
 
 //CSS em componentes
 import {
@@ -14,8 +14,8 @@ import {
   TagQueue,
 } from "./NoteStyles/page";
 
-function Page() {
-
+function Page(props) {
+  const authContext = useContext(AuthContext);
   //State para armazenar e fazer o render do conteúdo
   const [file, setFile] = useState({
     _id: "",
@@ -25,36 +25,37 @@ function Page() {
   });
 
   //Buscando o path(Caminho) da url para retirar o Id
-  const history = useHistory();
-  //const id = history.location.pathname;
-  //useEffect(() => {
-  //  async function Text() {
-  //    try {
-  //      const response = await axios.get(`http://localhost:2000/api${id}`);
-  //      setFile({ ...response.data });
-  //    } catch (err) {
-  //      console.error(err);
-  //    }
-  //  }
-  //  Text();
-  //}, [id]);
+  
+  
+  useEffect(() => {
+    async function Text() {
+      try {
+        const { id } = props.match.params;
+        const response = await api.get(`/pages/${id}`);
+        setFile({ ...response.data });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    Text();
+  }, [props]);
 
   return (
     <>
       <Container>
         <Fix>
           <header>
-            <Title>{//file.title
-                    //  
+            <Title>{file.title
+                      
                       }</Title>
             <Tag>
-              {//file.tag.map((file, i) => {
-               // return <TagQueue key={i}>{file}</TagQueue>;
-               // })
+              {file.tag.map((file, i) => {
+                return <TagQueue key={i}>{file}</TagQueue>;
+                })
               }
             </Tag>
           </header>
-          {//<MDEditor.Markdown source={file.text} />
+          {<MDEditor.Markdown source={file.text} />
           }
           <Button>Edit this note</Button>
         </Fix>
