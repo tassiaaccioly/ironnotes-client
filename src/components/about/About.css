@@ -1,0 +1,56 @@
+.about-container {
+    width: 90vw;
+    margin: 0 auto;
+    font-size: clamp(1.3rem, 2vw, 2rem);
+  }
+  
+  .about-container p {
+    margin: 0 auto;
+    width: 70vw;
+  }
+  
+  .about-container hr {
+    border-bottom: clamp(3px, 1%, 5px) solid #b00000;
+    width: 70vw;
+    margin: 0 auto 10px;
+  }
+  
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px 0;
+  }
+  
+  .infos-container {
+    margin: 20px 0;
+  }
+  
+  .infos-container h4 {
+    font-size: clamp(1.5rem, 2vw, 3rem);
+  }
+  
+  .infos-conteiner hr {
+    width: 50%;
+  }
+  
+  .infos-container p {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    margin: 0 auto;
+    width: 90%;
+  }
+  
+  .socials {
+    margin: 10px;
+  }
+  
+  .socialicon {
+    margin: 0 10px;
+  }
+  
+  .infos-container img {
+    width: clamp(40px, 4vw, 70px);
+    height: 100%;
+  }
+  
