@@ -8,38 +8,36 @@ function About() {
       <h1>About</h1>
       <hr />
       <p>This web application was made using MERN.</p>
+      <hr />
       <div className="profile-container">
         <div className="infos-container">
           <div className="avatar">
-            <img
-              src="../../../public/images/cartoonAvatarTassia.png"
-              alt="Tassia"
-            />
+            <img src="./images/cartoonAvatarTassia.png" alt="Tassia" />
           </div>
           <h4>Tassia Accioly</h4>
           <p>
-            Tassia is a Web Dev student of Ironhack's 35th cohort, a previous
+            Tassia is a WebDev student of Ironhack's 35th cohort, a previous
             movie industry worker and movie enthusiast and gamer on her off
             hours.
           </p>
           <div className="socials">
             <a className="socialicon" href="https://twitter.com/itsmetherogue">
-              <img src="../../../public/images/twitter.svg" alt="Twitter" />
+              <img src="./images/twitter.svg" alt="Twitter" />
             </a>
             <a
               className="socialicon"
               href="https://linkedin.com/in/tassiaaccioly/"
             >
-              <img src="../../../public/images/linkedin.svg" alt="Linkedin" />
+              <img src="./images/linkedin.svg" alt="Linkedin" />
             </a>
             <a className="socialicon" href="https://github.com/tassiaaccioly">
-              <img src="../../../public/images/github.svg" alt="Github" />
+              <img src="./images/github.svg" alt="Github" />
             </a>
           </div>
         </div>
         <div className="infos-container">
           <div className="avatar">
-            <img src="../../../public/images/avatarJuliana.png" alt="Ju" />
+            <img src="./images/avatarJuliana.png" alt="Ju" />
           </div>
           <h4>Juliana Mattar</h4>
           <p>
@@ -52,16 +50,16 @@ function About() {
               className="socialicon"
               href="https://www.linkedin.com/in/juliana-mttr/"
             >
-              <img src="../../../public/images/linkedin.svg" alt="Linkedin" />
+              <img src="./images/linkedin.svg" alt="Linkedin" />
             </a>
             <a className="socialicon" href="https://github.com/JulianaMattar">
-              <img src="../../../public/images/github.svg" alt="Github" />
+              <img src="./images/github.svg" alt="Github" />
             </a>
           </div>
         </div>
         <div className="infos-container">
           <div className="avatar">
-            <img src="../../../public/images/cartoonAvatarLeo.png" alt="Leo" />
+            <img src="./images/cartoonAvatarLeo.png" alt="Leo" />
           </div>
           <h4>Leonardo Uezu</h4>
           <p>
@@ -74,16 +72,16 @@ function About() {
               className="socialicon"
               href="https://www.linkedin.com/in/leonardouezu/"
             >
-              <img src="../../../public/images/linkedin.svg" alt="Linkedin" />
+              <img src="./images/linkedin.svg" alt="Linkedin" />
             </a>
             <a className="socialicon" href="https://github.com/luezu-42">
-              <img src="../../../public/images/github.svg" alt="Github" />
+              <img src="./images/github.svg" alt="Github" />
             </a>
           </div>
         </div>
         <div className="infos-container">
           <div className="avatar">
-            <img src="../../../public/images/avatarPatrick.png" alt="Patrick" />
+            <img src="./images/avatarPatrick.png" alt="Patrick" />
           </div>
           <h4>Patrick Brito</h4>
           <p>
@@ -96,10 +94,10 @@ function About() {
               className="socialicon"
               href="https://www.linkedin.com/in/patrickbrito95/"
             >
-              <img src="../../../public/images/linkedin.svg" alt="Linkedin" />
+              <img src="./images/linkedin.svg" alt="Linkedin" />
             </a>
             <a className="socialicon" href="https://github.com/patrickbrito95">
-              <img src="../../../public/images/github.svg" alt="Github" />
+              <img src="./images/github.svg" alt="Github" />
             </a>
           </div>
         </div>
