@@ -5,8 +5,8 @@ import BlueBtn from "../btns/BlueBtn";
 
 function NoMatch() {
   return (
-    <main>
-      <img
+    <main className="errorPage">
+      <img 
         src="https://nerdweb.com.br/uploads/1578511646-cropit-.jpg"
         alt="Page not found"
       />

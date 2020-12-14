@@ -1,12 +1,15 @@
 
 .form-group {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 10px;
     font-size: 1.5em;
+    align-items: center;
+    flex-direction: row;
 }
 
 .sign-input {
     height: 30px;
-    width: 350px;
+    width: 70%;
+    
 }
