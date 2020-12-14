@@ -29,9 +29,10 @@ function Signup(props) {
     event.preventDefault();
     try {
       const response = await api.post("/signup", state);
+      console.log(event);
       console.log(response);
       setErrors({ username: "", password: "", email: "", cohort: "" });
-      props.history.push("/auth/login");
+      // props.history.push("/auth/login");
     } catch (err) {
       console.error(err.response);
       setErrors({ ...err.response.data.errors });
@@ -45,7 +46,7 @@ function Signup(props) {
       <TextInput
         type="text"
         label="Your Name"
-        name="name"
+        name="username"
         id="signupFormName"
         value={state.name}
         error={errors.name}
@@ -55,10 +56,10 @@ function Signup(props) {
       <TextInput
         type="text"
         label="Your Cohort"
-        name="name"
+        name="cohort"
         id="signupFormCohort"
-        value={state.name}
-        error={errors.name}
+        value={state.cohort}
+        error={errors.cohort}
         onChange={handleChange}
       />
 
