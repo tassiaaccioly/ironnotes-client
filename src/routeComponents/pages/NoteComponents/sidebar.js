@@ -1,11 +1,11 @@
 //Bibliotecas
 import { Link } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
-import api from '../../apis/pagesApi'
-import { AuthContext } from "../../contexts/authContext";
+import api from "../../../apis/pagesApi";
+import { AuthContext } from "../../../contexts/authContext";
 //Componentes
-import SearchPopUp from './PageEvents/searchpopup';
-import NewPage from './PageEvents/newpage'
+import SearchPopUp from "./PageEvents/searchpopup";
+import NewPage from "./PageEvents/newpage";
 //CSS em componentes
 import {
   Nav,
@@ -30,7 +30,7 @@ import About from "./images/icons8-about.svg";
 import Arrow from "./images/keyboard_arrow_right-white-18dp.svg";
 import Sun from "./images/wb_sunny-black-18dp.svg";
 
-function Navbar(props) {
+function Sidebar(props) {
   const authContext = useContext(AuthContext);
   //State para guardar todos os resultados para montar a lista na barra de navegação
   const [list, setList] = useState([
@@ -53,7 +53,7 @@ function Navbar(props) {
     Text();
   }, []);
 
-//--------------------------------------------------------------------//
+  //--------------------------------------------------------------------//
 
   //State para controlar barra lateral do modo mobile
   const [nav, setNav] = useState({
@@ -83,58 +83,58 @@ function Navbar(props) {
 
   //---------------------------------------------------------------------//
 
-  
   const OpenSearch = () => {
     document.getElementById("SearchBarPopUp").style.display = "block";
     document.getElementById("SearchBarPopUpOne").style.display = "block";
-  }
+  };
 
   const OpenNewPage = () => {
     document.getElementById("NewPagePopUp").style.display = "block";
     document.getElementById("NewPagePopUpOne").style.display = "block";
-  }
-
+  };
 
   return (
     <>
-      <SearchPopUp titles={[...list]}/>
+      <SearchPopUp titles={[...list]} />
       <NewPage />
       <NavRight>
-        <IconRight
-          onClick={themeToggle}
-          src={theme === "light" ? Dark : Sun}
-        ></IconRight>
-        <IconRight src={About}></IconRight>
-        <IconRight src={Settings}></IconRight>
-        <IconRight src={Logout}></IconRight>
+        <IconRight onClick={themeToggle} src={theme === "light" ? Dark : Sun} />
+        <IconRight src={About} />
+        <IconRight src={Settings} />
+        <IconRight src={Logout} />
       </NavRight>
       <PullNavMobile onClick={Pull}>Menu</PullNavMobile>
       <Nav id="Pull">
-        <Logo src={logo} alt="logo"></Logo>
-        <SearchBar placeholder="Search for a title here" value=""  onClick={OpenSearch} ></SearchBar>
+        <Logo src={logo} alt="logo" />
+        <SearchBar
+          placeholder="Search for a title here"
+          value=""
+          onClick={OpenSearch}
+        ></SearchBar>
         <strong
           style={{ marginTop: "15px", marginBottom: "10px", fontSize: "20px" }}
         >
           Notes
         </strong>
         <ListItems>
-          {list.map((list, i) => {
-            return (
-              <Link to={`/page/${list._id}`} style={{ textDecoration: "none" }}>
-                <ListNavTitle key="i">
-                  <IconListArrow src={Arrow}></IconListArrow> {list.title}
-                </ListNavTitle>
-              </Link>
-            );
-            })
-            }
+          {list.map((list) => (
+            <Link
+              key={list._id}
+              to={`/page/${list._id}`}
+              style={{ textDecoration: "none" }}
+            >
+              <ListNavTitle>
+                <IconListArrow src={Arrow}></IconListArrow> {list.title}
+              </ListNavTitle>
+            </Link>
+          ))}
         </ListItems>
         <NavOptions>
-          <Options onClick={OpenNewPage}>+ Add a new note</Options>
+          <Options onClick={OpenNewPage}>+ New Note</Options>
         </NavOptions>
       </Nav>
     </>
   );
 }
 
-export default Navbar;
+export default Sidebar;
