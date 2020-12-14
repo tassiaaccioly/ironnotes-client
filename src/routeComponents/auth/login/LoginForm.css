@@ -7,8 +7,9 @@
     width: 350px;
 }
 
-.labelName {
+.Login {
     color: white;
+    font-size: 1.5em;
 }
 
 .formControl {

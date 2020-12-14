@@ -28,6 +28,8 @@ export default function Login(props) {
     });
   }
 
+  console.log(localStorage);
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -43,8 +45,8 @@ export default function Login(props) {
       setError({ password: "", email: "" });
       props.history.push("/pages");
     } catch (err) {
-      console.error(err.response);
-      setError({ ...err.response.data.errors });
+      console.error(err);
+      // setError({ ...err.response.data.errors });
     }
   }
 
