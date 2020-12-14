@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../../../apis/pagesApi";
+import Logo from "../../../assets/images/LogoLight.svg";
+import './SignUp.css';
 
 import TextInput from "../../../components/TextInput";
 
@@ -40,11 +42,12 @@ function Signup(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Signup!</h1>
+       
+       <img type="image/svg+xml" style={{width: '250px'}} src={Logo} alt="Logo" />
 
       <TextInput
         type="text"
-        label="Your Name"
+        label="Name:"
         name="name"
         id="signupFormName"
         value={state.name}
@@ -54,7 +57,7 @@ function Signup(props) {
 
       <TextInput
         type="text"
-        label="Your Cohort"
+        label="Cohort:"
         name="name"
         id="signupFormCohort"
         value={state.name}
@@ -64,7 +67,7 @@ function Signup(props) {
 
       <TextInput
         type="email"
-        label="E-mail Address"
+        label="E-mail:"
         name="email"
         id="signupFormEmail"
         value={state.email}
@@ -74,7 +77,7 @@ function Signup(props) {
 
       <TextInput
         type="password"
-        label="Password"
+        label="Password:"
         name="password"
         id="signupFormPassword"
         value={state.password}
@@ -83,11 +86,11 @@ function Signup(props) {
       />
 
       <div className="form-group">
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn-signup">
           Signup!
         </button>
 
-        <Link to="auth/login">
+        <Link to="/auth/login">
           Already have an account? Click here to login.
         </Link>
       </div>
