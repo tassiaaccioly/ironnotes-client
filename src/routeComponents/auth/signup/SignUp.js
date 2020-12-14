@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../../../apis/pagesApi";
 import Logo from "../../../assets/images/LogoLight.svg";
-import './SignUp.css';
+import "./SignUp.css";
 
 import TextInput from "../../../components/TextInput";
 import { Fragment } from "react";
@@ -32,26 +32,31 @@ function Signup(props) {
     event.preventDefault();
     try {
       const response = await api.post("/signup", state);
+      console.log(event);
       console.log(response);
       setErrors({ username: "", password: "", email: "", cohort: "" });
       props.history.push("/auth/login");
     } catch (err) {
-      console.error(err.response);
+      console.error(err);
       setErrors({ ...err.response.data.errors });
     }
   }
 
   return (
     <form onSubmit={handleSubmit}>
-       <div className="image">
-       <img type="image/svg+xml" style={{width: '250px'}} src={Logo} alt="Logo" />
-       </div>
-      
+      <div className="image">
+        <img
+          type="image/svg+xml"
+          style={{ width: "250px" }}
+          src={Logo}
+          alt="Logo"
+        />
+      </div>
 
       <TextInput
         type="text"
-        label="Name:"
-        name="name"
+        label="Your Name"
+        name="username"
         id="signupFormName"
         value={state.name}
         error={errors.name}
@@ -60,11 +65,11 @@ function Signup(props) {
 
       <TextInput
         type="text"
-        label="Cohort:"
-        name="name"
+        label="Your Cohort"
+        name="cohort"
         id="signupFormCohort"
-        value={state.name}
-        error={errors.name}
+        value={state.cohort}
+        error={errors.cohort}
         onChange={handleChange}
       />
 
@@ -92,15 +97,12 @@ function Signup(props) {
         <button type="submit" className="btn-signup">
           Signup!
         </button>
-        </div>
-        <div className="link">
-        <Link  to="/auth/login">
+      </div>
+      <div className="link">
+        <Link to="/auth/login">
           Already have an account? Click here to login.
         </Link>
-        </div>
-        
-        
-      
+      </div>
     </form>
   );
 }

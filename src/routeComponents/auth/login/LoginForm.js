@@ -1,19 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
 import { Form, Button } from "react-bootstrap";
+
+import api from "../../../apis/pagesApi";
+
+import { AuthContext } from "../../../contexts/authContext";
+
 import "./LoginForm.css";
 
+export default function Login(props) {
+  const authContext = useContext(AuthContext);
 
-export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+  });
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
+  const [error, setError] = useState({
+    email: null,
+    password: null,
+  });
+
+  function handleChange(event) {
+    setLogin({
+      ...login,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
   }
 
-  function handleSubmit(event) {
+  console.log(localStorage);
+
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    try {
+      const response = await api.post("/login", login);
+      console.log(response);
+
+      authContext.setLoggedInUser({ ...response.data });
+      localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify({ ...response.data })
+      );
+      setError({ password: "", email: "" });
+      props.history.push("/pages");
+    } catch (err) {
+      console.error(err);
+      // setError({ ...err.response.data.errors });
+    }
   }
+
+  console.log(props);
 
   return (
     <>
@@ -23,19 +60,32 @@ export default function Login() {
           <Form.Control
             autoFocus
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={login.email}
+            onChange={handleChange}
           />
+          {error.email ? (
+            <p className="invalid-feedback">{error.email}</p>
+          ) : null}
         </Form.Group>
         <Form.Group className="formBox" controlId="password">
           <Form.Label className="labelName">Password:</Form.Label>
-          <Form.Control className="form-control"
+          <Form.Control
+            className="form-control"
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            value={login.password}
+            onChange={handleChange}
           />
+          {error.password ? (
+            <p className="invalid-feedback">{error.password}</p>
+          ) : null}
         </Form.Group>
-        <Button className="buttonLogin" type="submit" disabled={!validateForm()}>
+        <Button
+          className="buttonLogin"
+          type="submit"
+          // disabled={error.password || error.email}
+        >
           Login
         </Button>
       </Form>
