@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 
-import { Form, Button } from "react-bootstrap";
+import TextInput from "../../../components/TextInput";
+import BlueBtn from "../../../components/btns/BlueBtn";
 
 import api from "../../../apis/pagesApi";
 
@@ -8,7 +9,7 @@ import { AuthContext } from "../../../contexts/authContext";
 
 import "./LoginForm.css";
 
-export default function Login(props) {
+function LoginForm(props) {
   const authContext = useContext(AuthContext);
 
   const [login, setLogin] = useState({
@@ -46,7 +47,7 @@ export default function Login(props) {
       props.history.push("/pages");
     } catch (err) {
       console.error(err);
-      // setError({ ...err.response.data.errors });
+      setError({ ...err.response.data.errors });
     }
   }
 
@@ -54,41 +55,39 @@ export default function Login(props) {
 
   return (
     <>
-      <Form className="form" onSubmit={handleSubmit}>
-        <Form.Group className="formBox" controlId="email">
-          <Form.Label className="labelName">Email:</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            name="email"
-            value={login.email}
-            onChange={handleChange}
-          />
-          {error.email ? (
-            <p className="invalid-feedback">{error.email}</p>
-          ) : null}
-        </Form.Group>
-        <Form.Group className="formBox" controlId="password">
-          <Form.Label className="labelName">Password:</Form.Label>
-          <Form.Control
-            className="form-control"
-            type="password"
-            name="password"
-            value={login.password}
-            onChange={handleChange}
-          />
-          {error.password ? (
-            <p className="invalid-feedback">{error.password}</p>
-          ) : null}
-        </Form.Group>
-        <Button
+      <form className="form" onSubmit={handleSubmit}>
+        <TextInput
+          autoFocus
+          type="email"
+          id="loginFormEmail"
+          name="email"
+          label="E-mail: "
+          value={login.email}
+          error={error.email}
+          onChange={handleChange}
+        />
+
+        <TextInput
+          autoFocus
+          type="password"
+          id="loginFormPassword"
+          name="password"
+          label="Password: "
+          value={login.email}
+          error={error.email}
+          onChange={handleChange}
+        />
+
+        <BlueBtn
           className="buttonLogin"
           type="submit"
-          // disabled={error.password || error.email}
+          disabled={error.password || error.email}
         >
           Login
-        </Button>
-      </Form>
+        </BlueBtn>
+      </form>
     </>
   );
 }
+
+export default LoginForm;

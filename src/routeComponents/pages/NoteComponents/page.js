@@ -1,8 +1,8 @@
 //Bibliotecas
 import React, { useState, useEffect, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
-import api from '../../apis/pagesApi';
-import { AuthContext } from "../../contexts/authContext";
+import api from "../../../apis/pagesApi";
+import { AuthContext } from "../../../contexts/authContext";
 
 //CSS em componentes
 import {
@@ -25,8 +25,7 @@ function Page(props) {
   });
 
   //Buscando o path(Caminho) da url para retirar o Id
-  
-  
+
   useEffect(() => {
     async function Text() {
       try {
@@ -45,18 +44,14 @@ function Page(props) {
       <Container>
         <Fix>
           <header>
-            <Title>{file.title
-                      
-                      }</Title>
+            <Title>{file.title}</Title>
             <Tag>
               {file.tag.map((file, i) => {
                 return <TagQueue key={i}>{file}</TagQueue>;
-                })
-              }
+              })}
             </Tag>
           </header>
-          {<MDEditor.Markdown source={file.text} />
-          }
+          {<MDEditor.Markdown source={file.text} />}
           <Button>Edit this note</Button>
         </Fix>
       </Container>

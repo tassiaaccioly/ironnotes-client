@@ -55,7 +55,7 @@ function Signup(props) {
 
       <TextInput
         type="text"
-        label="Your Name"
+        label="Username"
         name="username"
         id="signupFormName"
         value={state.name}
@@ -65,7 +65,7 @@ function Signup(props) {
 
       <TextInput
         type="text"
-        label="Your Cohort"
+        label="Cohort"
         name="cohort"
         id="signupFormCohort"
         value={state.cohort}

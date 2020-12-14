@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
-import NavBar from "./navbar/NavBar";
 import Home from "./home/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 import PagesRouter from "../routeComponents/pages/PagesRouter";
@@ -18,7 +17,6 @@ function App() {
     <div>
       <BrowserRouter>
         <AuthContextComponent>
-          <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
 
