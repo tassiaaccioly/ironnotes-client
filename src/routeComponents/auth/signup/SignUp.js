@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import api from "../../apis/bookApi";
+import api from "../../../apis/pagesApi";
 
-import TextInput from './TextInput';
-
+import TextInput from "../../../components/TextInput";
 
 function Signup(props) {
-  const [state, setState] = useState({ name: "", password: "", email: "", cohort: "" });
+  const [state, setState] = useState({
+    username: "",
+    password: "",
+    email: "",
+    cohort: "",
+  });
   const [errors, setErrors] = useState({
-    name: null,
+    username: null,
     email: null,
     password: null,
     cohort: null,
@@ -23,17 +27,16 @@ function Signup(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    try {
+      const response = await api.post("/signup", state);
+      console.log(response);
+      setErrors({ username: "", password: "", email: "", cohort: "" });
+      props.history.push("/auth/login");
+    } catch (err) {
+      console.error(err.response);
+      setErrors({ ...err.response.data.errors });
+    }
   }
-  //   try {
-  //     const response = await api.post("/signup", state);
-  //     console.log(response);
-  //     setErrors({ name: "", password: "", email: "" });
-  //     props.history.push("/auth/login");
-  //   } catch (err) {
-  //     console.error(err.response);
-  //     setErrors({ ...err.response.data.errors });
-  //   }
-  // }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -84,7 +87,7 @@ function Signup(props) {
           Signup!
         </button>
 
-        <Link to="/login">
+        <Link to="auth/login">
           Already have an account? Click here to login.
         </Link>
       </div>
