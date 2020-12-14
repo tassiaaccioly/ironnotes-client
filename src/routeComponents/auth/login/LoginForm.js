@@ -53,10 +53,10 @@ export default function Login(props) {
   console.log(props);
 
   return (
-    <div className="Login">
-      <Form onSubmit={handleSubmit}>
+    <>
+      <Form className="form" onSubmit={handleSubmit}>
         <Form.Group className="formBox" controlId="email">
-          <Form.Label className="labelName">Email</Form.Label>
+          <Form.Label className="labelName">Email:</Form.Label>
           <Form.Control
             autoFocus
             type="email"
@@ -69,8 +69,9 @@ export default function Login(props) {
           ) : null}
         </Form.Group>
         <Form.Group className="formBox" controlId="password">
-          <Form.Label className="labelName">Password</Form.Label>
+          <Form.Label className="labelName">Password:</Form.Label>
           <Form.Control
+            className="form-control"
             type="password"
             name="password"
             value={login.password}
@@ -88,6 +89,6 @@ export default function Login(props) {
           Login
         </Button>
       </Form>
-    </div>
+    </>
   );
 }

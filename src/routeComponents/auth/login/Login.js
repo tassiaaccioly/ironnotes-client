@@ -6,8 +6,10 @@ import "./Login.css";
 function Login() {
   return (
     <div className="login">
-      <img type="image/svg+xml" style={{width: '250px'}} src={Logo} alt="Logo" />
+      <img className="Logo" type="image/svg+xml" style={{width: '250px'}} src={Logo} alt="Logo" />
+      <div>
       <LoginForm />
+        </div>
     </div>
   );
 }

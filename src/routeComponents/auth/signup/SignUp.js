@@ -5,6 +5,7 @@ import Logo from "../../../assets/images/LogoLight.svg";
 import "./SignUp.css";
 
 import TextInput from "../../../components/TextInput";
+import { Fragment } from "react";
 
 function Signup(props) {
   const [state, setState] = useState({
@@ -43,12 +44,14 @@ function Signup(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <img
-        type="image/svg+xml"
-        style={{ width: "250px" }}
-        src={Logo}
-        alt="Logo"
-      />
+      <div className="image">
+        <img
+          type="image/svg+xml"
+          style={{ width: "250px" }}
+          src={Logo}
+          alt="Logo"
+        />
+      </div>
 
       <TextInput
         type="text"
@@ -94,7 +97,8 @@ function Signup(props) {
         <button type="submit" className="btn-signup">
           Signup!
         </button>
-
+      </div>
+      <div className="link">
         <Link to="/auth/login">
           Already have an account? Click here to login.
         </Link>
