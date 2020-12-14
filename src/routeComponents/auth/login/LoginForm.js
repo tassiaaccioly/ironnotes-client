@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./LoginForm.css";
 
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,10 +16,10 @@ export default function Login() {
   }
 
   return (
-    <div className="Login">
-      <Form onSubmit={handleSubmit}>
+    <>
+      <Form className="form" onSubmit={handleSubmit}>
         <Form.Group className="formBox" controlId="email">
-          <Form.Label className="labelName">Email</Form.Label>
+          <Form.Label className="labelName">Email:</Form.Label>
           <Form.Control
             autoFocus
             type="email"
@@ -27,8 +28,8 @@ export default function Login() {
           />
         </Form.Group>
         <Form.Group className="formBox" controlId="password">
-          <Form.Label className="labelName">Password</Form.Label>
-          <Form.Control
+          <Form.Label className="labelName">Password:</Form.Label>
+          <Form.Control className="form-control"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -38,6 +39,6 @@ export default function Login() {
           Login
         </Button>
       </Form>
-    </div>
+    </>
   );
 }
