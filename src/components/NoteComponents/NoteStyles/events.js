@@ -1,12 +1,14 @@
 import style from 'styled-components'
 
 export const PopUp = style.div`
-    background: black;
+    background: white;
     height: 100%;
     width: 100%;
     position: fixed;
     z-index: 200;
     display: none;
+    opacity: 0.5;
+
 `;
 
 export const ContainerPopUp = style.div`
@@ -19,4 +21,10 @@ export const ContainerPopUp = style.div`
     margin-right: 10%;
     position: fixed;
     z-index: 201;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    oveflow: scroll;
+    display: none;
 `;

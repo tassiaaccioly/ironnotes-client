@@ -5,6 +5,7 @@ import SignUp from "./signup/SignUp";
 import Login from "./login/Login";
 
 function AuthRouter(props) {
+  console.log(props);
   return (
     <React.Fragment>
       <Switch>
