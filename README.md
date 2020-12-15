@@ -1,4 +1,6 @@
-#IronNotes
+
+
+
 
 **This is the client side of our IronNotes Project!**
 
@@ -8,7 +10,9 @@ See the online server [here](ec2-3-131-169-218.us-east-2.compute.amazonaws.com) 
 
 See the server repository [here](https://github.com/tassiaaccioly/ironnotes-server)
 
-People working on this project:
+See our slide presentation [here](https://docs.google.com/presentation/d/1eSEAhN5He4dko4dtNfNvGvgP81leUio723bO6JyHobk/edit?usp=sharing)
+
+This project's authors:
 
 - [Tassia Accioly](https://github.com/tassiaaccioly)
 - [Juliana Mattar](https://github.com/JulianaMattar)
