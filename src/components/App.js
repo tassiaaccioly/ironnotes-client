@@ -27,11 +27,11 @@ function App() {
 
             {/* Pages routes */}
             <Route path="/pages" component={PagesRouter} />
+
             {/* About route */}
             <Route path="/about" component={About} />
+
             {/* error handling routes  */}
-
-
             <Route
               path="/internalservererror"
               component={InternalServerError}
