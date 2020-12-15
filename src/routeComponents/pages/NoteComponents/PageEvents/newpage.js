@@ -9,16 +9,18 @@ function NewPage(props) {
   const authContext = useContext(AuthContext);
   const [page, setPage] = useState({
     title: "",
-    tag: "",
+    tags: "",
     text: "",
   });
 
   function handleChange(event) {
     setPage({ ...page, [event.target.name]: event.target.value });
+    console.log(page);
   }
 
   function textInput(event) {
     setPage({ ...page, text: event });
+    
   }
 
   async function handleSubmit(event) {
@@ -63,9 +65,9 @@ function NewPage(props) {
             <div>
               <input
                 type="text"
-                name="tag"
-                id="pageTag"
-                value={page.tag}
+                name="tags"
+                id="pageTags"
+                value={page.tags}
                 onChange={handleChange}
               />
             </div>
