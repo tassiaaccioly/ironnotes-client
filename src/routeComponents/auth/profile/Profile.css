@@ -1,0 +1,138 @@
+.container {
+    background-color: #ffffff;
+    margin: auto;
+    height: 600px;
+    width: 60%;
+    margin-top: 3%;
+    border-radius: 2%;
+    box-shadow: inset 0 0 1em  #2a2e2f, 0 0 1em gray;
+    display: flex;
+
+    
+}
+
+
+.lists {
+    margin-left: 10%;
+    margin-top: 5%;
+    width: 30%;
+}
+
+li {
+    font-size: 2rem;
+    color: black;
+    list-style-type: none;
+    font-weight: bold;
+    margin-bottom: 10%;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 6rem;
+    color: black;
+   
+}
+
+hr {
+  margin-bottom: 10%;
+}
+
+.avatar-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 7%;
+    margin-left: 15%
+}
+
+.quotes, .notes {
+    padding-top: 5%;
+}
+
+.btn-edit {
+    margin-top: 10%; 
+}
+
+.pages {
+    margin-top: 15%;
+}
+
+
+/* DELETE BUTTON */
+
+.delete-button {
+    border: none;
+    margin: 1rem auto;
+    background-color: #32c3ff;
+    padding: 1.2rem 3rem;
+    border-radius: 0.8rem;
+    color: white;
+    font-weight: 600;
+    padding-right: 15%;
+    padding-left: 15%;
+    cursor: pointer;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fbfafa;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  a:hover {
+    animation: onHoverA 0.5s ease forwards 1;
+  }
+  
+  .delete-button:hover {
+    animation: onHover 0.5s ease forwards 1;
+  }
+  
+  @keyframes onHoverA {
+    from {
+      color: #fbfafa;
+    }
+    to {
+      color: #2a2e2f;
+    }
+  }
+  
+  @keyframes onHover {
+    from {
+      background-color: #32c3ff;
+      box-shadow: 0 0 0 0;
+      color: #fbfafa;
+    }
+    to {
+      background-color: red;
+      color: white;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+
+  /* EDIT BUTTON */
+
+
+  
+    .edit-button {
+        border: none;
+        margin: 1rem auto;
+        margin-top: 25%;
+        background-color: #32c3ff;
+        padding: 1.2rem 3rem;
+        border-radius: 0.8rem;
+        color: white;
+        font-weight: 600;
+        
+        cursor: pointer;
+      }
+      
+      .edit-button:hover,
+      .edit-button:focus {
+        background-color: #32c3ff;
+        color: white;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+  

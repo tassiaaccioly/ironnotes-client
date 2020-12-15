@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
+import {useHistory} from 'react-router-dom'
 
 //CSS em componentes
 import {
@@ -15,13 +16,14 @@ import {
 } from "./NoteStyles/page";
 
 function Page(props) {
+  const history = useHistory();
   const authContext = useContext(AuthContext);
   //State para armazenar e fazer o render do conteúdo
   const [file, setFile] = useState({
     _id: "",
     title: "",
     text: "",
-    tag: [""],
+    tags: [""],
   });
 
   //Buscando o path(Caminho) da url para retirar o Id
@@ -29,15 +31,20 @@ function Page(props) {
   useEffect(() => {
     async function Text() {
       try {
-        const { id } = props.match.params;
-        const response = await api.get(`/pages/${id}`);
+        const id = history.location.pathname;
+
+
+console.log(id)
+        const response = await api.get(`${id}`);
+        console.log(response)
         setFile({ ...response.data });
+        console.log(response)
       } catch (err) {
         console.error(err);
       }
     }
     Text();
-  }, [props]);
+  }, [history.location.pathname]);
 
   return (
     <>
@@ -46,7 +53,7 @@ function Page(props) {
           <header>
             <Title>{file.title}</Title>
             <Tag>
-              {file.tag.map((file, i) => {
+              {file.tags.map((file, i) => {
                 return <TagQueue key={i}>{file}</TagQueue>;
               })}
             </Tag>
