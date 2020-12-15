@@ -10,6 +10,7 @@ function TextInput(props) {
         className="sign-input"
         id={props.id}
         name={props.name}
+        placeholder={props.placeholder}
         value={props.value}
         onChange={props.onChange}
       />
