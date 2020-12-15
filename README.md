@@ -1,6 +1,6 @@
 
 
-
+![image](./public/images/LogoDark.svg)
 
 **This is the client side of our IronNotes Project!**
 
