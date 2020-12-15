@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
-import NavBar from "./navbar/NavBar";
 import Home from "./home/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 import PagesRouter from "../routeComponents/pages/PagesRouter";
@@ -13,12 +12,13 @@ import NoMatch from "./nomatch/NoMatch";
 
 import { AuthContextComponent } from "../contexts/authContext";
 
+import About from "./about/About";
+
 function App() {
   return (
     <div>
       <BrowserRouter>
         <AuthContextComponent>
-          <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
 
@@ -27,7 +27,8 @@ function App() {
 
             {/* Pages routes */}
             <Route path="/pages" component={PagesRouter} />
-
+            {/* About route */}
+            <Route path="/about" component={About} />
             {/* error handling routes  */}
 
             <Route

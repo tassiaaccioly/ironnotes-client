@@ -17,5 +17,3 @@ export const LightTheme = {
     BottomButton: '#32C3FE',
     Rotate: 'rotate(0deg)'
 };
-
-

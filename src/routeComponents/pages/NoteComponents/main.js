@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 //Importações de componentes internos para montar troca de temas
 import { GlobalStyle } from "./NoteStyles/globalStyles";
@@ -10,23 +10,22 @@ import { ThemeProvider } from "styled-components";
 //---------------------------------------------------------------------//
 
 //Component para montar a página de anotações
-import Navbar from "./sidebar";
+import Sidebar from "./sidebar";
 import Page from "./page";
 //------------------------------------//
 
 function MainPage() {
-
-    //State para controlar qual tema será usado
+  //State para controlar qual tema será usado
   const [theme, setTheme] = useState("light");
 
   return (
-    <>
+    <div>
       <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
-        <Navbar themes={{ theme: [theme, setTheme] }} />
+        <Sidebar themes={{ theme: [theme, setTheme] }} />
         <Page />
         <GlobalStyle />
       </ThemeProvider>
-    </>
+    </div>
   );
 }
 

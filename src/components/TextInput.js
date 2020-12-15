@@ -1,9 +1,9 @@
 import React from "react";
-import './TextInput.css';
+import "./TextInput.css";
 
 function TextInput(props) {
   return (
-    <div className="form-group ">
+    <div className="form-group">
       <label htmlFor={props.id}>{props.label}</label>
       <input
         type={props.type}
@@ -13,9 +13,7 @@ function TextInput(props) {
         value={props.value}
         onChange={props.onChange}
       />
-      {props.error ? (
-        <div className="invalid-feedback">{props.error}</div>
-      ) : null}
+      {props.error ? <p className="invalid-feedback">{props.error}</p> : null}
     </div>
   );
 }
