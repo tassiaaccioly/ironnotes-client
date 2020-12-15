@@ -9,7 +9,7 @@ function AuthRouter(props) {
   console.log(props);
   return (
     <React.Fragment>
-      <NavBar />
+      <NavBar history={props.history} />
       <Switch>
         <Route path={`${props.match.path}/signup`} component={SignUp} />
         <Route path={`${props.match.path}/login`} component={Login} />

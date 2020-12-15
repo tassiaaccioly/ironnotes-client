@@ -1,27 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
+//images
+import NLogoDark from "../../assets/images/N_LogoDark.svg";
+import LogoutBtn from "../../assets/icons/power-button.svg";
+
+//css
 import "./NavBar.css";
 
+//auth
+import { AuthContext } from "../../contexts/authContext.js";
+
 function NavBar(props) {
+  const authContext = useContext(AuthContext);
+
   const [mobile, setMobile] = useState(false);
 
-  function handleClick() {
+  function handleClick(event) {
     setMobile(!mobile);
   }
 
   function handleLogoutClick() {
     localStorage.clear();
+    authContext.setLoggedInUser({ token: "", user: {} });
     props.history.push("/");
   }
 
   return (
-    <nav className={!mobile ? "" : "nav-active"}>
+    <nav className="">
       <Link className="logo" to="/">
-        <img type="image/svg+xml" src="./images/N_LogoDark.svg" alt="Home" />
+        <img type="image/svg+xml" src={NLogoDark} alt="Home" />
       </Link>
 
-      <ul className="nav-links">
+      <ul className={!mobile ? "nav-links" : "nav-links nav-active"}>
         <li className={!mobile ? "" : "link-active"}>
           <Link to="/profile">Profile</Link>
         </li>
@@ -31,14 +42,13 @@ function NavBar(props) {
         <li className={!mobile ? "" : "link-active"}>
           <a href="https://ironhack.com">Ironhack</a>
         </li>
-        <li className={!mobile ? "" : "link-active"}>
-          <Link onClick={handleLogoutClick} to="/logout">
-            <img
-              type="image/svg+xml"
-              src="./images/power-button.svg"
-              alt="Logout"
-            />
-          </Link>
+        <li className={!mobile ? "link-image" : "link-image link-active"}>
+          <img
+            onClick={handleLogoutClick}
+            type="image/svg+xml"
+            src={LogoutBtn}
+            alt="Logout"
+          />
         </li>
       </ul>
       <div onClick={handleClick} className="burger">
