@@ -13,6 +13,7 @@ import "./SignUp.css";
 
 //components
 import TextInput from "../../../components/TextInput";
+import FileInput from "../../../components/FileInput";
 import BlueBtn from "../../../components/btns/BlueBtn";
 
 function Signup(props) {
@@ -31,6 +32,12 @@ function Signup(props) {
   });
 
   function handleChange(event) {
+    if (event.currentTarget.files) {
+      return setState({
+        ...state,
+        [event.currentTarget.name]: event.currentTarget.files[0],
+      });
+    }
     setState({
       ...state,
       [event.currentTarget.name]: event.currentTarget.value,
@@ -45,6 +52,8 @@ function Signup(props) {
 
       const response = await api.post("/file-upload", uploadData);
 
+      console.log(response);
+
       return response.data.fileUrl;
     } catch (err) {
       console.error(err);
@@ -56,6 +65,8 @@ function Signup(props) {
     try {
       const uploadedImageUrl = await handleFileUpload(state.avatar);
 
+      console.log(uploadedImageUrl);
+
       const response = await api.post("/signup", {
         ...state,
         avatar: uploadedImageUrl,
@@ -65,7 +76,7 @@ function Signup(props) {
 
       setErrors({ username: "", password: "", email: "", cohort: "" });
 
-      props.history.push("/auth/login");
+      // props.history.push("/auth/login");
     } catch (err) {
       console.error(err);
       setErrors({ ...err.response.data.errors });
@@ -119,13 +130,11 @@ function Signup(props) {
           onChange={handleChange}
         />
 
-        <TextInput
-          type="file"
-          label="Avatar: "
+        <FileInput
+          label="Choose an avatar or photo"
           name="avatar"
           id="signupFormAvatar"
           value={state.avatar}
-          placeholder="Add your photo"
           onChange={handleChange}
         />
 

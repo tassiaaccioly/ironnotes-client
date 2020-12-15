@@ -1,21 +1,21 @@
 import React from "react";
+import "./TextInput.css";
 import "./FileInput.css";
 
 function FileInput(props) {
   return (
     <div className="form-group">
-      <label htmlFor={props.id}>
+      <div className="divider"></div>
+      <label className="custom-file-upload" htmlFor={props.id}>
         {props.label}
-        <input
-          type={props.type}
-          className="sign-input"
-          id={props.id}
-          name={props.name}
-          placeholder={props.placeholder}
-          value={props.value}
-          onChange={props.onChange}
-        />
       </label>
+      <input
+        type="file"
+        className="sign-input"
+        id={props.id}
+        name={props.name}
+        onChange={props.onChange}
+      />
     </div>
   );
 }
