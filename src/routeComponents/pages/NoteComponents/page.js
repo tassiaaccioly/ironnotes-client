@@ -29,8 +29,8 @@ function Page(props) {
   useEffect(() => {
     async function Text() {
       try {
-        const { id } = props.match.params;
-        const response = await api.get(`/pages/${id}`);
+       // const { id } = props.match.params;
+        const response = await api.get(`/pages/all`);
         setFile({ ...response.data });
       } catch (err) {
         console.error(err);
