@@ -85,8 +85,8 @@ function Login(props) {
           id="loginFormPassword"
           name="password"
           label="Password: "
-          value={login.email}
-          error={error.email}
+          value={login.password}
+          error={error.password}
           onChange={handleChange}
         />
 
