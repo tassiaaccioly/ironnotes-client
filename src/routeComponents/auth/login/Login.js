@@ -51,7 +51,7 @@ function Login(props) {
         JSON.stringify({ ...response.data })
       );
       setError({ password: "", email: "" });
-      props.history.push("/pages");
+      props.history.push("/pages/all");
     } catch (err) {
       console.error(err);
       setError({ ...err.response.data.errors });
