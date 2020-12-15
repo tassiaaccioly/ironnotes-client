@@ -21,6 +21,7 @@ function Signup(props) {
     password: "",
     email: "",
     cohort: "",
+    avatar: "",
   });
   const [errors, setErrors] = useState({
     username: null,
@@ -36,13 +37,34 @@ function Signup(props) {
     });
   }
 
+  async function handleFileUpload(file) {
+    try {
+      const uploadData = new FormData();
+
+      uploadData.append("avatar", file);
+
+      const response = await api.post("/file-upload", uploadData);
+
+      return response.data.fileUrl;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await api.post("/signup", state);
-      console.log(event);
+      const uploadedImageUrl = await handleFileUpload(state.avatar);
+
+      const response = await api.post("/signup", {
+        ...state,
+        avatar: uploadedImageUrl,
+      });
+
       console.log(response);
+
       setErrors({ username: "", password: "", email: "", cohort: "" });
+
       props.history.push("/auth/login");
     } catch (err) {
       console.error(err);
@@ -94,6 +116,16 @@ function Signup(props) {
           id="signupFormPassword"
           value={state.password}
           error={errors.password}
+          onChange={handleChange}
+        />
+
+        <TextInput
+          type="file"
+          label="Avatar: "
+          name="avatar"
+          id="signupFormAvatar"
+          value={state.avatar}
+          placeholder="Add your photo"
           onChange={handleChange}
         />
 

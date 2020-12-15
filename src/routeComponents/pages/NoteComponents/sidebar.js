@@ -44,7 +44,7 @@ function Sidebar(props) {
   useEffect(() => {
     async function Text() {
       try {
-        const response = await api.get("/pages/titles");
+        const response = await api.get("/titles");
         setList([...response.data]);
       } catch (err) {
         console.error(err);
@@ -120,7 +120,7 @@ function Sidebar(props) {
           {list.map((list) => (
             <Link
               key={list._id}
-              to={`/page/${list._id}`}
+              to={`/pages/${list._id}`}
               style={{ textDecoration: "none" }}
             >
               <ListNavTitle>

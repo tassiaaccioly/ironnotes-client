@@ -16,7 +16,6 @@ import { AuthContext } from "../../../contexts/authContext";
 
 //css
 import "./Login.css";
-import "./LoginForm.css";
 
 function Login(props) {
   const authContext = useContext(AuthContext);

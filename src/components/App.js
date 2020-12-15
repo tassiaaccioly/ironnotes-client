@@ -31,6 +31,7 @@ function App() {
             <Route path="/about" component={About} />
             {/* error handling routes  */}
 
+
             <Route
               path="/internalservererror"
               component={InternalServerError}

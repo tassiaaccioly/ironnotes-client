@@ -7,7 +7,9 @@ function PagesRouter(props) {
   return (
     <React.Fragment>
       <Switch>
-        <Route path={`${props.match.path}/all`} component={NoteBook} />
+      
+        <Route exact path={`${props.match.path}/all`} component={NoteBook} />
+        <Route path={`${props.match.path}/:id`} component={NoteBook} />
       </Switch>
     </React.Fragment>
   );
