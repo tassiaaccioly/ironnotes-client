@@ -13,9 +13,7 @@ function TextInput(props) {
         value={props.value}
         onChange={props.onChange}
       />
-      {props.error ? (
-        <div className="invalid-feedback">{props.error}</div>
-      ) : null}
+      {props.error ? <p className="invalid-feedback">{props.error}</p> : null}
     </div>
   );
 }

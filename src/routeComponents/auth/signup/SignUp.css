@@ -1,44 +1,30 @@
-.form-group {
-    margin: auto;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+form {
+  margin: 0 auto;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .image {
-    margin-top: 50px;
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center
+  margin: 50px auto;
+  width: 200px;
 }
-
 
 .btn-signup {
-    background-color: #32c3ff;
-    padding: 3.5%;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    color: white;
-    font-weight: bold;
-    margin: auto;
-    margin-top: 10px;
-    width: 300px;
-    display: flex;
-    text-align: center;
+  margin: 3rem auto 1rem;
+  display: flex;
+  justify-content: center;
 }
-
 
 .link {
-    margin: auto;
-    margin-top: 30px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #32c3ff;
+  margin: 1.2rem auto;
+  width: 300px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-
+.link a {
+  color: #32c3ff;
+  font-size: 1.2rem;
+}
