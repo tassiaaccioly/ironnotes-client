@@ -6,6 +6,7 @@ import { AuthContext } from "../../../contexts/authContext";
 //Componentes
 import SearchPopUp from "./PageEvents/eventscomponents/SearchPopUp.js";
 import NewPage from "./PageEvents/newpage";
+import Quotes from "./quotes/Quotes";
 //CSS em componentes
 import {
   Nav,
@@ -22,13 +23,16 @@ import {
 } from "./NoteStyles/nav.style";
 
 //Imagens
-import logo from "./images/LogoLight.svg";
+import logoWhite from "./images/LogoLight.svg";
+import logoDark from "./images/LogoDark.svg";
 import Dark from "./images/nights_stay-black-18dp.svg";
 import Logout from "./images/logout.svg";
 import Settings from "./images/settings-black-18dp.svg";
 import About from "./images/icons8-about.svg";
-import Arrow from "./images/keyboard_arrow_right-white-18dp.svg";
+import ArrowWhite from "./images/keyboard_arrow_right-white-18dp.svg";
+import ArrowBlack from "./images/keyboard_arrow_right-black-18dp.svg";
 import Sun from "./images/wb_sunny-black-18dp.svg";
+import emoji from "./images/emoji.png";
 
 function Sidebar(props) {
   const authContext = useContext(AuthContext);
@@ -93,19 +97,24 @@ function Sidebar(props) {
     document.getElementById("NewPagePopUpOne").style.display = "block";
   };
 
+  const toggleQuotes = () => {
+    document.getElementById("modalQuotes").style.display = "block";
+  };
   return (
     <>
+      <Quotes />
       <SearchPopUp titles={[...list]} />
       <NewPage />
       <NavRight>
         <IconRight onClick={themeToggle} src={theme === "light" ? Dark : Sun} />
+        <IconRight onClick={toggleQuotes} src={emoji} />
         <IconRight src={About} />
         <IconRight src={Settings} />
         <IconRight src={Logout} />
       </NavRight>
       <PullNavMobile onClick={Pull}>Menu</PullNavMobile>
       <Nav id="Pull">
-        <Logo src={logo} alt="logo" />
+        <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
         <SearchBar
           placeholder="Search for a title here"
           value=""
@@ -124,7 +133,7 @@ function Sidebar(props) {
               style={{ textDecoration: "none" }}
             >
               <ListNavTitle>
-                <IconListArrow src={Arrow}></IconListArrow> {list.title}
+                <IconListArrow src={theme === "light" ? ArrowBlack : ArrowWhite}></IconListArrow> {list.title}
               </ListNavTitle>
             </Link>
           ))}

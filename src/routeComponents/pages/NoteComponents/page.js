@@ -3,7 +3,8 @@ import React, { useState, useEffect, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+
 
 //CSS em componentes
 import {
@@ -13,8 +14,9 @@ import {
   Title,
   Tag,
   TagQueue,
+  FixHTML
 } from "./NoteStyles/page";
-import EditPage from './PageEvents/editpage'
+import EditPage from "./PageEvents/editpage";
 
 function Page(props) {
   const history = useHistory();
@@ -34,12 +36,11 @@ function Page(props) {
       try {
         const id = history.location.pathname;
 
-
-console.log(id)
+        console.log(id);
         const response = await api.get(`${id}`);
-        console.log(response)
+        console.log(response);
         setFile({ ...response.data });
-        console.log(response)
+        console.log(response);
       } catch (err) {
         console.error(err);
       }
@@ -55,7 +56,7 @@ console.log(id)
   return (
     <>
     <EditPage/>
-    <div style={{width: "100%", height: "100%", position:"fixed", backgroundColor:"white", zIndex:"-20"}}></div>
+    <FixHTML></FixHTML>
       <Container>
         <Fix>
           <header>
