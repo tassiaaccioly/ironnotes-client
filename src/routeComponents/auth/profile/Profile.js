@@ -73,8 +73,10 @@ function Profile(props) {
             </thead>
             <tbody>
               {user.pagesCreated.map((elem) => (
-                <tr>
-                  <td>{elem}</td>
+                <tr key={elem._id}>
+                  <td className="table-elem">
+                    <Link to={`/pages/${elem._id}`}>{elem.title}</Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
