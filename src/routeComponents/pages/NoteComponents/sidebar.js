@@ -6,7 +6,7 @@ import { AuthContext } from "../../../contexts/authContext";
 //Componentes
 import SearchPopUp from "./PageEvents/searchpopup";
 import NewPage from "./PageEvents/newpage";
-import Quotes from "./quotes/Quotes";
+import { ModalProvider } from "styled-react-modal";
 //CSS em componentes
 import {
   Nav,
@@ -97,17 +97,16 @@ function Sidebar(props) {
     document.getElementById("NewPagePopUpOne").style.display = "block";
   };
 
-  const toggleQuotes = () => {
-    document.getElementById("modalQuotes").style.display = "block";
-  };
+  //---------------------------------------------------------------------//
+  
+
   return (
     <>
-      <Quotes />
       <SearchPopUp titles={[...list]} />
       <NewPage />
       <NavRight>
         <IconRight onClick={themeToggle} src={theme === "light" ? Dark : Sun} />
-        <IconRight onClick={toggleQuotes} src={emoji} />
+        <IconRight src={emoji} />
         <IconRight src={About} />
         <IconRight src={Settings} />
         <IconRight src={Logout} />
@@ -133,7 +132,10 @@ function Sidebar(props) {
               style={{ textDecoration: "none" }}
             >
               <ListNavTitle>
-                <IconListArrow src={theme === "light" ? ArrowBlack : ArrowWhite}></IconListArrow> {list.title}
+                <IconListArrow
+                  src={theme === "light" ? ArrowBlack : ArrowWhite}
+                ></IconListArrow>{" "}
+                {list.title}
               </ListNavTitle>
             </Link>
           ))}
