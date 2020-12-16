@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
+import {useHistory} from 'react-router-dom'
 
 import { PopUp, ContainerPopUp } from "../NoteStyles/events";
 import api from "../../../../apis/pagesApi";
@@ -23,11 +24,20 @@ function NewPage(props) {
     
   }
 
+
+  const history = useHistory();
+
   async function handleSubmit(event) {
     event.preventDefault();
     try {
       const response = await api.post("/pages", page );
-
+     
+       async function reloadPage(){
+          const response = await api.get('/titles');
+          const {_id} = response.data[response.data.length - 1];
+          window.location.replace(`/pages/${_id}`)
+        }
+        reloadPage()
       console.log(response);
     } catch (err) {
       console.error(err);

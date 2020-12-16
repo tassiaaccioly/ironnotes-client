@@ -13,6 +13,7 @@ import {
   Title,
   Tag,
   TagQueue,
+  FixHTML
 } from "./NoteStyles/page";
 import EditPage from './PageEvents/editpage'
 
@@ -55,7 +56,7 @@ console.log(id)
   return (
     <>
     <EditPage/>
-    <div style={{width: "100%", height: "100%", position:"fixed", backgroundColor:"white", zIndex:"-20"}}></div>
+    <FixHTML></FixHTML>
       <Container>
         <Fix>
           <header>

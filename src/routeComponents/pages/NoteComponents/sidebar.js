@@ -22,12 +22,14 @@ import {
 } from "./NoteStyles/nav.style";
 
 //Imagens
-import logo from "./images/LogoLight.svg";
+import logoWhite from "./images/LogoLight.svg";
+import logoDark from "./images/LogoDark.svg";
 import Dark from "./images/nights_stay-black-18dp.svg";
 import Logout from "./images/logout.svg";
 import Settings from "./images/settings-black-18dp.svg";
 import About from "./images/icons8-about.svg";
-import Arrow from "./images/keyboard_arrow_right-white-18dp.svg";
+import ArrowWhite from "./images/keyboard_arrow_right-white-18dp.svg";
+import ArrowBlack from "./images/keyboard_arrow_right-black-18dp.svg";
 import Sun from "./images/wb_sunny-black-18dp.svg";
 
 function Sidebar(props) {
@@ -105,7 +107,7 @@ function Sidebar(props) {
       </NavRight>
       <PullNavMobile onClick={Pull}>Menu</PullNavMobile>
       <Nav id="Pull">
-        <Logo src={logo} alt="logo" />
+        <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
         <SearchBar
           placeholder="Search for a title here"
           value=""
@@ -124,7 +126,7 @@ function Sidebar(props) {
               style={{ textDecoration: "none" }}
             >
               <ListNavTitle>
-                <IconListArrow src={Arrow}></IconListArrow> {list.title}
+                <IconListArrow src={theme === "light" ? ArrowBlack : ArrowWhite}></IconListArrow> {list.title}
               </ListNavTitle>
             </Link>
           ))}
