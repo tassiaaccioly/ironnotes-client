@@ -1,6 +1,6 @@
 import style from 'styled-components';
 
-export const Nav = style.nav`
+export const Nav = style.div`
     color: white;
     position: fixed;
     height: 100%;
@@ -16,8 +16,8 @@ export const Nav = style.nav`
         z-index: 2;
         right: -100%;
     }
-`;
-
+    
+    `;
 export const SearchBar = style.input`
     margin-top: 30px;
     border-radius: 5px;
@@ -64,6 +64,8 @@ export const Logo = style.img`
 export const ListNavTitle = style.div`
     color: white;
     margin-top: 10px;
+    font-size: 18px;
+    width: 100%;
     margin-bottom: 10px;
     border-bottom: 1px solid white;
     overflow: hidden;
@@ -75,6 +77,7 @@ export const ListNavTitle = style.div`
 export const ListItems = style.div`
     max-width: 80%;
     overflow: scroll;
+    width: 100%;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 20px;

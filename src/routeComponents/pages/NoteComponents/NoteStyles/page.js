@@ -10,6 +10,8 @@ export const Container = style.div`
     transition: 1s;
     position: relative;
     left: 20%;
+    height: 100%;
+    font-size: clamp(10px, 1vw, 25px);
     @media(max-width: 767px) {
         left: 0;
         width: 100%;
@@ -59,7 +61,6 @@ export const Tag = style.div`
     position: relative;
     margin-bottom: 30px;
     display: flex;
-    margin-left: 10%;
 `;
 
 export const TagQueue = style.div`
