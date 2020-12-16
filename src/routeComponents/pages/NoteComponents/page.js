@@ -67,7 +67,7 @@ function Page(props) {
               })}
             </Tag>
           </header>
-          {<MDEditor.Markdown source={file.text} />}
+          <MDEditor.Markdown source={file.text} />
           <Button onClick={OpenSearch}>Edit this note</Button>
         </Fix>
       </Container>
