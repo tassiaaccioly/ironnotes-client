@@ -6,7 +6,13 @@ import { AuthContext } from "../../../../contexts/authContext";
 import { useHistory } from "react-router-dom";
 
 //CSS em componentes
-import { PopUp, ContainerPopUp } from "../NoteStyles/events";
+import {
+  PopUp,
+  ContainerPopUp,
+  FormPopUp,
+  InputForm,
+} from "../NoteStyles/events";
+import { Button } from "../NoteStyles/page";
 function Page(props) {
   const history = useHistory();
   const authContext = useContext(AuthContext);
@@ -18,7 +24,6 @@ function Page(props) {
     tags: [""],
   });
 
-  
   //Buscando o path(Caminho) da url para retirar o Id
   const id = history.location.pathname;
   useEffect(() => {
@@ -65,30 +70,34 @@ function Page(props) {
     event.preventDefault();
     try {
       const response = await api.delete(`${id}`);
-      window.location.reload("/pages/all");
+      async function reloadPage() {
+        const response = await api.get("/titles");
+        const { _id } = response.data[response.data.length - 1];
+        window.location.replace(`/pages/${_id}`);
+      }
+      reloadPage();
       console.log(response);
     } catch (err) {
       console.error(err);
     }
   }
 
-
-
   return (
     <>
       <PopUp id="EditPagePopUp" onClick={ClosePopUp}></PopUp>
       <ContainerPopUp id="EditPagePopUpOne">
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <strong>Create a new note</strong>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+        <FormPopUp>
+          <strong>Edit this note</strong>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              marginBottom: "2%",
+            }}
+          >
             <label htmlFor="pageTitle">Title:</label>
-            <input
+            <InputForm
               type="text"
               name="title"
               id="pageTitle"
@@ -98,7 +107,7 @@ function Page(props) {
 
             <label htmlFor="pageTag">Tag</label>
             <div>
-              <input
+              <InputForm
                 type="text"
                 name="tags"
                 id="pageTags"
@@ -108,12 +117,15 @@ function Page(props) {
             </div>
           </div>
 
-          <MDEditor value={file.text} onChange={textInput} />
-          <button onClick={handleSubmit} type="submit">
+          <MDEditor value={file.text} onChange={textInput} height={350}
+            width={100} />
+          <div style={{width:"60%", display:"flex", justifyContent:"space-around"}}>
+          <Button onClick={handleSubmit} type="submit">
             Edit
-          </button>
-          <button onClick={handleDelete}>Delete this page</button>
-        </form>
+          </Button>
+          <Button onClick={handleDelete}>Delete this page</Button>
+          </div>
+        </FormPopUp>
       </ContainerPopUp>
     </>
   );
