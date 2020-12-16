@@ -6,7 +6,6 @@ import { AuthContext } from "../../../contexts/authContext";
 //Componentes
 import SearchPopUp from "./PageEvents/searchpopup";
 import NewPage from "./PageEvents/newpage";
-import { ModalProvider } from "styled-react-modal";
 //CSS em componentes
 import {
   Nav,
