@@ -10,20 +10,18 @@ function Quotes(props) {
   const handleClose = () => setShowQuotes(false);
 
   return (
-    <QuotesContext.Provider value={useState}>
-      <Modal show={showQuotes} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Funny Cohort Quotes! &#128540;</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>text</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer>
-      </Modal>
-    </QuotesContext.Provider>
+    <Modal show={showQuotes} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Funny Cohort Quotes! &#128540;</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>text</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="primary">Understood</Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
 

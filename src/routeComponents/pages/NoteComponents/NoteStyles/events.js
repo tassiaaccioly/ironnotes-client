@@ -13,7 +13,7 @@ export const PopUp = style.div`
 
 export const ContainerPopUp = style.div`
     height: 80%;
-    background: white;
+    background: ${({theme})=> theme.body};
     width: 80%;
     margin-left: 10%;
     margin-top: 5%;
@@ -27,4 +27,27 @@ export const ContainerPopUp = style.div`
     justify-content: center;
     oveflow: scroll;
     display: none;
+    border: 1px black solid;
+`;
+
+export const FormPopUp = style.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    font-size: 20px;
+    color: ${({theme})=> theme.text};
+    background: ${({theme})=> theme.body};
+    overflow: hidden;
+    margin-top: 3%;
+`;
+
+export const InputForm = style.input`
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    height: 2vw;
+    margin-bottom: 8px;
+    border: 0.5px solid ${({theme})=> theme.text};
+    margin-top: 10px;
 `;

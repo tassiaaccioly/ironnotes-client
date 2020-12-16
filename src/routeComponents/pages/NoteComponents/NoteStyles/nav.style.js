@@ -11,7 +11,6 @@ export const Nav = style.div`
     flex-direction: column;
     align-items: center;
     transition:  1s;
-    box-shadow: 10px 1px 30px white ;
     @media(max-width: 767px) {
         width: 100%;
         z-index: 2;

@@ -115,8 +115,7 @@ function Sidebar(props) {
       <Nav id="Pull">
         <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
         <SearchBar
-          placeholder="Search for a title here"
-          value=""
+          placeholder="Search here"
           onClick={OpenSearch}
         ></SearchBar>
         <strong
