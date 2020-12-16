@@ -4,7 +4,7 @@ import React, { useEffect, useState, useContext } from "react";
 import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 //Componentes
-import SearchPopUp from "./PageEvents/searchpopup";
+import SearchPopUp from "./PageEvents/eventscomponents/SearchPopUp.js";
 import NewPage from "./PageEvents/newpage";
 //CSS em componentes
 import {
