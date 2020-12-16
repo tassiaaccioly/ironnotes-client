@@ -1,5 +1,5 @@
 export const DarkTheme = {
-    body:'#121212',
+    body:'#2A2E2F',
     text:'white',
     navColor: '#1D1D1D',
     navText: 'white',
@@ -7,7 +7,7 @@ export const DarkTheme = {
     HoverButton: '#44CEFE',
     BottomButton: '#787878',
     Rotate: 'rotate(360deg)',
-    FixColor: '#121212',
+    FixColor: '#2A2E2F',
 };
 
 export const LightTheme = {
