@@ -6,6 +6,7 @@ import { AuthContext } from "../../../contexts/authContext";
 //Componentes
 import SearchPopUp from "./PageEvents/searchpopup";
 import NewPage from "./PageEvents/newpage";
+import Quotes from "./quotes/Quotes";
 //CSS em componentes
 import {
   Nav,
@@ -29,6 +30,7 @@ import Settings from "./images/settings-black-18dp.svg";
 import About from "./images/icons8-about.svg";
 import Arrow from "./images/keyboard_arrow_right-white-18dp.svg";
 import Sun from "./images/wb_sunny-black-18dp.svg";
+import emoji from "./images/emoji.png";
 
 function Sidebar(props) {
   const authContext = useContext(AuthContext);
@@ -93,12 +95,17 @@ function Sidebar(props) {
     document.getElementById("NewPagePopUpOne").style.display = "block";
   };
 
+  const toggleQuotes = () => {
+    document.getElementById("modalQuotes").style.display = "block";
+  };
   return (
     <>
+      <Quotes />
       <SearchPopUp titles={[...list]} />
       <NewPage />
       <NavRight>
         <IconRight onClick={themeToggle} src={theme === "light" ? Dark : Sun} />
+        <IconRight onClick={toggleQuotes} src={emoji} />
         <IconRight src={About} />
         <IconRight src={Settings} />
         <IconRight src={Logout} />
