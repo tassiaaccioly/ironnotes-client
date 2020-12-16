@@ -15,10 +15,10 @@
 }
 
 .infos-profile p {
-  font-size: 2rem;
+  text-align: left;
+  font-size: 1.8rem;
   color: #2a2e2f;
-  font-weight: bold;
-  margin: 10px;
+  margin: 15px 0;
 }
 
 .pages-list h1 {
@@ -46,6 +46,19 @@
 
 .infos-profile .pages {
   margin-top: 10%;
+  color: #2a2e2f;
+  font-size: 1.8rem;
+}
+
+.infos-profile thead {
+  text-align: left;
+  line-height: 2.5;
+}
+
+.table-elem a {
+  color: #2a2e2f;
+  font-size: 1.8rem;
+  font-weight: normal;
 }
 
 /* DELETE BUTTON */

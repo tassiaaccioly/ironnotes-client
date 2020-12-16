@@ -1,38 +1,44 @@
+//dependencies
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+
+//images
 import Avatar from "../../../assets/images/LogoDark.svg";
 
+//css
 import "./Profile.css";
 
+//auth
 import { AuthContext } from "../../../contexts/authContext";
 
+//axios
 import api from "../../../apis/pagesApi";
 
 function Profile(props) {
   const authContext = useContext(AuthContext);
 
-  // 1. Extrair o id do livro atual da URL
-  const { id } = props.match.params;
-
-  // 3. Definir o state no formato do Model no backend
   const [user, setUser] = useState({
-    Name: "",
-    Cohort: "",
-    Pages: "",
+    username: "",
+    cohort: "",
+    pagesCreated: [],
+    email: "",
+    avatar: "",
   });
 
   useEffect(() => {
     async function fetchUser() {
-      // 2. Buscar os detalhes do profile no nosso servidor (backend)
       try {
-        const response = await api.get(`/book/${id}`);
+        console.log("cheguei aqui");
+        const response = await api.get("/profile");
+        console.log("será que cheguei aqui?");
         console.log(response);
-        setUser({ ...response.data });
+        setUser({ ...response.data.user });
       } catch (err) {
         console.error(err);
       }
     }
     fetchUser();
-  }, [id]);
+  }, []);
 
   // 4. "Encaixar" o state no JSX a ser renderizado pelo componente
   return (
@@ -42,20 +48,39 @@ function Profile(props) {
 
         <button className="edit-button">Edit Profile</button>
 
-        <button className="delete-button">Delete Profile</button>
+        <Link to={`/delete/${user._id}`}>
+          <button className="delete-button">Delete Profile</button>
+        </Link>
       </div>
 
       <div className="pages-list">
-        <h1>Username</h1>
+        <h1>{user.username}</h1>
         <hr></hr>
         <div className="infos-profile">
           <p>
-            <strong>Cohort: </strong>
+            <strong>E-mail: </strong>
+            {user.email}
           </p>
           <p>
-            <strong>E-mail: </strong>
+            <strong>Cohort: </strong>
+            {user.cohort}
           </p>
-          <p className="pages">Pages: {/* list*/}</p>
+          <table className="pages">
+            <thead>
+              <tr>
+                <th>Pages: </th>
+              </tr>
+            </thead>
+            <tbody>
+              {user.pagesCreated.map((elem) => (
+                <tr key={elem._id}>
+                  <td className="table-elem">
+                    <Link to={`/pages/${elem._id}`}>{elem.title}</Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
