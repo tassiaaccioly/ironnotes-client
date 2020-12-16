@@ -14,6 +14,7 @@ import {
   Tag,
   TagQueue,
 } from "./NoteStyles/page";
+import EditPage from './PageEvents/editpage'
 
 function Page(props) {
   const history = useHistory();
@@ -46,8 +47,15 @@ console.log(id)
     Text();
   }, [history.location.pathname]);
 
+  const OpenSearch = () => {
+    document.getElementById("EditPagePopUp").style.display = "block";
+    document.getElementById("EditPagePopUpOne").style.display = "block";
+  };
+
   return (
     <>
+    <EditPage/>
+    <div style={{width: "100%", height: "100%", position:"fixed", backgroundColor:"white", zIndex:"-20"}}></div>
       <Container>
         <Fix>
           <header>
@@ -59,7 +67,7 @@ console.log(id)
             </Tag>
           </header>
           {<MDEditor.Markdown source={file.text} />}
-          <Button>Edit this note</Button>
+          <Button onClick={OpenSearch}>Edit this note</Button>
         </Fix>
       </Container>
     </>
