@@ -96,9 +96,11 @@ function Sidebar(props) {
     document.getElementById("NewPagePopUpOne").style.display = "block";
   };
 
-  //---------------------------------------------------------------------//
+  const toggleQuotes = () => {
+    document.getElementById("QuotesPopUp").style.display = "block";
+    document.getElementById("QuotesPopUpOne").style.display = "block";
+  };
   
-
   return (
     <>
       <SearchPopUp titles={[...list]} />
