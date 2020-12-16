@@ -1,11 +1,11 @@
-import style from 'styled-components'
+import style from "styled-components";
 
 export const PopUp = style.div`
     background: white;
     height: 100%;
     width: 100%;
     position: fixed;
-    z-index: 200;
+    z-index: 20;
     display: none;
     opacity: 0.5;
 
@@ -20,7 +20,7 @@ export const ContainerPopUp = style.div`
     margin-bottom: 20%;
     margin-right: 10%;
     position: fixed;
-    z-index: 201;
+    z-index: 21;
     border-radius: 5px;
     display: flex;
     flex-direction: column;

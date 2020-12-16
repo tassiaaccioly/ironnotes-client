@@ -7,10 +7,11 @@ function CheckInput(props) {
     <>
       <input
         id={props.id}
-        className="checkbox-input"
+        className={`checkbox-input ` + props.className}
         type="checkbox"
         name={props.name}
-        value={props.value}
+        checked={props.checked}
+        onChange={props.onChange}
       ></input>
       <label className="checkbox-label" htmlFor={props.id}>
         {props.label}

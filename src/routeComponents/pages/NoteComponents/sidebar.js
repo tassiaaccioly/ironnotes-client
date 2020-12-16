@@ -133,7 +133,10 @@ function Sidebar(props) {
               style={{ textDecoration: "none" }}
             >
               <ListNavTitle>
-                <IconListArrow src={theme === "light" ? ArrowBlack : ArrowWhite}></IconListArrow> {list.title}
+                <IconListArrow
+                  src={theme === "light" ? ArrowBlack : ArrowWhite}
+                ></IconListArrow>{" "}
+                {list.title}
               </ListNavTitle>
             </Link>
           ))}
