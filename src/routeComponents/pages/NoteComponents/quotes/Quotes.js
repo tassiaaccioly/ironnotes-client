@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import React from "react";
+import { Link } from "react-router-dom";
+import {Modal, Button} from "react-bootstrap"
+import './quote.css'
 
-function Quotes(props) {
-  const [showQuotes, setShowQuotes] = useState(true);
-
-  const handleClose = () => setShowQuotes(false);
-
+import { PopUp, ContainerPopUp } from "../NoteStyles/events";
+function SearchPopUp(props) {
+  function ClosePopUp() {
+    document.getElementById("QuotesPopUp").style.display = "none";
+    document.getElementById("QuotesPopUpOne").style.display = "none";
+  }
+  console.log(props.titles);
   return (
-    <Modal show={showQuotes} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Funny Cohort Quotes! &#128540;</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>text</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary">Understood</Button>
-      </Modal.Footer>
-    </Modal>
+    <>
+      <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>
+      <ContainerPopUp id="QuotesPopUpOne">
+
+      {/* aqui */}
+
+      </ContainerPopUp>
+    </>
   );
 }
 
-export default Quotes;
+export default SearchPopUp;

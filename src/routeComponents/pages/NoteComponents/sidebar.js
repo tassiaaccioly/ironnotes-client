@@ -98,8 +98,10 @@ function Sidebar(props) {
   };
 
   const toggleQuotes = () => {
-    document.getElementById("modalQuotes").style.display = "block";
+    document.getElementById("QuotesPopUp").style.display = "block";
+    document.getElementById("QuotesPopUpOne").style.display = "block";
   };
+  
   return (
     <>
       <Quotes />
