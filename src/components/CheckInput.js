@@ -4,7 +4,7 @@ import "./CheckInput.css";
 
 function CheckInput(props) {
   return (
-    <>
+    <div className="checkinput-container">
       <input
         id={props.id}
         className={`checkbox-input ` + props.className}
@@ -16,7 +16,7 @@ function CheckInput(props) {
       <label className="checkbox-label" htmlFor={props.id}>
         {props.label}
       </label>
-    </>
+    </div>
   );
 }
 

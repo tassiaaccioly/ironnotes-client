@@ -6,11 +6,20 @@ import { PopUp, ContainerPopUp } from "../../NoteStyles/events";
 import TextInput from "../../../../../components/TextInput";
 import CheckInput from "../../../../../components/CheckInput";
 import Tag from "../../tags/Tags";
+import BlueBtn from "../../../../../components/btns/BlueBtn";
 
 import "./SearchPopUp.css";
 
 function SearchPopUp(props) {
   const [notes, setNotes] = useState([
+    {
+      tags: [],
+      title: "",
+      _id: "",
+      creatorUser: {},
+    },
+  ]);
+  const [notesFiltered, setNotesFiltered] = useState([
     {
       tags: [],
       title: "",
@@ -32,8 +41,7 @@ function SearchPopUp(props) {
         const response = await api.get("/pages");
 
         console.log(response);
-        if (check.tags) {
-        }
+
         setNotes([...response.data]);
       } catch (err) {
         console.error(err);
@@ -58,6 +66,39 @@ function SearchPopUp(props) {
     console.log(check);
   }
 
+  async function handleClick() {
+    try {
+      const response = await api.get("/pages");
+
+      console.log("This is the response: ", response);
+
+      if (response) {
+        if (check.tags) {
+          let tagFilter = response.data.filter((elem) =>
+            elem.tags.includes(userSearch)
+          );
+          setNotesFiltered([...notesFiltered, ...tagFilter]);
+        }
+
+        if (check.title) {
+          let titleFilter = response.data.filter((elem) =>
+            elem.title.includes(userSearch)
+          );
+          setNotesFiltered([...notesFiltered, ...titleFilter]);
+        }
+
+        if (check.creator) {
+          let creatorFilter = response.data.filter(
+            (elem) => elem.creatorUser.username === userSearch
+          );
+          setNotesFiltered([...notesFiltered, ...creatorFilter]);
+        }
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   function ClosePopUp() {
     document.getElementById("SearchBarPopUp").style.display = "none";
     document.getElementById("SearchBarPopUpOne").style.display = "none";
@@ -66,40 +107,48 @@ function SearchPopUp(props) {
   return (
     <>
       <ContainerPopUp id="SearchBarPopUpOne">
-        <TextInput
-          type="text"
-          className="searchbar-input"
-          name="searchbar-input"
-          id="searchbar-input"
-          placeholder="Enter your search..."
-          value={userSearch}
-          onChange={handleChange}
-        />
-        <CheckInput
-          className="checkinput"
-          name="title"
-          id="searchCheckTitle"
-          checked={check.title}
-          label="Title"
-          onChange={handleCheckChange}
-        />
-        <CheckInput
-          className="checkinput"
-          name="tags"
-          id="searchCheckTags"
-          checked={check.tags}
-          label="Tags"
-          onChange={handleCheckChange}
-        />
-        <CheckInput
-          className="checkinput"
-          name="creator"
-          id="searchCheckCreator"
-          checked={check.creator}
-          label="Creator"
-          onChange={handleCheckChange}
-        />
-        <div>
+        <div className="searchbar-input">
+          <input
+            type="text"
+            name="searchbar-input"
+            id="searchbar-input"
+            placeholder="Enter your search..."
+            value={userSearch}
+            onChange={handleChange}
+          />
+          <label htmlFor="searchbar-input"></label>
+        </div>
+        <div className="check-container">
+          <CheckInput
+            className="checkinput"
+            name="title"
+            id="searchCheckTitle"
+            checked={check.title}
+            label="Title"
+            onChange={handleCheckChange}
+          />
+          <CheckInput
+            className="checkinput"
+            name="tags"
+            id="searchCheckTags"
+            checked={check.tags}
+            label="Tags"
+            onChange={handleCheckChange}
+          />
+          <CheckInput
+            className="checkinput"
+            name="creator"
+            id="searchCheckCreator"
+            checked={check.creator}
+            label="Creator"
+            onChange={handleCheckChange}
+          />
+
+          <button className="search-btn" onClick={handleClick}>
+            Search
+          </button>
+        </div>
+        <div className="searchtable-container">
           <table className="search-table">
             <thead>
               <tr>

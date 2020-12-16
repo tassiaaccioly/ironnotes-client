@@ -1,12 +1,70 @@
+#SearchBarPopUpOne {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .searchbar-input {
   width: 90%;
-  margin-top: 10%;
-  border-radius: 10px;
-  border: 2px solid #2a2e2f;
+  margin: 10% auto 3%;
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar-input input {
+  width: 65%;
+  margin: 0 auto;
+  border: none;
+  border: 1px solid #2a2e2f;
+  height: 30px;
+  border-radius: 6px;
+  padding: 0.2rem 1rem;
+  z-index: 205;
 }
 
 .checkinput {
   z-index: 202;
+}
+
+.check-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn {
+  border: none;
+  margin: 1rem auto;
+  background-color: #32c3ff;
+  padding: 1.2rem 3rem;
+  border-radius: 0.8rem;
+  color: #fbfafa;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  animation: btnHover 0.5s ease forwards 1;
+}
+
+@keyframes btnHover {
+  from {
+    background-color: #32c3ff;
+    box-shadow: 0 0 0 0;
+    color: #fbfafa;
+  }
+  to {
+    background-color: #fbfafa;
+    color: #2a2e2f;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.searchtable-container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
 }
 
 .search-table {
