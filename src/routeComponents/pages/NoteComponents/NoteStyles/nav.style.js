@@ -6,6 +6,7 @@ export const Nav = style.div`
     height: 100%;
     background: ${({theme})=> theme.navColor};
     width: 15%;
+    color: ${({theme})=> theme.navText};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,8 +57,6 @@ export const Logo = style.img`
     height: 150px;
     width: 150px;
     margin-top: 20px;
-    transition: 5s;
-    transform: ${({theme})=>theme.Rotate};
 `;
 
 
@@ -66,18 +65,20 @@ export const ListNavTitle = style.div`
     margin-top: 10px;
     font-size: 18px;
     width: 100%;
+    color: ${({theme})=> theme.navText};
     margin-bottom: 10px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid ${({theme})=> theme.navText};
     overflow: hidden;
     :hover{
         font-weight: bold;
-        border-bottom: 1.2px solid white;
+        border-bottom: 1.2px solid ${({theme})=> theme.navText};
     }
 `;
 export const ListItems = style.div`
     max-width: 80%;
     overflow: scroll;
     width: 100%;
+    color: ${({theme})=> theme.navText};
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 20px;
@@ -85,7 +86,7 @@ export const ListItems = style.div`
         width: 2px;
     }
     ::-webkit-scrollbar-thumb {
-        background: white; 
+        background: ${({theme})=> theme.navText}; 
     }
 `;
 

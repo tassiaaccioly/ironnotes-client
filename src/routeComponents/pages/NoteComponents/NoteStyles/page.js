@@ -71,3 +71,12 @@ export const TagQueue = style.div`
     padding: 5px;
 `;
 
+export const FixHTML = style.div`
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: ${({theme})=>theme.FixColor};
+    z-index: -20;
+    transition: 1s;
+`;
+

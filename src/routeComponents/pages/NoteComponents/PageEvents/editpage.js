@@ -3,18 +3,10 @@ import React, { useState, useEffect, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import api from "../../../../apis/pagesApi";
 import { AuthContext } from "../../../../contexts/authContext";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 //CSS em componentes
-import {
-    Container,
-    Fix,
-    Button,
-    Title,
-    Tag,
-    TagQueue,
-  } from "../NoteStyles/page";
-  import { PopUp, ContainerPopUp } from "../NoteStyles/events";
+import { PopUp, ContainerPopUp } from "../NoteStyles/events";
 function Page(props) {
   const history = useHistory();
   const authContext = useContext(AuthContext);
@@ -26,19 +18,17 @@ function Page(props) {
     tags: [""],
   });
 
+  
   //Buscando o path(Caminho) da url para retirar o Id
- const id = history.location.pathname;
+  const id = history.location.pathname;
   useEffect(() => {
     async function Text() {
       try {
-       
-
-
-console.log(id)
+        console.log(id);
         const response = await api.get(`${id}`);
-        console.log(response)
+        console.log(response);
         setFile({ ...response.data });
-        console.log(response)
+        console.log(response);
       } catch (err) {
         console.error(err);
       }
@@ -46,7 +36,6 @@ console.log(id)
     Text();
   }, [history.location.pathname]);
 
-  
   function ClosePopUp() {
     document.getElementById("EditPagePopUp").style.display = "none";
     document.getElementById("EditPagePopUpOne").style.display = "none";
@@ -59,15 +48,13 @@ console.log(id)
 
   function textInput(event) {
     setFile({ ...file, text: event });
-    
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-        
-      const response = await api.patch(`${id}`, file );
-
+      const response = await api.patch(`${id}`, file);
+      window.location.reload();
       console.log(response);
     } catch (err) {
       console.error(err);
@@ -77,9 +64,8 @@ console.log(id)
   async function handleDelete(event) {
     event.preventDefault();
     try {
-        
       const response = await api.delete(`${id}`);
-
+      window.location.reload("/pages/all");
       console.log(response);
     } catch (err) {
       console.error(err);
@@ -87,11 +73,12 @@ console.log(id)
   }
 
 
+
   return (
     <>
       <PopUp id="EditPagePopUp" onClick={ClosePopUp}></PopUp>
       <ContainerPopUp id="EditPagePopUpOne">
-      <form
+        <form
           style={{
             display: "flex",
             flexDirection: "column",
@@ -123,13 +110,12 @@ console.log(id)
 
           <MDEditor value={file.text} onChange={textInput} />
           <button onClick={handleSubmit} type="submit">
-            Create
+            Edit
           </button>
           <button onClick={handleDelete}>Delete this page</button>
         </form>
       </ContainerPopUp>
     </>
-  
   );
 }
 
