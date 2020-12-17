@@ -105,7 +105,7 @@ function Page(props) {
               onChange={handleChange}
             />
 
-            <label htmlFor="pageTag">Tag</label>
+            <label htmlFor="pageTags">Tags: </label>
             <div>
               <InputForm
                 type="text"
@@ -121,19 +121,19 @@ function Page(props) {
             value={file.text}
             onChange={textInput}
             height={350}
-            width={100}
+            width={400}
           />
           <div
             style={{
-              width: "60%",
+              width: "30%",
               display: "flex",
-              justifyContent: "space-around",
+              justifyContent: "center",
             }}
           >
             <Button onClick={handleSubmit} type="submit">
-              Edit
+              Save
             </Button>
-            <Button onClick={handleDelete}>Delete this page</Button>
+            <Button onClick={handleDelete}>Delete</Button>
           </div>
         </FormPopUp>
       </ContainerPopUp>

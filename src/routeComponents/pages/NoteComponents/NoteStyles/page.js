@@ -44,7 +44,53 @@ export const Button = style.button`
     }
 `;
 
+export const FormButton = style.button`
+    margin: 60px auto;
+    padding: 7px;
+    background-color: ${({ theme }) => theme.BottomButton};
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    :hover{
+        background-color: ${({ theme }) => theme.HoverButton};
+        box-shadow: 1px 1px 5px black;
+        color: #2a2e2f;
+    }
+`;
+
 // border: solid  ${({ theme }) => theme.BottomButton} 2px;
+
+export const TagSearch = style.span`
+border: none;
+margin: 0.5rem;
+background-color: #32c3ff;
+padding: 0.3rem 1rem;
+border-radius: 0.8rem;
+font-weight: 600;
+cursor: pointer;
+text-decoration: none;
+color: #fbfafa;
+font-size: 1.3rem;
+text-align: center;
+:hover{
+    animation: tagHover 0.5s ease forwards 1;
+}
+
+@keyframes tagHover {
+  from {
+    background-color: #32c3ff;
+    box-shadow: 0 0 0 0;
+    color: #fbfafa;
+  }
+  to {
+    background-color: #fbfafa;
+    color: #2a2e2f;
+  }
+}
+`;
 
 export const Title = style.h1`
     text-align: center;

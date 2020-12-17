@@ -124,7 +124,9 @@ function Sidebar(props) {
       </NavRight>
       <PullNavMobile onClick={Pull}>Menu</PullNavMobile>
       <Nav id="Pull">
-        <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
+        <Link to="/">
+          <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
+        </Link>
         <SearchBar placeholder="Search here"></SearchBar>
         {/*onClick={OpenSearch}*/}
 

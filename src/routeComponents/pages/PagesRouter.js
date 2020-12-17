@@ -20,7 +20,7 @@ function PagesRouter(props) {
         <Switch>
           <Route
             exact
-            path={`${props.match.path}/all`}
+            path={`${props.match.path}`}
             render={(routeProps) => {
               return <HowTo themes={{ theme: [theme, setTheme] }} />;
             }}
