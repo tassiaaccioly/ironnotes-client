@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./quote.css";
+import "./Quote.css";
 
 import { PopUp, ContainerPopUp } from "../NoteStyles/events";
 function SearchPopUp(props) {

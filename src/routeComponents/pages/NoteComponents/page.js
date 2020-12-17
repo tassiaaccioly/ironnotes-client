@@ -47,7 +47,6 @@ function Page(props) {
 
   return (
     <>
-      {/* <EditPage /> */}
       <FixHTML></FixHTML>
       <Container>
         <Fix>
