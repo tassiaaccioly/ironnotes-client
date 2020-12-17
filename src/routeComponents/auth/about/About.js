@@ -2,6 +2,14 @@ import React from "react";
 
 import "./About.css";
 
+import AvatarTassia from "../../../assets/images/cartoonAvatarTassia.png";
+import AvatarLeo from "../../../assets/images/cartoonAvatarLeo.png";
+import AvatarPatrick from "../../../assets/images/avatarPatrick.png";
+import AvatarJu from "../../../assets/images/avatarJuliana.png";
+import Github from "../../../assets/icons/github.svg";
+import Twitter from "../../../assets/icons/twitter.svg";
+import Linkedin from "../../../assets/icons/linkedin.svg";
+
 function About() {
   return (
     <div className="about-container">
@@ -12,7 +20,7 @@ function About() {
       <div className="profile-container">
         <div className="infos-container">
           <div className="avatar">
-            <img src="./images/cartoonAvatarTassia.png" alt="Tassia" />
+            <img src={AvatarTassia} alt="Tassia" />
           </div>
           <h4>Tassia Accioly</h4>
           <p>
@@ -22,22 +30,22 @@ function About() {
           </p>
           <div className="socials">
             <a className="socialicon" href="https://twitter.com/itsmetherogue">
-              <img src="./images/twitter.svg" alt="Twitter" />
+              <img src={Twitter} alt="Twitter" />
             </a>
             <a
               className="socialicon"
               href="https://linkedin.com/in/tassiaaccioly/"
             >
-              <img src="./images/linkedin.svg" alt="Linkedin" />
+              <img src={Linkedin} alt="Linkedin" />
             </a>
             <a className="socialicon" href="https://github.com/tassiaaccioly">
-              <img src="./images/github.svg" alt="Github" />
+              <img src={Github} alt="Github" />
             </a>
           </div>
         </div>
         <div className="infos-container">
           <div className="avatar">
-            <img src="./images/avatarJuliana.png" alt="Ju" />
+            <img src={AvatarJu} alt="Ju" />
           </div>
           <h4>Juliana Mattar</h4>
           <p>
@@ -50,16 +58,16 @@ function About() {
               className="socialicon"
               href="https://www.linkedin.com/in/juliana-mttr/"
             >
-              <img src="./images/linkedin.svg" alt="Linkedin" />
+              <img src={Linkedin} alt="Linkedin" />
             </a>
             <a className="socialicon" href="https://github.com/JulianaMattar">
-              <img src="./images/github.svg" alt="Github" />
+              <img src={Github} alt="Github" />
             </a>
           </div>
         </div>
         <div className="infos-container">
           <div className="avatar">
-            <img src="./images/cartoonAvatarLeo.png" alt="Leo" />
+            <img src={AvatarLeo} alt="Leo" />
           </div>
           <h4>Leonardo Uezu</h4>
           <p>
@@ -72,16 +80,20 @@ function About() {
               className="socialicon"
               href="https://www.linkedin.com/in/leonardouezu/"
             >
-              <img src="./images/linkedin.svg" alt="Linkedin" />
+              <img src={Linkedin} alt="Linkedin" />
             </a>
             <a className="socialicon" href="https://github.com/luezu-42">
-              <img src="./images/github.svg" alt="Github" />
+              <img src={Github} alt="Github" />
             </a>
           </div>
         </div>
         <div className="infos-container">
           <div className="avatar">
-            <img src="./images/avatarPatrick.png" alt="Patrick" />
+            <img
+              style={{ backgroundColor: "#fafbfb" }}
+              src={AvatarPatrick}
+              alt="Patrick"
+            />
           </div>
           <h4>Patrick Brito</h4>
           <p>
@@ -94,10 +106,10 @@ function About() {
               className="socialicon"
               href="https://www.linkedin.com/in/patrickbrito95/"
             >
-              <img src="./images/linkedin.svg" alt="Linkedin" />
+              <img src={Linkedin} alt="Linkedin" />
             </a>
             <a className="socialicon" href="https://github.com/patrickbrito95">
-              <img src="./images/github.svg" alt="Github" />
+              <img src={Github} alt="Github" />
             </a>
           </div>
         </div>
