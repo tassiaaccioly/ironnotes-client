@@ -15,10 +15,10 @@ function SearchPopUp(props) {
     <>
       <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>
       <ContainerPopUp id="QuotesPopUpOne">
+        <TextInput label="Said By:"/>
+        <TextInput label="Quote:"/>
         <BlueBtn> Random Quote </BlueBtn>
-        <BlueBtn>
-          <Link to=""> Add a Quote </Link>
-        </BlueBtn>
+        <BlueBtn>Save Quote</BlueBtn>
       </ContainerPopUp>
     </>
   );

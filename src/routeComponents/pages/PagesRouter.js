@@ -5,9 +5,9 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./NoteComponents/NoteStyles/globalStyles";
 import { LightTheme, DarkTheme } from "./NoteComponents/NoteStyles/themes";
 
-import Notebook from "./NoteComponents/Main";
-import Sidebar from "./NoteComponents/Sidebar";
-import Page from "./NoteComponents/Page";
+import Notebook from "./NoteComponents/main";
+import Sidebar from "./NoteComponents/sidebar";
+import Page from "./NoteComponents/page";
 import Search from "./NoteComponents/PageEvents/searchpage/SearchPage";
 import HowTo from "./NoteComponents/HowTo";
 

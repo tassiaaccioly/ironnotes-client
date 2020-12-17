@@ -6,6 +6,7 @@ import "./App.css";
 import Home from "./home/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 import PagesRouter from "../routeComponents/pages/PagesRouter";
+import Quotes from "../routeComponents/pages/NoteComponents/quotes/Quotes";
 
 import InternalServerError from "./internalservererror/InternalServerError";
 import NoMatch from "./nomatch/NoMatch";
@@ -30,6 +31,9 @@ function App() {
 
             {/* About route */}
             <Route path="/about" component={About} />
+
+            {/* Quotes route */}
+            <Route path="/quote" component={Quotes} />
 
             {/* error handling routes  */}
             <Route
