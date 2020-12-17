@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./quote.css";
+import "./Quote.css";
 import BlueBtn from "../../../../components/btns/BlueBtn";
 import TextInput from "../../../../components/TextInput";
 

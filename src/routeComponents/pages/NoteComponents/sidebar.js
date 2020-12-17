@@ -5,7 +5,7 @@ import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
 //Componentes
-import NewPage from "./PageEvents/NewPage";
+import NewPage from "./PageEvents/Newpage";
 import Quotes from "./quotes/Quotes";
 
 //CSS em componentes

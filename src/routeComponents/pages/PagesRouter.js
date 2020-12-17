@@ -5,12 +5,12 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./NoteComponents/NoteStyles/globalStyles";
 import { LightTheme, DarkTheme } from "./NoteComponents/NoteStyles/themes";
 
-import Sidebar from "./NoteComponents/sidebar";
-import Page from "./NoteComponents/page";
+import Sidebar from "./NoteComponents/Sidebar";
+import Page from "./NoteComponents/Page";
 import Search from "./NoteComponents/PageEvents/searchpage/SearchPage";
 import HowTo from "./NoteComponents/HowTo";
-import EditPage from "./NoteComponents/PageEvents/EditPage";
-import NewPage from "./NoteComponents/PageEvents/NewPage";
+import EditPage from "./NoteComponents/PageEvents/Editpage";
+import NewPage from "./NoteComponents/PageEvents/Newpage";
 
 function PagesRouter(props) {
   const [theme, setTheme] = useState("light");
