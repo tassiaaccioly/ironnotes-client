@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
 import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
+
 //Componentes
-import SearchPopUp from "./PageEvents/searchpopup";
 import NewPage from "./PageEvents/newpage";
 import Quotes from "./quotes/Quotes";
+
 //CSS em componentes
 import {
   Nav,
@@ -23,16 +24,20 @@ import {
 } from "./NoteStyles/nav.style";
 
 //Imagens
-import logoWhite from "./images/LogoLight.svg";
-import logoDark from "./images/LogoDark.svg";
-import Dark from "./images/nights_stay-black-18dp.svg";
-import Logout from "./images/logout.svg";
-import Settings from "./images/settings-black-18dp.svg";
-import About from "./images/icons8-about.svg";
-import ArrowWhite from "./images/keyboard_arrow_right-white-18dp.svg";
-import ArrowBlack from "./images/keyboard_arrow_right-black-18dp.svg";
-import Sun from "./images/wb_sunny-black-18dp.svg";
-import emoji from "./images/emoji.png";
+import logoWhite from "../../../assets/images/LogoLight.svg";
+import logoDark from "../../../assets/images/LogoDark.svg";
+import Dark from "../../../assets/icons/nights_stay-black-18dp.svg";
+import LogoutBlack from "../../../assets/icons/power_black.svg";
+import LogoutWhite from "../../../assets/icons/power_white.svg";
+import SettingsBlack from "../../../assets/icons/settings_black.svg";
+import SettingsWhite from "../../../assets/icons/settings_white.svg";
+import AboutBlack from "../../../assets/icons/about_black.svg";
+import AboutWhite from "../../../assets/icons/about_white.svg";
+import ArrowWhite from "../../../assets/icons/keyboard_arrow_right-white-18dp.svg";
+import ArrowBlack from "../../../assets/icons/keyboard_arrow_right-black-18dp.svg";
+import Sun from "../../../assets/icons/wb_sunny-black-18dp.svg";
+import EmojiBlack from "../../../assets/icons/tongue_black.svg";
+import EmojiWhite from "../../../assets/icons/tongue_white.svg";
 
 function Sidebar(props) {
   const authContext = useContext(AuthContext);
@@ -87,10 +92,10 @@ function Sidebar(props) {
 
   //---------------------------------------------------------------------//
 
-  const OpenSearch = () => {
-    document.getElementById("SearchBarPopUp").style.display = "block";
-    document.getElementById("SearchBarPopUpOne").style.display = "block";
-  };
+  // const OpenSearch = () => {
+  //   document.getElementById("SearchBarPopUp").style.display = "block";
+  //   document.getElementById("SearchBarPopUpOne").style.display = "block";
+  // };
 
   const OpenNewPage = () => {
     document.getElementById("NewPagePopUp").style.display = "block";
@@ -101,31 +106,30 @@ function Sidebar(props) {
     document.getElementById("QuotesPopUp").style.display = "block";
     document.getElementById("QuotesPopUpOne").style.display = "block";
   };
-  
+
   return (
     <>
       <Quotes />
-      <SearchPopUp titles={[...list]} />
+      {/* <SearchPopUp titles={[...list]} /> */}
       <NewPage />
       <NavRight>
         <IconRight onClick={themeToggle} src={theme === "light" ? Dark : Sun} />
-        <IconRight onClick={toggleQuotes} src={emoji} />
-        <IconRight src={About} />
-        <IconRight src={Settings} />
-        <IconRight src={Logout} />
+        <IconRight
+          onClick={toggleQuotes}
+          src={theme === "light" ? EmojiBlack : EmojiWhite}
+        />
+        <IconRight src={theme === "light" ? AboutBlack : AboutWhite} />
+        <IconRight src={theme === "light" ? SettingsBlack : SettingsWhite} />
+        <IconRight src={theme === "light" ? LogoutBlack : LogoutWhite} />
       </NavRight>
       <PullNavMobile onClick={Pull}>Menu</PullNavMobile>
       <Nav id="Pull">
-        <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
-        <SearchBar
-          placeholder="Search here"
-          onClick={OpenSearch}
-        ></SearchBar>
-        <strong
-          style={{ marginTop: "15px", marginBottom: "10px", fontSize: "20px" }}
-        >
-          Notes
-        </strong>
+        <Link to="/">
+          <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
+        </Link>
+        <SearchBar placeholder="Search here"></SearchBar>
+        {/*onClick={OpenSearch}*/}
+
         <ListItems>
           {list.map((list) => (
             <Link
@@ -134,7 +138,10 @@ function Sidebar(props) {
               style={{ textDecoration: "none" }}
             >
               <ListNavTitle>
-                <IconListArrow src={theme === "light" ? ArrowBlack : ArrowWhite}></IconListArrow> {list.title}
+                <IconListArrow
+                  src={theme === "light" ? ArrowBlack : ArrowWhite}
+                ></IconListArrow>{" "}
+                {list.title}
               </ListNavTitle>
             </Link>
           ))}

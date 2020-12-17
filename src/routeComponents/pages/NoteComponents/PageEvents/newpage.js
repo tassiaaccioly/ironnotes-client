@@ -76,7 +76,7 @@ function NewPage(props) {
               onChange={handleChange}
             />
 
-            <label htmlFor="pageTag">Tag</label>
+            <label htmlFor="pageTags">Tag</label>
             <div>
               <InputForm
                 type="text"

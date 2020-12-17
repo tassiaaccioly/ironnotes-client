@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
-import NoteBook from "./NoteComponents/main";
+import { GlobalStyle } from "./NoteComponents/NoteStyles/globalStyles";
+import { LightTheme, DarkTheme } from "./NoteComponents/NoteStyles/themes";
+
+import Notebook from "./NoteComponents/Main";
+import Sidebar from "./NoteComponents/Sidebar";
+import Page from "./NoteComponents/Page";
+import Search from "./NoteComponents/PageEvents/searchpage/SearchPage";
+import HowTo from "./NoteComponents/HowTo";
 
 function PagesRouter(props) {
+  const [theme, setTheme] = useState("light");
   return (
     <React.Fragment>
-      <Switch>
-      
-        <Route exact path={`${props.match.path}/all`} component={NoteBook} />
-        <Route path={`${props.match.path}/:id`} component={NoteBook} />
-      </Switch>
+      <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
+        <Sidebar themes={{ theme: [theme, setTheme] }} />
+        <Switch>
+          <Route
+            exact
+            path={`${props.match.path}`}
+            render={(routeProps) => {
+              return <HowTo themes={{ theme: [theme, setTheme] }} />;
+            }}
+          />
+          <Route
+            exact
+            path={`${props.match.path}/search`}
+            render={(routeProps) => {
+              return <Search themes={{ theme: [theme, setTheme] }} />;
+            }}
+          />
+          <Route path={`${props.match.path}/:id`} component={Page} />
+          <GlobalStyle />
+        </Switch>
+      </ThemeProvider>
     </React.Fragment>
   );
 }

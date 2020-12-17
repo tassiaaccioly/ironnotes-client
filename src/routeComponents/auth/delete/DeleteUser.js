@@ -8,7 +8,7 @@ function UserDelete(props) {
     async function deleteUser() {
       try {
         await api.delete(`/profile/${id}`);
-        props.history.push("/pages/all");
+        props.history.push("/");
       } catch (err) {
         console.error(err);
       }
