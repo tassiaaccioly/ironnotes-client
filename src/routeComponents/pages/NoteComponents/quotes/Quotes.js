@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext, React } from "react";
-import { Link } from "react-router-dom";
 import api from "../../../../apis/pagesApi";
 import { AuthContext } from "../../../../contexts/authContext";
 
@@ -54,13 +53,15 @@ function QuotesPopUp(props) {
       <ContainerPopUp id="QuotesPopUpOne">
         <div id="modal">
           <div>
-            <TitleH3>
+            <h3>
               <i>"{quote.quote}"</i>
-            </TitleH3>
-            <p>Said By: {quote.said_by}</p>
+            </h3>
+            <p id="author">Said By: {quote.said_by}</p>
           </div>
+          <div id="buttons">
           <FormButton onClick={handleClick}>Random Quote</FormButton>
           <FormButton onClick={showForm}>Add a Quote</FormButton>
+          </div>
         </div>
         <NewQuote />
       </ContainerPopUp>

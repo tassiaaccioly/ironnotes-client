@@ -35,6 +35,7 @@ function NewQuote(props) {
   return (
     <>
       <div id="addForm" style={{ display: "none" }}>
+      <div id="text">
         <InputForm
           placeholder="Who said it??"
           type="text"
@@ -43,16 +44,20 @@ function NewQuote(props) {
           onChange={handleChange}
         />
         <InputForm
+        id="bottom"
           placeholder="What did they say??"
           type="text"
           name="quote"
           value={quote.quote}
           onChange={handleChange}
         />
+        <div id="buttons">
         <FormButton onClick={handleSubmit} type="submit">
           Save Quote
         </FormButton>
         <FormButton onClick={backTrack}>Back to Random Quote</FormButton>
+        </div>
+        </div>
       </div>
     </>
   );
