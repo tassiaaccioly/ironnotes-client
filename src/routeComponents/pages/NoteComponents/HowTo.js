@@ -61,7 +61,7 @@ function HowTo() {
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
             <Link to="/pages/newpage">
-              <Button>New Page</Button>
+              <Button>New Note</Button>
             </Link>
           </div>
         </Fix>
