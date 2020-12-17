@@ -135,3 +135,11 @@ a:hover {
   color: white;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+/* EDIT PROFILE */
+
+.edit-profile {
+  display: flex;
+  flex-direction: column;
+  color: #2a2e2f;
+}

@@ -41,11 +41,12 @@ function Profile(props) {
   return (
     <div className="container">
       <div className="avatar-box">
-        <img src={Avatar} style={{ width: "150px" }} alt="Avatar" />
+        <img src={user.avatar} style={{ width: "150px" }} alt="Avatar" />
+        <Link to={`/auth/profile/edit`}>
+          <button className="edit-button">Edit Profile</button>
+        </Link>
 
-        <button className="edit-button">Edit Profile</button>
-
-        <Link to={`/delete/${user._id}`}>
+        <Link to={`/auth/delete/${user._id}`}>
           <button className="delete-button">Delete Profile</button>
         </Link>
       </div>
