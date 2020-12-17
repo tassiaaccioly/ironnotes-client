@@ -33,11 +33,8 @@ function Page(props) {
   useEffect(() => {
     async function Text() {
       try {
-        console.log(id);
         const response = await api.get(`/pages/${id}`);
-        console.log(response);
         setFile({ ...response.data });
-        console.log(response);
       } catch (err) {
         console.error(err);
       }
@@ -47,7 +44,6 @@ function Page(props) {
 
   return (
     <>
-      {/* <EditPage /> */}
       <FixHTML></FixHTML>
       <Container>
         <Fix>

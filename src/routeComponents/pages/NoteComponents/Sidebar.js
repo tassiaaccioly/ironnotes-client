@@ -40,7 +40,7 @@ import EmojiBlack from "../../../assets/icons/tongue_black.svg";
 import EmojiWhite from "../../../assets/icons/tongue_white.svg";
 
 function Sidebar(props) {
-  useContext(AuthContext);
+  const authContext = useContext(AuthContext);
   //State para guardar todos os resultados para montar a lista na barra de navegação
   const [list, setList] = useState([
     {
@@ -79,6 +79,13 @@ function Sidebar(props) {
     document.getElementById("Pull").style.right = nav.active;
   }
 
+  //Function to logout
+  function handleLogoutClick() {
+    localStorage.clear();
+    authContext.setLoggedInUser({ token: "", user: {} });
+    props.history.push("/");
+  }
+
   //------------------------------------------------------------------//
 
   //Retirando das props o State de themas
@@ -106,16 +113,26 @@ function Sidebar(props) {
           onClick={toggleQuotes}
           src={theme === "light" ? EmojiBlack : EmojiWhite}
         />
-        <IconRight src={theme === "light" ? AboutBlack : AboutWhite} />
-        <IconRight src={theme === "light" ? SettingsBlack : SettingsWhite} />
-        <IconRight src={theme === "light" ? LogoutBlack : LogoutWhite} />
+        <Link to="/auth/about">
+          <IconRight src={theme === "light" ? AboutBlack : AboutWhite} />
+        </Link>
+        <Link to="/auth/profile">
+          <IconRight src={theme === "light" ? SettingsBlack : SettingsWhite} />
+        </Link>
+        <IconRight
+          onClick={handleLogoutClick}
+          src={theme === "light" ? LogoutBlack : LogoutWhite}
+        />
       </NavRight>
       <PullNavMobile onClick={Pull}>Menu</PullNavMobile>
       <Nav id="Pull">
         <Link to="/">
           <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
         </Link>
-        <Link to="/pages/search">
+        <Link
+          to="/pages/search"
+          style={{ width: "100%", display: "flex", justifyContent: "center" }}
+        >
           <SearchBar placeholder="Search here"></SearchBar>
         </Link>
 

@@ -30,11 +30,8 @@ function Page(props) {
   useEffect(() => {
     async function Text() {
       try {
-        console.log(id);
         const response = await api.get(`/pages/${id}`);
-        console.log(response);
         setFile({ ...response.data });
-        console.log(response);
       } catch (err) {
         console.error(err);
       }
@@ -44,7 +41,6 @@ function Page(props) {
 
   function handleChange(event) {
     setFile({ ...file, [event.currentTarget.name]: event.currentTarget.value });
-    console.log(file);
   }
 
   function textInput(event) {
@@ -54,9 +50,8 @@ function Page(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await api.patch(`/pages/${id}`, file);
+      await api.patch(`/pages/${id}`, file);
       props.history.push(`/pages/${id}`);
-      console.log(response);
     } catch (err) {
       console.error(err);
     }
@@ -65,9 +60,8 @@ function Page(props) {
   async function handleDelete(event) {
     event.preventDefault();
     try {
-      const response = await api.delete(`/pages/${id}`);
+      await api.delete(`/pages/${id}`);
       props.history.push(`/pages`);
-      console.log(response);
     } catch (err) {
       console.error(err);
     }

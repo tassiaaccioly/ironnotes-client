@@ -52,8 +52,6 @@ function Signup(props) {
 
       const response = await api.post("/file-upload", uploadData);
 
-      console.log(response);
-
       return response.data.fileUrl;
     } catch (err) {
       console.error(err);
@@ -67,16 +65,14 @@ function Signup(props) {
 
       console.log(uploadedImageUrl);
 
-      const response = await api.post("/signup", {
+      await api.post("/signup", {
         ...state,
         avatar: uploadedImageUrl,
       });
 
-      console.log(response);
-
       setErrors({ username: "", password: "", email: "", cohort: "" });
 
-      // props.history.push("/auth/login");
+      props.history.push("/auth/login");
     } catch (err) {
       console.error(err);
       setErrors({ ...err.response.data.errors });
