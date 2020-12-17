@@ -1,11 +1,13 @@
 import { useEffect, useState, useContext, React } from "react";
 import { Link } from "react-router-dom";
 import api from "../../../../apis/pagesApi";
-import BlueBtn from "../../../../components/btns/BlueBtn";
 import { AuthContext } from "../../../../contexts/authContext";
 
+import { TitleH3, FormButton } from "../NoteStyles/page";
 import { PopUp, ContainerPopUp } from "../NoteStyles/events";
 import "./Quote.css";
+
+import NewQuote from "./AddNewQuote";
 
 function QuotesPopUp(props) {
   function ClosePopUp() {
@@ -41,20 +43,26 @@ function QuotesPopUp(props) {
     setRandom(!random);
   }
 
+  function showForm() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("addForm").style.display = "block";
+  }
+
   return (
     <>
       <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>
-      <ContainerPopUp id="QuotesPopUpOne" closeButton>
-        <div>
-          <h3>
-            <i>"{quote.quote}"</i>
-          </h3>
-          <p>Said By: {quote.said_by}</p>
+      <ContainerPopUp id="QuotesPopUpOne">
+        <div id="modal">
+          <div>
+            <TitleH3>
+              <i>"{quote.quote}"</i>
+            </TitleH3>
+            <p>Said By: {quote.said_by}</p>
+          </div>
+          <FormButton onClick={handleClick}>Random Quote</FormButton>
+          <FormButton onClick={showForm}>Add a Quote</FormButton>
         </div>
-        <BlueBtn onClick={handleClick}>Random Quote</BlueBtn>
-        <BlueBtn>
-          <Link to=""> Add a Quote </Link>
-        </BlueBtn>
+        <NewQuote />
       </ContainerPopUp>
     </>
   );

@@ -11,6 +11,7 @@ import Search from "./NoteComponents/PageEvents/searchpage/SearchPage";
 import HowTo from "./NoteComponents/HowTo";
 import EditPage from "./NoteComponents/PageEvents/EditPage";
 import NewPage from "./NoteComponents/PageEvents/NewPage";
+import NewQuote from "./NoteComponents/quotes/AddNewQuote";
 
 function PagesRouter(props) {
   const [theme, setTheme] = useState("light");
@@ -36,6 +37,11 @@ function PagesRouter(props) {
                 <Search {...routeProps} themes={{ theme: [theme, setTheme] }} />
               );
             }}
+          />
+          <Route
+            exact
+            path={`${props.match.path}/newquote`}
+            component={NewQuote}
           />
           <Route
             exact
