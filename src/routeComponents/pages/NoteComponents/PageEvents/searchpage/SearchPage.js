@@ -26,7 +26,7 @@ function SearchPage() {
     },
   ]);
 
-  const [notesFilter, setNotesFilter] = useState(false);
+  const [notesFilter, setNotesFilter] = useState([]);
 
   const [check, setCheck] = useState({
     title: false,
@@ -62,8 +62,6 @@ function SearchPage() {
 
   async function renderFilter() {
     try {
-      console.log(notesFilter);
-
       const response = await api.get("/pages");
 
       if (check.title) {
@@ -92,8 +90,6 @@ function SearchPage() {
         );
         setNotesFilter([...notesFilter, ...filteredCreator]);
       }
-
-      console.log(notesFilter);
     } catch (err) {
       console.error(err);
     }

@@ -21,9 +21,6 @@ function Home() {
           <BlueBtn>
             <Link to="/auth/signup">Sign Up</Link>
           </BlueBtn>
-          <BlueBtn>
-            <Link to="/pages">Go to your notes</Link>
-          </BlueBtn>
           <p>
             Already have an account? <Link to="auth/login">Login here</Link>.
           </p>
@@ -40,7 +37,7 @@ function Home() {
             <Link to="/pages">Go to your notes</Link>
           </BlueBtn>
         </div>
-        {/* {history.push("/pages")} */}
+        {history.push("/pages")}
       </main>
     );
   }
