@@ -105,7 +105,7 @@ function Page(props) {
               onChange={handleChange}
             />
 
-            <label htmlFor="pageTag">Tag</label>
+            <label htmlFor="pageTags">Tags: </label>
             <div>
               <InputForm
                 type="text"
@@ -117,13 +117,23 @@ function Page(props) {
             </div>
           </div>
 
-          <MDEditor value={file.text} onChange={textInput} height={350}
-            width={100} />
-          <div style={{width:"60%", display:"flex", justifyContent:"space-around"}}>
-          <Button onClick={handleSubmit} type="submit">
-            Edit
-          </Button>
-          <Button onClick={handleDelete}>Delete this page</Button>
+          <MDEditor
+            value={file.text}
+            onChange={textInput}
+            height={350}
+            width={400}
+          />
+          <div
+            style={{
+              width: "30%",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button onClick={handleSubmit} type="submit">
+              Save
+            </Button>
+            <Button onClick={handleDelete}>Delete</Button>
           </div>
         </FormPopUp>
       </ContainerPopUp>

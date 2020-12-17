@@ -3,8 +3,6 @@ import React, { useState, useEffect, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
-import { useHistory } from "react-router-dom";
-
 
 //CSS em componentes
 import {
@@ -14,12 +12,11 @@ import {
   Title,
   Tag,
   TagQueue,
-  FixHTML
+  FixHTML,
 } from "./NoteStyles/page";
 import EditPage from "./PageEvents/editpage";
 
 function Page(props) {
-  const history = useHistory();
   const authContext = useContext(AuthContext);
   //State para armazenar e fazer o render do conteúdo
   const [file, setFile] = useState({
@@ -34,10 +31,10 @@ function Page(props) {
   useEffect(() => {
     async function Text() {
       try {
-        const id = history.location.pathname;
+        const { id } = props.match.params;
 
         console.log(id);
-        const response = await api.get(`${id}`);
+        const response = await api.get(`/pages/${id}`);
         console.log(response);
         setFile({ ...response.data });
         console.log(response);
@@ -46,7 +43,7 @@ function Page(props) {
       }
     }
     Text();
-  }, [history.location.pathname]);
+  }, [props]);
 
   const OpenSearch = () => {
     document.getElementById("EditPagePopUp").style.display = "block";
@@ -55,8 +52,8 @@ function Page(props) {
 
   return (
     <>
-    <EditPage/>
-    <FixHTML></FixHTML>
+      <EditPage />
+      <FixHTML></FixHTML>
       <Container>
         <Fix>
           <header>
@@ -68,7 +65,11 @@ function Page(props) {
             </Tag>
           </header>
           <MDEditor.Markdown source={file.text} />
-          <Button onClick={OpenSearch}>Edit this note</Button>
+          <div
+            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+          >
+            <Button onClick={OpenSearch}>Edit Note</Button>
+          </div>
         </Fix>
       </Container>
     </>

@@ -10,8 +10,8 @@ import { ThemeProvider } from "styled-components";
 //---------------------------------------------------------------------//
 
 //Component para montar a página de anotações
-import Sidebar from "./sidebar";
-import Page from "./page";
+import Sidebar from "./Sidebar";
+import Page from "./Page";
 
 //------------------------------------//
 
