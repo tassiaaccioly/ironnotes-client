@@ -15,7 +15,7 @@ import CheckInput from "../../../../../components/CheckInput";
 
 import "./SearchPage.css";
 
-function SearchPage(props) {
+function SearchPage() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [notes, setNotes] = useState([
@@ -38,7 +38,6 @@ function SearchPage(props) {
     async function fetchData() {
       try {
         const response = await api.get("/pages");
-        console.log(response);
 
         setNotes([...response.data]);
       } catch (err) {
@@ -48,24 +47,47 @@ function SearchPage(props) {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    async function awaitRender() {
+      if (notesFilter.length === 0) {
+        await renderFilter();
+      }
+    }
+    awaitRender();
+  }, [notesFilter]);
+
   function handleClick() {
+    setNotesFilter([]);
+  }
+
+  async function renderFilter() {
     try {
+      console.log(notesFilter);
+
+      const response = await api.get("/pages");
+
       if (check.title) {
-        const filteredTitle = notesFilter.filter((note) =>
+        const filteredTitle = response.data.filter((note) =>
           note.title.toLowerCase().includes(searchTerm)
         );
         setNotesFilter([...notesFilter, ...filteredTitle]);
       }
 
       if (check.tags) {
-        const filteredTags = notesFilter.filter((note) =>
-          note.tags.map((tag) => tag.includes(searchTerm))
-        );
+        const filteredTags = response.data.filter((note) => {
+          let search = false;
+          note.tags.forEach((tag) => {
+            if (tag.includes(searchTerm)) {
+              search = true;
+            }
+          });
+          return search;
+        });
         setNotesFilter([...notesFilter, ...filteredTags]);
       }
 
       if (check.creator) {
-        const filteredCreator = notesFilter.filter((note) =>
+        const filteredCreator = response.data.filter((note) =>
           note.creatorUser.username.toLowerCase().includes(searchTerm)
         );
         setNotesFilter([...notesFilter, ...filteredCreator]);
@@ -88,7 +110,6 @@ function SearchPage(props) {
     });
   }
 
-  console.log(props.titles);
   return (
     <>
       <FixHTML></FixHTML>
@@ -139,7 +160,7 @@ function SearchPage(props) {
                   <th>Creator</th>
                 </tr>
               </thead>
-              {!notesFilter
+              {notesFilter.length === 0
                 ? notes.map((note) => (
                     <tr>
                       <td>
@@ -171,7 +192,9 @@ function SearchPage(props) {
                           </Link>
                         ))}
                       </td>
-                      <td>{note.creatorUser.username}</td>
+                      <td style={{ textAlign: "center" }}>
+                        {note.creatorUser.username}
+                      </td>
                     </tr>
                   ))}
             </table>
