@@ -23,7 +23,6 @@ function NewPage(props) {
 
   function handleChange(event) {
     setPage({ ...page, [event.target.name]: event.target.value });
-    console.log(page);
   }
 
   function textInput(event) {
@@ -33,15 +32,9 @@ function NewPage(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await api.post("/pages", page);
+      await api.post("/pages", page);
 
-      async function reloadPage() {
-        const response = await api.get("/titles");
-        const { _id } = response.data[response.data.length - 1];
-        window.location.replace(`/pages/${_id}`);
-      }
-      reloadPage();
-      console.log(response);
+      props.history.push("/pages");
     } catch (err) {
       console.error(err);
     }

@@ -9,7 +9,6 @@ import Profile from "./profile/Profile";
 import About from "./about/About";
 
 function AuthRouter(props) {
-  console.log(props);
   return (
     <React.Fragment>
       <NavBar history={props.history} />

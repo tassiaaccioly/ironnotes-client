@@ -8,7 +8,6 @@ function SearchPopUp(props) {
     document.getElementById("QuotesPopUp").style.display = "none";
     document.getElementById("QuotesPopUpOne").style.display = "none";
   }
-  console.log(props.titles);
   return (
     <>
       <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { GlobalStyle } from "./NoteComponents/NoteStyles/globalStyles";
@@ -13,11 +13,12 @@ import EditPage from "./NoteComponents/PageEvents/EditPage";
 import NewPage from "./NoteComponents/PageEvents/NewPage";
 
 function PagesRouter(props) {
+  const history = useHistory();
   const [theme, setTheme] = useState("light");
   return (
     <React.Fragment>
       <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
-        <Sidebar themes={{ theme: [theme, setTheme] }} />
+        <Sidebar history={history} themes={{ theme: [theme, setTheme] }} />
         <Switch>
           <Route
             exact

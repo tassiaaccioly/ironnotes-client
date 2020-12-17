@@ -28,10 +28,7 @@ function Profile(props) {
   useEffect(() => {
     async function fetchUser() {
       try {
-        console.log("cheguei aqui");
         const response = await api.get("/profile");
-        console.log("será que cheguei aqui?");
-        console.log(response);
         setUser({ ...response.data.user });
       } catch (err) {
         console.error(err);
