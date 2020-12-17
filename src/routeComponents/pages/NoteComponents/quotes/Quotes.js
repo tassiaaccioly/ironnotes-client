@@ -5,9 +5,9 @@ import BlueBtn from "../../../../components/btns/BlueBtn";
 import { AuthContext } from "../../../../contexts/authContext";
 
 import { PopUp, ContainerPopUp } from "../NoteStyles/events";
-import "./quote.css";
+import "./Quote.css";
 
-function SearchPopUp(props) {
+function QuotesPopUp(props) {
   function ClosePopUp() {
     document.getElementById("QuotesPopUp").style.display = "none";
     document.getElementById("QuotesPopUpOne").style.display = "none";
@@ -16,34 +16,40 @@ function SearchPopUp(props) {
   const authContext = useContext(AuthContext);
 
   //State para puxar os quotes
-  const [quote, setQuote] = useState([
-    {
-      said_by: "",
-      quote: "",
-    },
-  ]);
+  const [quote, setQuote] = useState({
+    said_by: "",
+    quote: "",
+  });
+
+  const [random, setRandom] = useState(false);
 
   //useEffect para buscar dados na API
   useEffect(() => {
-    async function Quotes() {
+    async function fetchQuotes() {
       try {
         const response = await api.get("/quote");
-        setQuote([...response.data]);
+        console.log(response);
+        setQuote({ ...response.data });
       } catch (err) {
         console.error(err);
       }
     }
-    Quotes();
-  }, []);
+    fetchQuotes();
+  }, [random]);
+
+  function handleClick() {
+    setRandom(!random);
+  }
 
   return (
     <>
       <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>
       <ContainerPopUp id="QuotesPopUpOne" closeButton>
-      <div></div>
-        <BlueBtn>
-          <Link to=""> Random Quote </Link>
-        </BlueBtn>
+        <div>
+          <h3>{quote.quote}</h3>
+          <p>{quote.said_by}</p>
+        </div>
+        <BlueBtn onClick={handleClick}>Random Quote</BlueBtn>
         <BlueBtn>
           <Link to=""> Add a Quote </Link>
         </BlueBtn>
@@ -52,4 +58,4 @@ function SearchPopUp(props) {
   );
 }
 
-export default SearchPopUp;
+export default QuotesPopUp;

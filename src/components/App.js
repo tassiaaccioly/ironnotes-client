@@ -6,7 +6,7 @@ import "./App.css";
 import Home from "./home/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 import PagesRouter from "../routeComponents/pages/PagesRouter";
-import Quotes from "../routeComponents/pages/NoteComponents/quotes/Quotes";
+import QuotesPopUp from "../routeComponents/pages/NoteComponents/quotes/Quotes";
 
 import InternalServerError from "./internalservererror/InternalServerError";
 import NoMatch from "./nomatch/NoMatch";
@@ -33,7 +33,7 @@ function App() {
             <Route path="/about" component={About} />
 
             {/* Quotes route */}
-            <Route path="/quote" component={Quotes} />
+            <Route path="/quote" component={QuotesPopUp} />
 
             {/* error handling routes  */}
             <Route
