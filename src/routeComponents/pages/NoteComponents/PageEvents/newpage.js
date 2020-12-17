@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
-import { useHistory } from "react-router-dom";
 
 import { InputForm } from "../NoteStyles/events";
 import {
@@ -15,7 +14,7 @@ import api from "../../../../apis/pagesApi";
 import { AuthContext } from "../../../../contexts/authContext";
 
 function NewPage(props) {
-  const authContext = useContext(AuthContext);
+  useContext(AuthContext);
   const [page, setPage] = useState({
     title: "",
     tags: "",
