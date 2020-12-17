@@ -2,13 +2,15 @@ import React, { useState, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import { useHistory } from "react-router-dom";
 
+import { InputForm } from "../NoteStyles/events";
 import {
-  PopUp,
-  ContainerPopUp,
-  FormPopUp,
-  InputForm,
-} from "../NoteStyles/events";
-import { Button } from "../NoteStyles/page";
+  Button,
+  Container,
+  Fix,
+  FixHTML,
+  Title,
+  TitleH3,
+} from "../NoteStyles/page";
 import api from "../../../../apis/pagesApi";
 import { AuthContext } from "../../../../contexts/authContext";
 
@@ -29,8 +31,6 @@ function NewPage(props) {
     setPage({ ...page, text: event });
   }
 
-  const history = useHistory();
-
   async function handleSubmit(event) {
     event.preventDefault();
     try {
@@ -48,26 +48,21 @@ function NewPage(props) {
     }
   }
 
-  function ClosePopUp() {
-    document.getElementById("NewPagePopUp").style.display = "none";
-    document.getElementById("NewPagePopUpOne").style.display = "none";
-  }
-
   return (
     <>
-      <PopUp id="NewPagePopUp" onClick={ClosePopUp}></PopUp>
-      <ContainerPopUp id="NewPagePopUpOne">
-        <FormPopUp>
-          <strong>Create a new note</strong>
+      <FixHTML></FixHTML>
+      <Container id="NewPagePopUp">
+        <Fix>
+          <Title>Create a New Note</Title>
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
               width: "100%",
-              marginBottom: "2%",
+              margin: "3% auto",
             }}
           >
-            <label htmlFor="pageTitle">Title:</label>
+            <label htmlFor="pageTitle">
+              <TitleH3>Title:</TitleH3>
+            </label>
             <InputForm
               type="text"
               name="title"
@@ -76,7 +71,9 @@ function NewPage(props) {
               onChange={handleChange}
             />
 
-            <label htmlFor="pageTags">Tag</label>
+            <label htmlFor="pageTags">
+              <TitleH3>Tags:</TitleH3>
+            </label>
             <div>
               <InputForm
                 type="text"
@@ -92,13 +89,22 @@ function NewPage(props) {
             value={page.text}
             onChange={textInput}
             height={350}
-            width={100}
+            width={300}
           />
-          <Button onClick={handleSubmit} type="submit">
-            Create
-          </Button>
-        </FormPopUp>
-      </ContainerPopUp>
+          <div
+            style={{
+              width: "30%",
+              margin: "0 auto",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button onClick={handleSubmit} type="submit">
+              Create
+            </Button>
+          </div>
+        </Fix>
+      </Container>
     </>
   );
 }

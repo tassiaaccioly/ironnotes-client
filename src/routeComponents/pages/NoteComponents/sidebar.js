@@ -5,7 +5,7 @@ import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
 //Componentes
-import NewPage from "./PageEvents/newpage";
+import NewPage from "./PageEvents/NewPage";
 import Quotes from "./quotes/Quotes";
 
 //CSS em componentes
@@ -90,17 +90,7 @@ function Sidebar(props) {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
-  //---------------------------------------------------------------------//
-
-  // const OpenSearch = () => {
-  //   document.getElementById("SearchBarPopUp").style.display = "block";
-  //   document.getElementById("SearchBarPopUpOne").style.display = "block";
-  // };
-
-  const OpenNewPage = () => {
-    document.getElementById("NewPagePopUp").style.display = "block";
-    document.getElementById("NewPagePopUpOne").style.display = "block";
-  };
+  //------------------------------------------------------------------//
 
   const toggleQuotes = () => {
     document.getElementById("QuotesPopUp").style.display = "block";
@@ -110,8 +100,6 @@ function Sidebar(props) {
   return (
     <>
       <Quotes />
-      {/* <SearchPopUp titles={[...list]} /> */}
-      <NewPage />
       <NavRight>
         <IconRight onClick={themeToggle} src={theme === "light" ? Dark : Sun} />
         <IconRight
@@ -127,8 +115,9 @@ function Sidebar(props) {
         <Link to="/">
           <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
         </Link>
-        <SearchBar placeholder="Search here"></SearchBar>
-        {/*onClick={OpenSearch}*/}
+        <Link to="/pages/search">
+          <SearchBar placeholder="Search here"></SearchBar>
+        </Link>
 
         <ListItems>
           {list.map((list) => (
@@ -147,7 +136,9 @@ function Sidebar(props) {
           ))}
         </ListItems>
         <NavOptions>
-          <Options onClick={OpenNewPage}>+ New Note</Options>
+          <Options>
+            <Link to="/pages/newpage">+ New Note</Link>
+          </Options>
         </NavOptions>
       </Nav>
     </>
