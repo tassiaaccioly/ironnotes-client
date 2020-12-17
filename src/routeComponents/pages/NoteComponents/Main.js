@@ -9,9 +9,11 @@ import { ThemeProvider } from "styled-components";
 
 //---------------------------------------------------------------------//
 
-//Component para montar a página de anotações
+//Component para montar a página de anotações e quotes
 import Sidebar from "./Sidebar";
 import Page from "./Page";
+import QuotesPopUp from "../NoteComponents/quotes/Quotes";
+import NewQuote from "../NoteComponents/quotes/AddNewQuote";
 
 //------------------------------------//
 
@@ -23,6 +25,8 @@ function MainPage() {
     <div>
       <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
         <Sidebar themes={{ theme: [theme, setTheme] }} />
+        <QuotesPopUp />
+        <NewQuote />
         <Page />
         <GlobalStyle />
       </ThemeProvider>

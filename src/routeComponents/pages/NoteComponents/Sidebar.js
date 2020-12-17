@@ -5,7 +5,8 @@ import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
 //Componentes
-import Quotes from "./quotes/Quotes";
+import NewPage from "./PageEvents/NewPage";
+import QuotesPopUp from "./quotes/Quotes";
 
 //CSS em componentes
 import {
@@ -105,7 +106,7 @@ function Sidebar(props) {
 
   return (
     <>
-      <Quotes />
+      <QuotesPopUp />
       <NavRight>
         <IconRight onClick={themeToggle} src={theme === "light" ? Dark : Sun} />
         <IconRight
