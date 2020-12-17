@@ -1,10 +1,11 @@
-//Bibliotecas
+//Dependencies
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
 import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
-//CSS em componentes
+//Styled Components
 import {
   Container,
   Fix,
@@ -14,7 +15,9 @@ import {
   TagQueue,
   FixHTML,
 } from "./NoteStyles/page";
-import EditPage from "./PageEvents/editpage";
+
+//Components
+// import EditPage from "./PageEvents/EditPage";
 
 function Page(props) {
   const authContext = useContext(AuthContext);
@@ -28,11 +31,11 @@ function Page(props) {
 
   //Buscando o path(Caminho) da url para retirar o Id
 
+  const { id } = props.match.params;
+
   useEffect(() => {
     async function Text() {
       try {
-        const { id } = props.match.params;
-
         console.log(id);
         const response = await api.get(`/pages/${id}`);
         console.log(response);
@@ -43,16 +46,16 @@ function Page(props) {
       }
     }
     Text();
-  }, [props]);
+  }, [id]);
 
-  const OpenSearch = () => {
-    document.getElementById("EditPagePopUp").style.display = "block";
-    document.getElementById("EditPagePopUpOne").style.display = "block";
-  };
+  // const OpenSearch = () => {
+  //   document.getElementById("EditPagePopUp").style.display = "block";
+  //   document.getElementById("EditPagePopUpOne").style.display = "block";
+  // };
 
   return (
     <>
-      <EditPage />
+      {/* <EditPage /> */}
       <FixHTML></FixHTML>
       <Container>
         <Fix>
@@ -65,11 +68,13 @@ function Page(props) {
             </Tag>
           </header>
           <MDEditor.Markdown source={file.text} />
-          <div
+          <Link
+            to={`/pages/edit/${id}`}
+            // onClick={OpenSearch}
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
-            <Button onClick={OpenSearch}>Edit Note</Button>
-          </div>
+            <Button>Edit Note</Button>
+          </Link>
         </Fix>
       </Container>
     </>

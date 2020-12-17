@@ -3,18 +3,19 @@ import React, { useState, useEffect, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import api from "../../../../apis/pagesApi";
 import { AuthContext } from "../../../../contexts/authContext";
-import { useHistory } from "react-router-dom";
 
 //CSS em componentes
+import { InputForm } from "../NoteStyles/events";
 import {
-  PopUp,
-  ContainerPopUp,
-  FormPopUp,
-  InputForm,
-} from "../NoteStyles/events";
-import { Button } from "../NoteStyles/page";
+  Button,
+  Container,
+  Fix,
+  FixHTML,
+  Title,
+  TitleH3,
+} from "../NoteStyles/page";
+
 function Page(props) {
-  const history = useHistory();
   const authContext = useContext(AuthContext);
   //State para armazenar e fazer o render do conteúdo
   const [file, setFile] = useState({
@@ -25,12 +26,12 @@ function Page(props) {
   });
 
   //Buscando o path(Caminho) da url para retirar o Id
-  const id = history.location.pathname;
+  const { id } = props.match.params;
   useEffect(() => {
     async function Text() {
       try {
         console.log(id);
-        const response = await api.get(`${id}`);
+        const response = await api.get(`/pages/${id}`);
         console.log(response);
         setFile({ ...response.data });
         console.log(response);
@@ -39,15 +40,10 @@ function Page(props) {
       }
     }
     Text();
-  }, [history.location.pathname]);
-
-  function ClosePopUp() {
-    document.getElementById("EditPagePopUp").style.display = "none";
-    document.getElementById("EditPagePopUpOne").style.display = "none";
-  }
+  }, [id]);
 
   function handleChange(event) {
-    setFile({ ...file, [event.target.name]: event.target.value });
+    setFile({ ...file, [event.currentTarget.name]: event.currentTarget.value });
     console.log(file);
   }
 
@@ -58,8 +54,8 @@ function Page(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await api.patch(`${id}`, file);
-      window.location.reload();
+      const response = await api.patch(`/pages/${id}`, file);
+      props.history.push(`/pages/${id}`);
       console.log(response);
     } catch (err) {
       console.error(err);
@@ -69,13 +65,8 @@ function Page(props) {
   async function handleDelete(event) {
     event.preventDefault();
     try {
-      const response = await api.delete(`${id}`);
-      async function reloadPage() {
-        const response = await api.get("/titles");
-        const { _id } = response.data[response.data.length - 1];
-        window.location.replace(`/pages/${_id}`);
-      }
-      reloadPage();
+      const response = await api.delete(`/delete/${id}`);
+      props.history.push(`/pages`);
       console.log(response);
     } catch (err) {
       console.error(err);
@@ -84,19 +75,22 @@ function Page(props) {
 
   return (
     <>
-      <PopUp id="EditPagePopUp" onClick={ClosePopUp}></PopUp>
-      <ContainerPopUp id="EditPagePopUpOne">
-        <FormPopUp>
-          <strong>Edit this note</strong>
+      <FixHTML></FixHTML>
+      <Container id="EditPagePopUpOne">
+        <Fix>
+          <Title>Edit this note</Title>
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
+              // display: "flex",
+              // flexDirection: "column",
+              // alignItems: "start",
               width: "100%",
-              marginBottom: "2%",
+              margin: "3% auto",
             }}
           >
-            <label htmlFor="pageTitle">Title:</label>
+            <label htmlFor="pageTitle">
+              <TitleH3>Title:</TitleH3>
+            </label>
             <InputForm
               type="text"
               name="title"
@@ -105,7 +99,9 @@ function Page(props) {
               onChange={handleChange}
             />
 
-            <label htmlFor="pageTags">Tags: </label>
+            <label htmlFor="pageTags">
+              <TitleH3>Tags:</TitleH3>
+            </label>
             <div>
               <InputForm
                 type="text"
@@ -121,11 +117,12 @@ function Page(props) {
             value={file.text}
             onChange={textInput}
             height={350}
-            width={400}
+            width={300}
           />
           <div
             style={{
               width: "30%",
+              margin: "0 auto",
               display: "flex",
               justifyContent: "center",
             }}
@@ -135,8 +132,8 @@ function Page(props) {
             </Button>
             <Button onClick={handleDelete}>Delete</Button>
           </div>
-        </FormPopUp>
-      </ContainerPopUp>
+        </Fix>
+      </Container>
     </>
   );
 }

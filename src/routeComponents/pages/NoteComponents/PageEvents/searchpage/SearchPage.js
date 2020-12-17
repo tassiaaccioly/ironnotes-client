@@ -26,13 +26,7 @@ function SearchPage(props) {
     },
   ]);
 
-  const [notesFilter, setNotesFilter] = useState([
-    {
-      title: "",
-      tags: [],
-      creatorUser: {},
-    },
-  ]);
+  const [notesFilter, setNotesFilter] = useState(false);
 
   const [check, setCheck] = useState({
     title: false,
@@ -54,7 +48,7 @@ function SearchPage(props) {
     fetchData();
   }, []);
 
-  async function handleClick() {
+  function handleClick() {
     try {
       if (check.title) {
         const filteredTitle = notesFilter.filter((note) =>
