@@ -101,6 +101,14 @@ export const Title = style.h1`
 }
 `;
 
+export const TitleH3 = style.h3`
+    text-align: left;
+    font-size: 17px;
+@media(max-width: 767px) {
+   font-size: 15px;
+}
+`;
+
 export const Tag = style.div`
     color: white;
     position: relative;

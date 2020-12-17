@@ -5,11 +5,12 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./NoteComponents/NoteStyles/globalStyles";
 import { LightTheme, DarkTheme } from "./NoteComponents/NoteStyles/themes";
 
-import Notebook from "./NoteComponents/Main";
 import Sidebar from "./NoteComponents/Sidebar";
 import Page from "./NoteComponents/Page";
 import Search from "./NoteComponents/PageEvents/searchpage/SearchPage";
 import HowTo from "./NoteComponents/HowTo";
+import EditPage from "./NoteComponents/PageEvents/EditPage";
+import NewPage from "./NoteComponents/PageEvents/NewPage";
 
 function PagesRouter(props) {
   const [theme, setTheme] = useState("light");
@@ -22,15 +23,29 @@ function PagesRouter(props) {
             exact
             path={`${props.match.path}`}
             render={(routeProps) => {
-              return <HowTo themes={{ theme: [theme, setTheme] }} />;
+              return (
+                <HowTo {...routeProps} themes={{ theme: [theme, setTheme] }} />
+              );
             }}
           />
           <Route
             exact
             path={`${props.match.path}/search`}
             render={(routeProps) => {
-              return <Search themes={{ theme: [theme, setTheme] }} />;
+              return (
+                <Search {...routeProps} themes={{ theme: [theme, setTheme] }} />
+              );
             }}
+          />
+          <Route
+            exact
+            path={`${props.match.path}/edit/:id`}
+            component={EditPage}
+          />
+          <Route
+            exact
+            path={`${props.match.path}/newpage`}
+            component={NewPage}
           />
           <Route path={`${props.match.path}/:id`} component={Page} />
           <GlobalStyle />
