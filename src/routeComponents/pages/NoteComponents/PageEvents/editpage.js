@@ -117,13 +117,23 @@ function Page(props) {
             </div>
           </div>
 
-          <MDEditor value={file.text} onChange={textInput} height={350}
-            width={100} />
-          <div style={{width:"60%", display:"flex", justifyContent:"space-around"}}>
-          <Button onClick={handleSubmit} type="submit">
-            Edit
-          </Button>
-          <Button onClick={handleDelete}>Delete this page</Button>
+          <MDEditor
+            value={file.text}
+            onChange={textInput}
+            height={350}
+            width={100}
+          />
+          <div
+            style={{
+              width: "60%",
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
+            <Button onClick={handleSubmit} type="submit">
+              Edit
+            </Button>
+            <Button onClick={handleDelete}>Delete this page</Button>
           </div>
         </FormPopUp>
       </ContainerPopUp>

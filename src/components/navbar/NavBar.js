@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 //images
 import NLogoDark from "../../assets/images/N_LogoDark.svg";
-import LogoutBtn from "../../assets/icons/power-button.svg";
+import LogoutBtn from "../../assets/icons/power_black.svg";
 
 //css
 import "./NavBar.css";

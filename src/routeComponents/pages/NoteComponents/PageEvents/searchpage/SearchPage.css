@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 200px;
+  background-color: #fafbfb;
 }
 
 .searchbar-input {
@@ -11,7 +13,7 @@
   justify-content: center;
 }
 
-.searchbar-input input {
+#searchbar-input {
   width: 65%;
   margin: 0 auto;
   border: none;
