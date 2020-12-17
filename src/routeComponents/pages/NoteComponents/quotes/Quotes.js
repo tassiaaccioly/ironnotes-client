@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {Modal, Button} from "react-bootstrap"
-import './quote.css'
+import "./quote.css";
+import BlueBtn from "../../../../components/btns/BlueBtn";
+import TextInput from "../../../../components/TextInput";
 
 import { PopUp, ContainerPopUp } from "../NoteStyles/events";
 function SearchPopUp(props) {
@@ -14,9 +14,10 @@ function SearchPopUp(props) {
     <>
       <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>
       <ContainerPopUp id="QuotesPopUpOne">
-
-      {/* aqui */}
-
+        <TextInput />
+        <TextInput />
+        <BlueBtn />
+        <BlueBtn />
       </ContainerPopUp>
     </>
   );

@@ -100,14 +100,14 @@ function Sidebar(props) {
     document.getElementById("QuotesPopUp").style.display = "block";
     document.getElementById("QuotesPopUpOne").style.display = "block";
   };
-  
+
   return (
     <>
       <SearchPopUp titles={[...list]} />
       <NewPage />
       <NavRight>
         <IconRight onClick={themeToggle} src={theme === "light" ? Dark : Sun} />
-        <IconRight src={emoji} />
+        <IconRight onClick={toggleQuotes} src={emoji} />
         <IconRight src={About} />
         <IconRight src={Settings} />
         <IconRight src={Logout} />
@@ -115,10 +115,7 @@ function Sidebar(props) {
       <PullNavMobile onClick={Pull}>Menu</PullNavMobile>
       <Nav id="Pull">
         <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
-        <SearchBar
-          placeholder="Search here"
-          onClick={OpenSearch}
-        ></SearchBar>
+        <SearchBar placeholder="Search here" onClick={OpenSearch}></SearchBar>
         <strong
           style={{ marginTop: "15px", marginBottom: "10px", fontSize: "20px" }}
         >
