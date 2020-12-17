@@ -16,11 +16,8 @@ import {
   FixHTML,
 } from "./NoteStyles/page";
 
-//Components
-// import EditPage from "./PageEvents/EditPage";
-
 function Page(props) {
-  const authContext = useContext(AuthContext);
+  useContext(AuthContext);
   //State para armazenar e fazer o render do conteúdo
   const [file, setFile] = useState({
     _id: "",
@@ -47,11 +44,6 @@ function Page(props) {
     }
     Text();
   }, [id]);
-
-  // const OpenSearch = () => {
-  //   document.getElementById("EditPagePopUp").style.display = "block";
-  //   document.getElementById("EditPagePopUpOne").style.display = "block";
-  // };
 
   return (
     <>

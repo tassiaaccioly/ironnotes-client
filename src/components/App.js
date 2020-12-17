@@ -13,8 +13,6 @@ import NoMatch from "./nomatch/NoMatch";
 
 import { AuthContextComponent } from "../contexts/authContext";
 
-import About from "./about/About";
-
 function App() {
   return (
     <div>
@@ -28,12 +26,6 @@ function App() {
 
             {/* Pages routes */}
             <Route path="/pages" component={PagesRouter} />
-
-            {/* About route */}
-            <Route path="/about" component={About} />
-
-            {/* Quotes route */}
-            <Route path="/quote" component={QuotesPopUp} />
 
             {/* error handling routes  */}
             <Route

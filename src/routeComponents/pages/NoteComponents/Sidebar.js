@@ -40,7 +40,7 @@ import EmojiBlack from "../../../assets/icons/tongue_black.svg";
 import EmojiWhite from "../../../assets/icons/tongue_white.svg";
 
 function Sidebar(props) {
-  const authContext = useContext(AuthContext);
+  useContext(AuthContext);
   //State para guardar todos os resultados para montar a lista na barra de navegação
   const [list, setList] = useState([
     {

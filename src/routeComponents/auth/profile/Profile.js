@@ -15,7 +15,7 @@ import { AuthContext } from "../../../contexts/authContext";
 import api from "../../../apis/pagesApi";
 
 function Profile(props) {
-  const authContext = useContext(AuthContext);
+  useContext(AuthContext);
 
   const [user, setUser] = useState({
     username: "",

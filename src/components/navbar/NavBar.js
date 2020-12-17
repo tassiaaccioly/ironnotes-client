@@ -34,10 +34,10 @@ function NavBar(props) {
 
       <ul className={!mobile ? "nav-links" : "nav-links nav-active"}>
         <li className={!mobile ? "" : "link-active"}>
-          <Link to="/profile">Profile</Link>
+          <Link to="/auth/profile">Profile</Link>
         </li>
         <li className={!mobile ? "" : "link-active"}>
-          <Link to="/about">About</Link>
+          <Link to="/auth/about">About</Link>
         </li>
         <li className={!mobile ? "" : "link-active"}>
           <a href="https://ironhack.com">Ironhack</a>

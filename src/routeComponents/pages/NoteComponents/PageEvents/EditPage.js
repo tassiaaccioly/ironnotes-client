@@ -16,7 +16,7 @@ import {
 } from "../NoteStyles/page";
 
 function Page(props) {
-  const authContext = useContext(AuthContext);
+  useContext(AuthContext);
   //State para armazenar e fazer o render do conteúdo
   const [file, setFile] = useState({
     _id: "",
@@ -65,7 +65,7 @@ function Page(props) {
   async function handleDelete(event) {
     event.preventDefault();
     try {
-      const response = await api.delete(`/delete/${id}`);
+      const response = await api.delete(`/pages/${id}`);
       props.history.push(`/pages`);
       console.log(response);
     } catch (err) {
