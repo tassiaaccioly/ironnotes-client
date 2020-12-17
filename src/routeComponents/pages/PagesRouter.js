@@ -9,8 +9,8 @@ import Sidebar from "./NoteComponents/Sidebar";
 import Page from "./NoteComponents/Page";
 import Search from "./NoteComponents/PageEvents/searchpage/SearchPage";
 import HowTo from "./NoteComponents/HowTo";
-import EditPage from "./NoteComponents/PageEvents/Editpage";
-import NewPage from "./NoteComponents/PageEvents/Newpage";
+import EditPage from "./NoteComponents/PageEvents/EditPage";
+import NewPage from "./NoteComponents/PageEvents/NewPage";
 
 function PagesRouter(props) {
   const [theme, setTheme] = useState("light");

@@ -6,10 +6,10 @@ import "./App.css";
 import Home from "./home/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 import PagesRouter from "../routeComponents/pages/PagesRouter";
-import QuotesPopUp from "../routeComponents/pages/NoteComponents/quotes/Quotes";
 
 import InternalServerError from "./internalservererror/InternalServerError";
 import NoMatch from "./nomatch/NoMatch";
+import Quotes from "../routeComponents/pages/NoteComponents/quotes/Quotes";
 
 import { AuthContextComponent } from "../contexts/authContext";
 
@@ -24,8 +24,11 @@ function App() {
             {/* Login, Signup, Logout and Profile routes */}
             <Route path="/auth" component={AuthRouter} />
 
-            {/* Pages routes */}
+            {/* Pages router */}
             <Route path="/pages" component={PagesRouter} />
+
+            {/* Quotes router */}
+            <Route path="/quote" component={Quotes} />
 
             {/* error handling routes  */}
             <Route

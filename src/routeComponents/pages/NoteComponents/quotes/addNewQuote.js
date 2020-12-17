@@ -17,7 +17,6 @@ function SearchPopUp(props) {
       <ContainerPopUp id="QuotesPopUpOne">
         <TextInput label="Said By:"/>
         <TextInput label="Quote:"/>
-        <BlueBtn> Random Quote </BlueBtn>
         <BlueBtn>Save Quote</BlueBtn>
       </ContainerPopUp>
     </>

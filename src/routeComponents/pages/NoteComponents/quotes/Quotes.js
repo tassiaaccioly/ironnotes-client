@@ -46,8 +46,10 @@ function QuotesPopUp(props) {
       <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>
       <ContainerPopUp id="QuotesPopUpOne" closeButton>
         <div>
-          <h3>{quote.quote}</h3>
-          <p>{quote.said_by}</p>
+          <h3>
+            <i>"{quote.quote}"</i>
+          </h3>
+          <p>Said By: {quote.said_by}</p>
         </div>
         <BlueBtn onClick={handleClick}>Random Quote</BlueBtn>
         <BlueBtn>
