@@ -6,6 +6,8 @@
 
 `IronNotes is a collective notebook for students at Ironhack Bootcamps to keep texts, notes, links, quotes and any important informations that might arise in class.`
 
+Checkout our deployed app [here](http://ec2-3-131-169-218.us-east-2.compute.amazonaws.com/)
+
 See the online server [here](ec2-3-131-169-218.us-east-2.compute.amazonaws.com) (all paths are protected)
 
 See the server repository [here](https://github.com/tassiaaccioly/ironnotes-server)
