@@ -1,12 +1,16 @@
-import { React, useState, useContext, useEffect } from "react";
+import { React, useState, useContext } from "react";
+
 import api from "../../../../apis/pagesApi";
+
 import { AuthContext } from "../../../../contexts/authContext";
+
 import "./Quote.css";
+
 import { FormButton } from "../NoteStyles/page";
 import { InputForm } from "../NoteStyles/events";
 
 function NewQuote(props) {
-  const authContext = useContext(AuthContext);
+  useContext(AuthContext);
 
   const [quote, setQuote] = useState({
     said_by: "",
@@ -35,28 +39,28 @@ function NewQuote(props) {
   return (
     <>
       <div id="addForm" style={{ display: "none" }}>
-      <div id="text">
-        <InputForm
-          placeholder="Who said it??"
-          type="text"
-          name="said_by"
-          value={quote.said_by}
-          onChange={handleChange}
-        />
-        <InputForm
-        id="bottom"
-          placeholder="What did they say??"
-          type="text"
-          name="quote"
-          value={quote.quote}
-          onChange={handleChange}
-        />
-        <div id="buttons">
-        <FormButton onClick={handleSubmit} type="submit">
-          Save Quote
-        </FormButton>
-        <FormButton onClick={backTrack}>Back to Random Quote</FormButton>
-        </div>
+        <div id="text">
+          <InputForm
+            placeholder="Who said it??"
+            type="text"
+            name="said_by"
+            value={quote.said_by}
+            onChange={handleChange}
+          />
+          <InputForm
+            id="bottom"
+            placeholder="What did they say??"
+            type="text"
+            name="quote"
+            value={quote.quote}
+            onChange={handleChange}
+          />
+          <div id="buttons">
+            <FormButton onClick={handleSubmit} type="submit">
+              Save Quote
+            </FormButton>
+            <FormButton onClick={backTrack}>Back to Random Quote</FormButton>
+          </div>
         </div>
       </div>
     </>

@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/authContext";
 import "./Home.css";
 
 import BlueBtn from "../btns/BlueBtn";
+import LogoLight from "../../assets/images/LogoLight.svg";
 
 function Home() {
   useContext(AuthContext);
@@ -15,7 +16,7 @@ function Home() {
   if (!haveToken) {
     return (
       <main className="home">
-        <img src="./images/javascript.jpg" alt="Logo" />
+        <img src={LogoLight} alt="Logo" />
         <div className="home-container">
           <h3>All your cohort's notes in one place!</h3>
           <BlueBtn>
@@ -28,18 +29,7 @@ function Home() {
       </main>
     );
   } else {
-    return (
-      <main className="home">
-        <img src="./images/javascript.jpg" alt="Logo" />
-        <div className="home-container">
-          <h3>All your cohort's notes in one place!</h3>
-          <BlueBtn>
-            <Link to="/pages">Go to your notes</Link>
-          </BlueBtn>
-        </div>
-        {history.push("/pages")}
-      </main>
-    );
+    return <main className="home">{history.push("/pages")}</main>;
   }
 }
 

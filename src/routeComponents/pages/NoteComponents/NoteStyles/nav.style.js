@@ -20,9 +20,11 @@ export const Nav = style.div`
     }
     
     `;
-export const SearchBar = style.input`
+export const SearchBar = style.button`
     margin: 30px 0 10px;
+    border: none;
     border-radius: 5px;
+    background-color: white;
     border: 1px solid #2a2e2f;
     height: 30px;
     width: 80%;

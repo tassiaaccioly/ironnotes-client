@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     .wmde-markdown{
@@ -21,11 +21,12 @@ export const GlobalStyle = createGlobalStyle`
     body{
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
     #root{
         maegin: 0;
         padding: 0;
-        background: ${({theme})=>theme.body};
+        background: ${({ theme }) => theme.body};
         transition: 1s;
     }
 `;

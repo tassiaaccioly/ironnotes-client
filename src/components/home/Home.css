@@ -7,9 +7,9 @@
 }
 
 .home img {
-  width: 65vw;
+  width: 30%;
   display: block;
-  margin: 4rem auto 0;
+  margin: 4rem auto 4rem;
 }
 
 .home h3 {

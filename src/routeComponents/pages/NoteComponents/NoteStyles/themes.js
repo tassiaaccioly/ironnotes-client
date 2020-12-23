@@ -8,6 +8,7 @@ export const DarkTheme = {
   BottomButton: "#787878",
   Rotate: "rotate(360deg)",
   FixColor: "#2A2E2F",
+  InputBackground: "#FBFAFA",
 };
 
 export const LightTheme = {
@@ -19,5 +20,6 @@ export const LightTheme = {
   HoverButton: "#fbfafa",
   BottomButton: "#32C3FE",
   Rotate: "rotate(0deg)",
-  FixColor: "white",
+  FixColor: "#FBFAFA",
+  InputBackground: "#FBFAFA",
 };

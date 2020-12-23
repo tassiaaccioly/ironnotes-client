@@ -34,7 +34,9 @@ function NewPage(props) {
     try {
       await api.post("/pages", page);
 
-      props.history.push("/pages");
+      const response = await api.get("/titles");
+      const { _id } = response.data[response.data.length - 1];
+      props.history.push(`/pages/${_id}`);
     } catch (err) {
       console.error(err);
     }

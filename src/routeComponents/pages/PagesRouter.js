@@ -12,6 +12,7 @@ import HowTo from "./NoteComponents/HowTo";
 import EditPage from "./NoteComponents/PageEvents/EditPage";
 import NewPage from "./NoteComponents/PageEvents/NewPage";
 import NewQuote from "./NoteComponents/quotes/AddNewQuote";
+import DeletePage from "./NoteComponents/PageEvents/DeletePage";
 
 function PagesRouter(props) {
   const history = useHistory();
@@ -53,6 +54,11 @@ function PagesRouter(props) {
             exact
             path={`${props.match.path}/newpage`}
             component={NewPage}
+          />
+          <Route
+            exact
+            path={`${props.match.path}/delete/:id`}
+            component={DeletePage}
           />
           <Route path={`${props.match.path}/:id`} component={Page} />
           <GlobalStyle />
