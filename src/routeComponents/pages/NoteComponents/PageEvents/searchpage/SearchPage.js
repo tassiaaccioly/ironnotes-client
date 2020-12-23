@@ -3,17 +3,15 @@ import { Link } from "react-router-dom";
 
 import api from "../../../../../apis/pagesApi";
 
-import {
-  Container,
-  Fix,
-  FixHTML,
-  TagSearch,
-  FormButton,
-} from "../../NoteStyles/page";
+import { Container, Fix, FixHTML, FormButton } from "../../NoteStyles/page";
 import { InputForm } from "../../NoteStyles/events";
-import CheckInput from "../../../../../components/CheckInput";
+import {
+  SearchContainer,
+  CheckContainer,
+} from "../../NoteStyles/searchpagestyles";
 
-import "./SearchPage.css";
+import CheckInput from "../../../../../components/checkinput/CheckInput";
+import SearchTable from "./SearchTable";
 
 function SearchPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -111,7 +109,7 @@ function SearchPage() {
       <FixHTML></FixHTML>
       <Container>
         <Fix>
-          <div id="SearchBarPopUpOne">
+          <SearchContainer>
             <InputForm
               type="text"
               name="searchinput"
@@ -120,11 +118,11 @@ function SearchPage() {
               value={searchTerm}
               onChange={handleChange}
             ></InputForm>
-            <FormButton style={{ marginLeft: "30px" }} onClick={handleClick}>
+            <FormButton style={{ marginLeft: "-40px" }} onClick={handleClick}>
               Search
             </FormButton>
-          </div>
-          <div className="check-container">
+          </SearchContainer>
+          <CheckContainer>
             <CheckInput
               id="checkInputTitle"
               name="title"
@@ -146,55 +144,14 @@ function SearchPage() {
               onChange={handleCheckChange}
               label="Creator"
             />
-          </div>
-          <div className="searchtable-container">
-            <table className="search-table">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Tags</th>
-                  <th>Creator</th>
-                </tr>
-              </thead>
-              {notesFilter.length === 0
-                ? notes.map((note) => (
-                    <tr>
-                      <td>
-                        <Link className="table-link" to={`/pages/${note._id}`}>
-                          {note.title}
-                        </Link>
-                      </td>
-                      <td>
-                        {note.tags.map((tag, i) => (
-                          <Link to="/pages/tag">
-                            <TagSearch key={i}>{tag}</TagSearch>
-                          </Link>
-                        ))}
-                      </td>
-                      <td>{note.creatorUser.username}</td>
-                    </tr>
-                  ))
-                : notesFilter.map((note) => (
-                    <tr>
-                      <td>
-                        <Link className="table-link" to={`/pages/${note._id}`}>
-                          {note.title}
-                        </Link>
-                      </td>
-                      <td>
-                        {note.tags.map((tag, i) => (
-                          <Link to="/pages/tag">
-                            <TagSearch key={i}>{tag}</TagSearch>
-                          </Link>
-                        ))}
-                      </td>
-                      <td style={{ textAlign: "center" }}>
-                        {note.creatorUser.username}
-                      </td>
-                    </tr>
-                  ))}
-            </table>
-          </div>
+          </CheckContainer>
+          <CheckContainer>
+            {notesFilter.length === 0 ? (
+              <SearchTable notes={notes} />
+            ) : (
+              <SearchTable notes={notesFilter} />
+            )}
+          </CheckContainer>
         </Fix>
       </Container>
     </>

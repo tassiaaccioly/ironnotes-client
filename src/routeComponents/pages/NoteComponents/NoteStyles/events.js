@@ -47,5 +47,6 @@ export const InputForm = style.input`
     height: 30px;
     padding: 0 10px;
     margin: 10px auto 8px;
+    background-color: ${({ theme }) => theme.InputBackground};
     border: 0.5px solid ${({ theme }) => theme.text};
 `;

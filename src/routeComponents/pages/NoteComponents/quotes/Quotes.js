@@ -2,8 +2,9 @@ import { useEffect, useState, useContext, React } from "react";
 import api from "../../../../apis/pagesApi";
 import { AuthContext } from "../../../../contexts/authContext";
 
-import { TitleH3, FormButton } from "../NoteStyles/page";
+import { FormButton } from "../NoteStyles/page";
 import { PopUp, ContainerPopUp } from "../NoteStyles/events";
+
 import "./Quote.css";
 
 import NewQuote from "./AddNewQuote";
@@ -14,7 +15,7 @@ function QuotesPopUp(props) {
     document.getElementById("QuotesPopUpOne").style.display = "none";
   }
 
-  const authContext = useContext(AuthContext);
+  useContext(AuthContext);
 
   //State para puxar os quotes
   const [quote, setQuote] = useState({
@@ -59,8 +60,8 @@ function QuotesPopUp(props) {
             <p id="author">Said By: {quote.said_by}</p>
           </div>
           <div id="buttons">
-          <FormButton onClick={handleClick}>Random Quote</FormButton>
-          <FormButton onClick={showForm}>Add a Quote</FormButton>
+            <FormButton onClick={handleClick}>Random Quote</FormButton>
+            <FormButton onClick={showForm}>Add a Quote</FormButton>
           </div>
         </div>
         <NewQuote />

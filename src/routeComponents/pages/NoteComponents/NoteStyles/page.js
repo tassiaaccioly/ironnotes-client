@@ -61,37 +61,6 @@ export const FormButton = style.button`
     }
 `;
 
-// border: solid  ${({ theme }) => theme.BottomButton} 2px;
-
-export const TagSearch = style.span`
-border: none;
-margin: 0.5rem;
-background-color: #32c3ff;
-padding: 0.3rem 1rem;
-border-radius: 0.8rem;
-font-weight: 600;
-cursor: pointer;
-text-decoration: none;
-color: #fbfafa;
-font-size: 1.3rem;
-text-align: center;
-:hover{
-    animation: tagHover 0.5s ease forwards 1;
-}
-
-@keyframes tagHover {
-  from {
-    background-color: #32c3ff;
-    box-shadow: 0 0 0 0;
-    color: #fbfafa;
-  }
-  to {
-    background-color: #fbfafa;
-    color: #2a2e2f;
-  }
-}
-`;
-
 export const Title = style.h1`
     text-align: center;
     margin: 5%;
@@ -128,7 +97,8 @@ export const Tag = style.div`
 
 export const TagQueue = style.div`
     margin: 5px;
-    background: #2a2e2f;
+    background: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.FixColor};
     border-radius: 10px;
     font-size: 15px;
     padding: 5px 7px;

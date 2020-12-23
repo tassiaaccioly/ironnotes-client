@@ -1,10 +1,15 @@
-//Bibliotecas
+//Dependencies
 import React, { useState, useEffect, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
+import { Link } from "react-router-dom";
+
+//Axios
 import api from "../../../../apis/pagesApi";
+
+//Authentication
 import { AuthContext } from "../../../../contexts/authContext";
 
-//CSS em componentes
+//Styled Components
 import { InputForm } from "../NoteStyles/events";
 import {
   Button,
@@ -41,6 +46,13 @@ function Page(props) {
 
   function handleChange(event) {
     setFile({ ...file, [event.currentTarget.name]: event.currentTarget.value });
+  }
+
+  function handleTagChange(event) {
+    const tags = event.currentTarget.value
+      .split(",")
+      .map((tag) => tag.toLowerCase());
+    setFile({ ...file, tags: tags });
   }
 
   function textInput(event) {
@@ -102,7 +114,7 @@ function Page(props) {
                 name="tags"
                 id="pageTags"
                 value={file.tags}
-                onChange={handleChange}
+                onChange={handleTagChange}
               />
             </div>
           </div>
@@ -124,7 +136,9 @@ function Page(props) {
             <Button onClick={handleSubmit} type="submit">
               Save
             </Button>
-            <Button onClick={handleDelete}>Delete</Button>
+            <Button>
+              <Link to={`/pages/delete/${id}`}>Delete</Link>
+            </Button>
           </div>
         </Fix>
       </Container>

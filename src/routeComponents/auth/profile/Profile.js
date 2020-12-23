@@ -3,7 +3,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 //images
-import Avatar from "../../../assets/images/LogoDark.svg";
 
 //css
 import "./Profile.css";

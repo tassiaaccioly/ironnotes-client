@@ -5,7 +5,6 @@ import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
 //Componentes
-import NewPage from "./PageEvents/NewPage";
 import QuotesPopUp from "./quotes/Quotes";
 
 //CSS em componentes
@@ -60,7 +59,7 @@ function Sidebar(props) {
       }
     }
     Text();
-  }, []);
+  }, [list]);
 
   //--------------------------------------------------------------------//
 
@@ -133,7 +132,7 @@ function Sidebar(props) {
           to="/pages/search"
           style={{ width: "100%", display: "flex", justifyContent: "center" }}
         >
-          <SearchBar placeholder="Search here"></SearchBar>
+          <SearchBar>Search here</SearchBar>
         </Link>
 
         <ListItems>
