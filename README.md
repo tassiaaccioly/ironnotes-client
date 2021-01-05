@@ -1,12 +1,12 @@
 
 
-![image](./public/images/LogoDark.svg)
+<img width="350px" align="center" src="./public/images/LogoDark.svg" />
 
 **This is the client side of our IronNotes Project!**
 
 `IronNotes is a collective notebook for students at Ironhack Bootcamps to keep texts, notes, links, quotes and any important informations that might arise in class.`
 
-See the online server [here](ec2-3-131-169-218.us-east-2.compute.amazonaws.com) (all paths are protected)
+Checkout our deployed app [here](http://ec2-3-131-169-218.us-east-2.compute.amazonaws.com/)
 
 See the server repository [here](https://github.com/tassiaaccioly/ironnotes-server)
 
