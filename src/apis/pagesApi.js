@@ -1,7 +1,10 @@
 import axios from "axios";
 
+const DEV_API = "http://localhost:1234/api";
+const PROD_API = "https://ironnotes.herokuapp.com/api";
+
 const api = axios.create({
-  baseURL: "http://ec2-3-131-169-218.us-east-2.compute.amazonaws.com/api",
+  baseURL: process.env.NODE_ENV === "production" ? PROD_API : DEV_API,
 });
 
 const storedUser = localStorage.getItem("loggedInUser");
