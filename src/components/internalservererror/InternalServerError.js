@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./InternalServerError.css";
-
 import BlueBtn from "../btns/BlueBtn";
 
 function InternalServerError() {
