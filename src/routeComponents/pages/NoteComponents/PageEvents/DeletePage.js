@@ -14,7 +14,7 @@ function PageDelete(props) {
       }
     }
     deletePage();
-  }, [id, props.history]);
+  }, [id, props]);
 
   return <div>Deleting...</div>;
 }

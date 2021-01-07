@@ -30,7 +30,6 @@ function QuotesPopUp(props) {
     async function fetchQuotes() {
       try {
         const response = await api.get("/quote");
-        console.log(response);
         setQuote({ ...response.data });
       } catch (err) {
         console.error(err);

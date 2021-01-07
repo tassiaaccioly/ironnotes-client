@@ -69,16 +69,6 @@ function Page(props) {
     }
   }
 
-  async function handleDelete(event) {
-    event.preventDefault();
-    try {
-      await api.delete(`/pages/${id}`);
-      props.history.push(`/pages`);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
   return (
     <>
       <FixHTML></FixHTML>
@@ -87,9 +77,6 @@ function Page(props) {
           <Title>Edit this note</Title>
           <div
             style={{
-              // display: "flex",
-              // flexDirection: "column",
-              // alignItems: "start",
               width: "100%",
               margin: "3% auto",
             }}

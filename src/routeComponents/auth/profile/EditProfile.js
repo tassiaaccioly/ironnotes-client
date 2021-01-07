@@ -36,7 +36,6 @@ function Profile(props) {
     async function fetchUser() {
       try {
         const response = await api.get("/profile");
-        console.log(response);
         setUser({ ...response.data.user });
       } catch (err) {
         console.error(err);
@@ -62,11 +61,7 @@ function Profile(props) {
   async function handleClick() {
     try {
       if (typeof user.avatar !== "string") {
-        console.log(typeof user.avatar);
-
         const uploadedImageUrl = await handleFileUpload(user.avatar);
-
-        console.log(uploadedImageUrl);
 
         await api.patch(`/profile/${user._id}`, {
           ...user,

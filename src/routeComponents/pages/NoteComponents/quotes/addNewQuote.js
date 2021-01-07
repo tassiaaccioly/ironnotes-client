@@ -24,8 +24,7 @@ function NewQuote(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await api.post("/quote", quote);
-      console.log(response);
+      await api.post("/quote", quote);
     } catch (err) {
       console.error(err);
     }
