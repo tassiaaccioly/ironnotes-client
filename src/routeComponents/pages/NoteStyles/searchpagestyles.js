@@ -55,8 +55,11 @@ export const THead = style.thead`
 
 export const TD = style.td`
     border-bottom: 2px solid ${({ theme }) => theme.text};
+    text-wrap: break;
+    word-wrap: break-word;
     overflow: auto;
     min-width: 100px;
+    max-width: 500px;
     padding: 0 20px;
 `;
 

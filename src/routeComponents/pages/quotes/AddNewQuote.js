@@ -1,13 +1,17 @@
+//dependencies
 import { React, useState, useContext } from "react";
 
+//contexts
 import api from "../../../apis/pagesApi";
-
 import { AuthContext } from "../../../contexts/authContext";
 
-import "./Quote.css";
-
-import { FormButton } from "../NoteStyles/page";
-import { InputForm } from "../NoteStyles/events";
+//styled components
+import { FormButton } from "../notestyles/page";
+import { InputForm } from "../notestyles/events";
+import {
+  QuotesContainer,
+  QuotesSmallContainer,
+} from "../notestyles/quotestyles";
 
 function NewQuote(props) {
   useContext(AuthContext);
@@ -31,14 +35,13 @@ function NewQuote(props) {
   }
 
   function backTrack() {
-    document.getElementById("modal").style.display = "block";
-    document.getElementById("addForm").style.display = "none";
+    props.setAddQuote(!props.addQuote);
   }
 
   return (
     <>
-      <div id="addForm" style={{ display: "none" }}>
-        <div id="text">
+      {props.addQuote ? (
+        <QuotesContainer>
           <InputForm
             placeholder="Who said it??"
             type="text"
@@ -47,21 +50,23 @@ function NewQuote(props) {
             onChange={handleChange}
           />
           <InputForm
-            id="bottom"
+            id="quote"
             placeholder="What did they say??"
             type="text"
             name="quote"
             value={quote.quote}
             onChange={handleChange}
           />
-          <div id="buttons">
+          <QuotesSmallContainer id="buttons">
             <FormButton onClick={handleSubmit} type="submit">
               Save Quote
             </FormButton>
             <FormButton onClick={backTrack}>Back to Random Quote</FormButton>
-          </div>
-        </div>
-      </div>
+          </QuotesSmallContainer>
+        </QuotesContainer>
+      ) : (
+        <></>
+      )}
     </>
   );
 }

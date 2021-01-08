@@ -1,29 +1,37 @@
+//dependencies
 import { useEffect, useState, useContext, React } from "react";
+
+//contexts
 import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
-import { FormButton } from "../NoteStyles/page";
-import { PopUp, ContainerPopUp } from "../NoteStyles/events";
+//styled components
+import { FormButton } from "../notestyles/page";
+import { PopUp, ContainerPopUp } from "../notestyles/events";
+import {
+  QuotesContainer,
+  QuotesSmallContainer,
+  QuoteH3,
+  QuoteAuthor,
+} from "../notestyles/quotestyles";
 
-import "./Quote.css";
-
+//components
 import NewQuote from "./AddNewQuote";
 
 function QuotesPopUp(props) {
-  function ClosePopUp() {
-    document.getElementById("QuotesPopUp").style.display = "none";
-    document.getElementById("QuotesPopUpOne").style.display = "none";
-  }
-
   useContext(AuthContext);
 
-  //State para puxar os quotes
+  //State to store API response
   const [quote, setQuote] = useState({
     said_by: "",
     quote: "",
   });
 
-  const [random, setRandom] = useState(false);
+  //State to regulate new requests from API
+  const [randomQuote, setRandomQuote] = useState(false);
+
+  //AddNewQuote State
+  const [addQuote, setAddQuote] = useState(false);
 
   //useEffect para buscar dados na API
   useEffect(() => {
@@ -36,34 +44,38 @@ function QuotesPopUp(props) {
       }
     }
     fetchQuotes();
-  }, [random]);
+  }, [randomQuote]);
 
+  //function to request new quote from the API
   function handleClick() {
-    setRandom(!random);
+    setRandomQuote(!randomQuote);
   }
 
+  //function to show or hide the AddNewQuote form
   function showForm() {
-    document.getElementById("modal").style.display = "none";
-    document.getElementById("addForm").style.display = "block";
+    setAddQuote(!addQuote);
+  }
+
+  function ClosePopUp() {
+    props.setPopUp(!props.popUp);
   }
 
   return (
     <>
       <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>
       <ContainerPopUp id="QuotesPopUpOne">
-        <div id="modal">
-          <div>
-            <h3>
-              <i>"{quote.quote}"</i>
-            </h3>
-            <p id="author">Said By: {quote.said_by}</p>
-          </div>
-          <div id="buttons">
-            <FormButton onClick={handleClick}>Random Quote</FormButton>
-            <FormButton onClick={showForm}>Add a Quote</FormButton>
-          </div>
-        </div>
-        <NewQuote />
+        {!addQuote ? (
+          <QuotesContainer>
+            <QuoteH3>"{quote.quote}"</QuoteH3>
+            <QuoteAuthor id="author">Said By: {quote.said_by}</QuoteAuthor>
+            <QuotesSmallContainer>
+              <FormButton onClick={handleClick}>Random Quote</FormButton>
+              <FormButton onClick={showForm}>Add a Quote</FormButton>
+            </QuotesSmallContainer>
+          </QuotesContainer>
+        ) : (
+          <NewQuote addQuote={addQuote} setAddQuote={setAddQuote} />
+        )}
       </ContainerPopUp>
     </>
   );

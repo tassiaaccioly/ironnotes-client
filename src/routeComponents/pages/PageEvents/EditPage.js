@@ -10,7 +10,7 @@ import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
 //Styled Components
-import { InputForm } from "../NoteStyles/events";
+import { InputForm } from "../notestyles/events";
 import {
   Button,
   Container,
@@ -18,7 +18,7 @@ import {
   FixHTML,
   Title,
   TitleH3,
-} from "../NoteStyles/page";
+} from "../notestyles/page";
 
 function Page(props) {
   useContext(AuthContext);

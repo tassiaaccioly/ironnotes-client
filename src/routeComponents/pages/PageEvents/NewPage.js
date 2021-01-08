@@ -10,8 +10,8 @@ import {
   FixHTML,
   Title,
   LabelH3,
-} from "../NoteStyles/page";
-import { TagPillsContainer, TitleInput } from "../NoteStyles/tagstyles";
+} from "../notestyles/page";
+import { TagPillsContainer, TitleInput } from "../notestyles/tagstyles";
 
 //components
 import TagPills from "../TagPills";
