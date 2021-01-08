@@ -1,37 +1,52 @@
-import React, { useState } from "react";
+//dependencies
+import React, { useState, useEffect } from "react";
 
-import { Container, FixHTML, Fix, FormButton } from "./NoteStyles/page";
-import { TagContainer } from "./NoteStyles/searchpagestyles";
+//styled components
+import { LabelH3 } from "./NoteStyles/page";
+import {
+  TagPillsContainer,
+  TagSearch,
+  TagButton,
+} from "./NoteStyles/tagstyles";
 import { InputForm } from "./NoteStyles/events";
 
-function TagPills() {
-  const [tag, SetTag] = useState([]);
+function TagPills(props) {
+  const [tagInput, setTagInput] = useState("");
+
+  useEffect(() => [props]);
 
   function handleClick(event) {
     event.preventDefault();
+    props.setTags([...props.tags, tagInput]);
+    props.setPage({ ...props.page, tags: props.tags });
+    setTagInput("");
+  }
 
-    return;
+  function handleChange(event) {
+    setTagInput(event.currentTarget.value.toLowerCase());
   }
 
   return (
     <>
-      <FixHTML />
-      <Container>
-        <Fix>
-          <TagContainer>
-            <label htmlFor="tagInput">Add a Tag:</label>
-            <InputForm
-              type="text"
-              name="tagInput"
-              id="tagInput"
-              placeholder="add a tag"
-            />
-            <FormButton style={{ marginLeft: "-40px" }} onClick={handleClick}>
-              Add
-            </FormButton>
-          </TagContainer>
-        </Fix>
-      </Container>
+      <TagPillsContainer style={{ marginTop: "2rem" }}>
+        {props.tags.map((tag, idx) => (
+          <TagSearch key={idx}>{tag}</TagSearch>
+        ))}
+      </TagPillsContainer>
+      <TagPillsContainer>
+        <LabelH3 htmlFor="tagInput">Add a Tag:</LabelH3>
+        <InputForm
+          type="text"
+          name="tagInput"
+          id="tagInput"
+          value={tagInput}
+          onChange={handleChange}
+          placeholder="add a tag"
+        />
+        <TagButton type="submit" onClick={handleClick}>
+          Add
+        </TagButton>
+      </TagPillsContainer>
     </>
   );
 }

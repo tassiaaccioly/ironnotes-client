@@ -1,16 +1,11 @@
+//dependencies
 import React from "react";
 import { Link } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
 
-import {
-  Container,
-  FixHTML,
-  Fix,
-  Title,
-  Tag,
-  TagQueue,
-  Button,
-} from "./NoteStyles/page";
+//Styled Components
+import { Container, FixHTML, Fix, Title, Button } from "./NoteStyles/page";
+import { Tag, TagQueue } from "./NoteStyles/tagstyles";
 
 function HowTo() {
   return (

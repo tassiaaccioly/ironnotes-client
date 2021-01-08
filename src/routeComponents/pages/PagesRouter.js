@@ -67,11 +67,11 @@ function PagesRouter(props) {
             path={`${props.match.path}/tags/:tag`}
             component={TagPage}
           />
-          {/* <Route
+          <Route
             exact
             path={`${props.match.path}/tagpills`}
             component={TagPills}
-          /> */}
+          />
           <Route path={`${props.match.path}/:id`} component={Page} />
           <GlobalStyle />
         </Switch>

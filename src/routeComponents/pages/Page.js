@@ -6,16 +6,8 @@ import api from "../../apis/pagesApi";
 import { AuthContext } from "../../contexts/authContext";
 
 //Styled Components
-import {
-  Container,
-  Fix,
-  Button,
-  Tag,
-  TagLink,
-  Title,
-  FixHTML,
-} from "./NoteStyles/page";
-import { TagSearch } from "./NoteStyles/searchpagestyles";
+import { Container, Fix, Button, Title, FixHTML } from "./NoteStyles/page";
+import { Tag, TagLink, TagSearch } from "./NoteStyles/tagstyles";
 
 function Page(props) {
   useContext(AuthContext);

@@ -1,13 +1,15 @@
+//dependencies
 import React from "react";
 
+//Styled Components
 import {
-  TagSearch,
   Table,
   TableLink,
   THead,
   TD,
   TH,
 } from "../../NoteStyles/searchpagestyles";
+import { TagSearch } from "../../NoteStyles/tagstyles";
 
 function SearchTable(props) {
   return (
