@@ -1,8 +1,8 @@
 import { React, useState, useContext } from "react";
 
-import api from "../../../../apis/pagesApi";
+import api from "../../../apis/pagesApi";
 
-import { AuthContext } from "../../../../contexts/authContext";
+import { AuthContext } from "../../../contexts/authContext";
 
 import "./Quote.css";
 

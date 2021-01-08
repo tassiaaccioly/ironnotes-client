@@ -10,6 +10,15 @@ export const SearchContainer = style.div`
     max-height: 100px;
 `;
 
+export const TagContainer = style.form`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    max-height: 100px;
+`;
+
 export const CheckContainer = style.div`
     display: flex;
     flex-direction: row;
@@ -70,7 +79,7 @@ export const TH = style.th`
 export const TagSearch = style.span`
 border: none;
 margin: 0.5rem;
-background-color: ${({ theme }) => theme.ButtonTheme};
+background: ${({ theme }) => theme.ButtonTheme};
 padding: 0.3rem 1rem;
 border-radius: 0.8rem;
 font-weight: 600;
@@ -85,7 +94,7 @@ text-align: center;
 
 @keyframes tagHover {
   from {
-    background-color: ${({ theme }) => theme.ButtonTheme};
+    background: ${({ theme }) => theme.ButtonTheme};
     box-shadow: 0 0 0 0;
     color: #fbfafa;
   }

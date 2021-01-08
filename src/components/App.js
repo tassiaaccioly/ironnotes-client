@@ -9,7 +9,7 @@ import PagesRouter from "../routeComponents/pages/PagesRouter";
 
 import InternalServerError from "./internalservererror/InternalServerError";
 import NoMatch from "./nomatch/NoMatch";
-import Quotes from "../routeComponents/pages/NoteComponents/quotes/Quotes";
+import Quotes from "../routeComponents/pages/quotes/Quotes";
 
 import { AuthContextComponent } from "../contexts/authContext";
 

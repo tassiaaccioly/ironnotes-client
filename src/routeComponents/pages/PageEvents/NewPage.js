@@ -1,15 +1,6 @@
-//Dependencies
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
-import { Link } from "react-router-dom";
 
-//Axios
-import api from "../../../../apis/pagesApi";
-
-//Authentication
-import { AuthContext } from "../../../../contexts/authContext";
-
-//Styled Components
 import { InputForm } from "../NoteStyles/events";
 import {
   Button,
@@ -19,51 +10,33 @@ import {
   Title,
   TitleH3,
 } from "../NoteStyles/page";
+import api from "../../../apis/pagesApi";
+import { AuthContext } from "../../../contexts/authContext";
 
-function Page(props) {
+function NewPage(props) {
   useContext(AuthContext);
-  //State para armazenar e fazer o render do conteúdo
-  const [file, setFile] = useState({
-    _id: "",
+  const [page, setPage] = useState({
     title: "",
+    tags: "",
     text: "",
-    tags: [""],
   });
 
-  //Buscando o path(Caminho) da url para retirar o Id
-  const { id } = props.match.params;
-  useEffect(() => {
-    async function Text() {
-      try {
-        const response = await api.get(`/pages/${id}`);
-        setFile({ ...response.data });
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    Text();
-  }, [id]);
-
   function handleChange(event) {
-    setFile({ ...file, [event.currentTarget.name]: event.currentTarget.value });
-  }
-
-  function handleTagChange(event) {
-    const tags = event.currentTarget.value
-      .split(",")
-      .map((tag) => tag.toLowerCase());
-    setFile({ ...file, tags: tags });
+    setPage({ ...page, [event.target.name]: event.target.value });
   }
 
   function textInput(event) {
-    setFile({ ...file, text: event });
+    setPage({ ...page, text: event });
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await api.patch(`/pages/${id}`, file);
-      props.history.push(`/pages/${id}`);
+      await api.post("/pages", page);
+
+      const response = await api.get("/titles");
+      const { _id } = response.data[response.data.length - 1];
+      props.history.push(`/pages/${_id}`);
     } catch (err) {
       console.error(err);
     }
@@ -72,9 +45,9 @@ function Page(props) {
   return (
     <>
       <FixHTML></FixHTML>
-      <Container id="EditPagePopUpOne">
+      <Container id="NewPagePopUp">
         <Fix>
-          <Title>Edit this note</Title>
+          <Title>Create a New Note</Title>
           <div
             style={{
               width: "100%",
@@ -88,7 +61,7 @@ function Page(props) {
               type="text"
               name="title"
               id="pageTitle"
-              value={file.title}
+              value={page.title}
               onChange={handleChange}
             />
 
@@ -100,14 +73,14 @@ function Page(props) {
                 type="text"
                 name="tags"
                 id="pageTags"
-                value={file.tags}
-                onChange={handleTagChange}
+                value={page.tags}
+                onChange={handleChange}
               />
             </div>
           </div>
 
           <MDEditor
-            value={file.text}
+            value={page.text}
             onChange={textInput}
             height={350}
             width={300}
@@ -121,10 +94,7 @@ function Page(props) {
             }}
           >
             <Button onClick={handleSubmit} type="submit">
-              Save
-            </Button>
-            <Button>
-              <Link to={`/pages/delete/${id}`}>Delete</Link>
+              Create
             </Button>
           </div>
         </Fix>
@@ -133,4 +103,4 @@ function Page(props) {
   );
 }
 
-export default Page;
+export default NewPage;

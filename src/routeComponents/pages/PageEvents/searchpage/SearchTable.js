@@ -26,8 +26,8 @@ function SearchTable(props) {
           </TD>
           <TD style={{ textAlign: "center" }}>
             {note.tags.map((tag, i) => (
-              <TableLink to="/pages/tag">
-                <TagSearch key={i}>{tag}</TagSearch>
+              <TableLink key={i} to={`/pages/tags/${tag}`}>
+                <TagSearch>{tag}</TagSearch>
               </TableLink>
             ))}
           </TD>

@@ -1,4 +1,5 @@
 import style from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = style.div`
     background-color: ${({ theme }) => theme.body};
@@ -89,10 +90,12 @@ export const LabelH3 = style.label`
 export const Tag = style.div`
     color: white;
     position: relative;
-    width: 100%;
-    margin: 0 0 30px;
+    width: 70%;
+    margin: 0 auto 30px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 `;
 
 export const TagQueue = style.div`
@@ -102,6 +105,12 @@ export const TagQueue = style.div`
     border-radius: 10px;
     font-size: 15px;
     padding: 5px 7px;
+`;
+
+export const TagLink = style(Link)`
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: ${({ theme }) => theme.text};
 `;
 
 export const FixHTML = style.div`

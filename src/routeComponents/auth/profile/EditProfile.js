@@ -8,11 +8,8 @@ import "./Profile.css";
 import { AuthContext } from "../../../contexts/authContext";
 
 //Styled Components
-import { InputForm } from "../../../routeComponents/pages/NoteComponents/NoteStyles/events";
-import {
-  Title,
-  LabelH3,
-} from "../../../routeComponents/pages/NoteComponents/NoteStyles/page";
+import { InputForm } from "../../pages/NoteStyles/events";
+import { Title, LabelH3 } from "../../../routeComponents/pages/NoteStyles/page";
 
 //components
 import FileInput from "../../../components/FileInput";

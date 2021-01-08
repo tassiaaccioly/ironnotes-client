@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle } from "./NoteComponents/NoteStyles/globalStyles";
-import { LightTheme, DarkTheme } from "./NoteComponents/NoteStyles/themes";
+import { GlobalStyle } from "./NoteStyles/globalStyles";
+import { LightTheme, DarkTheme } from "./NoteStyles/themes";
 
-import Sidebar from "./NoteComponents/Sidebar";
-import Page from "./NoteComponents/Page";
-import Search from "./NoteComponents/PageEvents/searchpage/SearchPage";
-import HowTo from "./NoteComponents/HowTo";
-import EditPage from "./NoteComponents/PageEvents/EditPage";
-import NewPage from "./NoteComponents/PageEvents/NewPage";
-import NewQuote from "./NoteComponents/quotes/AddNewQuote";
-import DeletePage from "./NoteComponents/PageEvents/DeletePage";
+import Sidebar from "./Sidebar";
+import Page from "./Page";
+import Search from "./PageEvents/searchpage/SearchPage";
+import HowTo from "./HowTo";
+import EditPage from "./PageEvents/EditPage";
+import NewPage from "./PageEvents/NewPage";
+import NewQuote from "./quotes/AddNewQuote";
+import DeletePage from "./PageEvents/DeletePage";
+import TagPage from "./TagPage";
+import TagPills from "./TagPills";
 
 function PagesRouter(props) {
   const history = useHistory();
@@ -60,6 +62,16 @@ function PagesRouter(props) {
             path={`${props.match.path}/delete/:id`}
             component={DeletePage}
           />
+          <Route
+            exact
+            path={`${props.match.path}/tags/:tag`}
+            component={TagPage}
+          />
+          {/* <Route
+            exact
+            path={`${props.match.path}/tagpills`}
+            component={TagPills}
+          /> */}
           <Route path={`${props.match.path}/:id`} component={Page} />
           <GlobalStyle />
         </Switch>
