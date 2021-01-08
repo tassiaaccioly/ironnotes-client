@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext, React } from "react";
-import api from "../../../../apis/pagesApi";
-import { AuthContext } from "../../../../contexts/authContext";
+import api from "../../../apis/pagesApi";
+import { AuthContext } from "../../../contexts/authContext";
 
 import { FormButton } from "../NoteStyles/page";
 import { PopUp, ContainerPopUp } from "../NoteStyles/events";
@@ -30,7 +30,6 @@ function QuotesPopUp(props) {
     async function fetchQuotes() {
       try {
         const response = await api.get("/quote");
-        console.log(response);
         setQuote({ ...response.data });
       } catch (err) {
         console.error(err);

@@ -63,8 +63,6 @@ function Signup(props) {
     try {
       const uploadedImageUrl = await handleFileUpload(state.avatar);
 
-      console.log(uploadedImageUrl);
-
       await api.post("/signup", {
         ...state,
         avatar: uploadedImageUrl,

@@ -1,8 +1,8 @@
 import { React, useState, useContext } from "react";
 
-import api from "../../../../apis/pagesApi";
+import api from "../../../apis/pagesApi";
 
-import { AuthContext } from "../../../../contexts/authContext";
+import { AuthContext } from "../../../contexts/authContext";
 
 import "./Quote.css";
 
@@ -24,8 +24,7 @@ function NewQuote(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await api.post("/quote", quote);
-      console.log(response);
+      await api.post("/quote", quote);
     } catch (err) {
       console.error(err);
     }

@@ -8,11 +8,8 @@ import "./Profile.css";
 import { AuthContext } from "../../../contexts/authContext";
 
 //Styled Components
-import { InputForm } from "../../../routeComponents/pages/NoteComponents/NoteStyles/events";
-import {
-  Title,
-  LabelH3,
-} from "../../../routeComponents/pages/NoteComponents/NoteStyles/page";
+import { InputForm } from "../../pages/NoteStyles/events";
+import { Title, LabelH3 } from "../../../routeComponents/pages/NoteStyles/page";
 
 //components
 import FileInput from "../../../components/FileInput";
@@ -36,7 +33,6 @@ function Profile(props) {
     async function fetchUser() {
       try {
         const response = await api.get("/profile");
-        console.log(response);
         setUser({ ...response.data.user });
       } catch (err) {
         console.error(err);
@@ -62,11 +58,7 @@ function Profile(props) {
   async function handleClick() {
     try {
       if (typeof user.avatar !== "string") {
-        console.log(typeof user.avatar);
-
         const uploadedImageUrl = await handleFileUpload(user.avatar);
-
-        console.log(uploadedImageUrl);
 
         await api.patch(`/profile/${user._id}`, {
           ...user,

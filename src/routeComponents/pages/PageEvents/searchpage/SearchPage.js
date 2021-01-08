@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
-import api from "../../../../../apis/pagesApi";
+import api from "../../../../apis/pagesApi";
 
 import { Container, Fix, FixHTML, FormButton } from "../../NoteStyles/page";
 import { InputForm } from "../../NoteStyles/events";
@@ -10,7 +9,7 @@ import {
   CheckContainer,
 } from "../../NoteStyles/searchpagestyles";
 
-import CheckInput from "../../../../../components/checkinput/CheckInput";
+import CheckInput from "../../../../components/checkinput/CheckInput";
 import SearchTable from "./SearchTable";
 
 function SearchPage() {

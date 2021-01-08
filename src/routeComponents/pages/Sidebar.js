@@ -1,8 +1,8 @@
 //Bibliotecas
 import { Link } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
-import api from "../../../apis/pagesApi";
-import { AuthContext } from "../../../contexts/authContext";
+import api from "../../apis/pagesApi";
+import { AuthContext } from "../../contexts/authContext";
 
 //Componentes
 import QuotesPopUp from "./quotes/Quotes";
@@ -23,20 +23,20 @@ import {
 } from "./NoteStyles/nav.style";
 
 //Imagens
-import logoWhite from "../../../assets/images/LogoLight.svg";
-import logoDark from "../../../assets/images/LogoDark.svg";
-import Dark from "../../../assets/icons/nights_stay-black-18dp.svg";
-import LogoutBlack from "../../../assets/icons/power_black.svg";
-import LogoutWhite from "../../../assets/icons/power_white.svg";
-import SettingsBlack from "../../../assets/icons/settings_black.svg";
-import SettingsWhite from "../../../assets/icons/settings_white.svg";
-import AboutBlack from "../../../assets/icons/about_black.svg";
-import AboutWhite from "../../../assets/icons/about_white.svg";
-import ArrowWhite from "../../../assets/icons/keyboard_arrow_right-white-18dp.svg";
-import ArrowBlack from "../../../assets/icons/keyboard_arrow_right-black-18dp.svg";
-import Sun from "../../../assets/icons/wb_sunny-black-18dp.svg";
-import EmojiBlack from "../../../assets/icons/tongue_black.svg";
-import EmojiWhite from "../../../assets/icons/tongue_white.svg";
+import logoWhite from "../../assets/images/LogoLight.svg";
+import logoDark from "../../assets/images/LogoDark.svg";
+import Dark from "../../assets/icons/nights_stay-black-18dp.svg";
+import LogoutBlack from "../../assets/icons/power_black.svg";
+import LogoutWhite from "../../assets/icons/power_white.svg";
+import SettingsBlack from "../../assets/icons/settings_black.svg";
+import SettingsWhite from "../../assets/icons/settings_white.svg";
+import AboutBlack from "../../assets/icons/about_black.svg";
+import AboutWhite from "../../assets/icons/about_white.svg";
+import ArrowWhite from "../../assets/icons/keyboard_arrow_right-white-18dp.svg";
+import ArrowBlack from "../../assets/icons/keyboard_arrow_right-black-18dp.svg";
+import Sun from "../../assets/icons/wb_sunny-black-18dp.svg";
+import EmojiBlack from "../../assets/icons/tongue_black.svg";
+import EmojiWhite from "../../assets/icons/tongue_white.svg";
 
 function Sidebar(props) {
   const authContext = useContext(AuthContext);
@@ -59,7 +59,7 @@ function Sidebar(props) {
       }
     }
     Text();
-  }, [list]);
+  }, [props, props.location]);
 
   //--------------------------------------------------------------------//
 
@@ -136,6 +136,14 @@ function Sidebar(props) {
         </Link>
 
         <ListItems>
+          <Link key={list._id} to={`/pages`} style={{ textDecoration: "none" }}>
+            <ListNavTitle>
+              <IconListArrow
+                src={theme === "light" ? ArrowBlack : ArrowWhite}
+              ></IconListArrow>{" "}
+              Getting Started
+            </ListNavTitle>
+          </Link>
           {list.map((list) => (
             <Link
               key={list._id}

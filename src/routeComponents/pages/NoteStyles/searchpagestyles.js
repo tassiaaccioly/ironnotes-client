@@ -66,34 +66,3 @@ export const TH = style.th`
     min-width: 100px;
     padding: 0 20px;
 `;
-
-export const TagSearch = style.span`
-border: none;
-margin: 0.5rem;
-background-color: ${({ theme }) => theme.ButtonTheme};
-padding: 0.3rem 1rem;
-border-radius: 0.8rem;
-font-weight: 600;
-cursor: pointer;
-text-decoration: none;
-color: #fbfafa;
-font-size: 1.3rem;
-text-align: center;
-:hover{
-    animation: tagHover 0.5s ease forwards 1;
-}
-
-@keyframes tagHover {
-  from {
-    background-color: ${({ theme }) => theme.ButtonTheme};
-    box-shadow: 0 0 0 0;
-    color: #fbfafa;
-  }
-  to {
-    background-color: #fbfafa;
-    color: #2a2e2f;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2),
-      0 3px 5px 0 rgba(0, 0, 0, 0.19);
-  }
-}
-`;

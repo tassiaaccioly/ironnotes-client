@@ -1,14 +1,15 @@
+//dependencies
 import React from "react";
-import { Link } from "react-router-dom";
 
+//Styled Components
 import {
-  TagSearch,
   Table,
   TableLink,
   THead,
   TD,
   TH,
 } from "../../NoteStyles/searchpagestyles";
+import { TagSearch } from "../../NoteStyles/tagstyles";
 
 function SearchTable(props) {
   return (
@@ -27,8 +28,8 @@ function SearchTable(props) {
           </TD>
           <TD style={{ textAlign: "center" }}>
             {note.tags.map((tag, i) => (
-              <TableLink to="/pages/tag">
-                <TagSearch key={i}>{tag}</TagSearch>
+              <TableLink key={i} to={`/pages/tags/${tag}`}>
+                <TagSearch>{tag}</TagSearch>
               </TableLink>
             ))}
           </TD>

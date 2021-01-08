@@ -2,19 +2,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
-import api from "../../../apis/pagesApi";
-import { AuthContext } from "../../../contexts/authContext";
+import api from "../../apis/pagesApi";
+import { AuthContext } from "../../contexts/authContext";
 
 //Styled Components
-import {
-  Container,
-  Fix,
-  Button,
-  Title,
-  Tag,
-  TagQueue,
-  FixHTML,
-} from "./NoteStyles/page";
+import { Container, Fix, Button, Title, FixHTML } from "./NoteStyles/page";
+import { Tag, TagLink, TagSearch } from "./NoteStyles/tagstyles";
 
 function Page(props) {
   useContext(AuthContext);
@@ -50,9 +43,11 @@ function Page(props) {
           <header>
             <Title>{file.title}</Title>
             <Tag>
-              {file.tags.map((file, i) => {
-                return <TagQueue key={i}>{file}</TagQueue>;
-              })}
+              {file.tags.map((tag, i) => (
+                <TagLink key={i} to={`/pages/tags/${tag}`}>
+                  <TagSearch>{tag}</TagSearch>
+                </TagLink>
+              ))}
             </Tag>
           </header>
           <MDEditor.Markdown source={file.text} />

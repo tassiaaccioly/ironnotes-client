@@ -45,14 +45,14 @@ export const Button = style.button`
 `;
 
 export const FormButton = style.button`
-    margin: 60px auto;
+    margin: 6rem auto;
     padding: 7px;
     background-color: ${({ theme }) => theme.BottomButton};
     color: white;
     border: none;
     font-weight: bold;
-    font-size: 15px;
-    border-radius: 5px;
+    font-size: 1.5rem;
+    border-radius: .5rem;
     cursor: pointer;
     :hover{
         background-color: ${({ theme }) => theme.HoverButton};
@@ -79,29 +79,11 @@ export const TitleH3 = style.h3`
 `;
 
 export const LabelH3 = style.label`
-    text-align: left;
-    font-size: 17px;
+    font-size: 1.7rem;
 @media(max-width: 767px) {
-   font-size: 15px;
+   font-size: 1.5rem;
+   margin-right: 3rem;
 }
-`;
-
-export const Tag = style.div`
-    color: white;
-    position: relative;
-    width: 100%;
-    margin: 0 0 30px;
-    display: flex;
-    justify-content: center;
-`;
-
-export const TagQueue = style.div`
-    margin: 5px;
-    background: ${({ theme }) => theme.text};
-    color: ${({ theme }) => theme.FixColor};
-    border-radius: 10px;
-    font-size: 15px;
-    padding: 5px 7px;
 `;
 
 export const FixHTML = style.div`

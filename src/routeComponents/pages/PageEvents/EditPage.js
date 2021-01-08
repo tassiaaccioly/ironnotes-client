@@ -4,10 +4,10 @@ import MDEditor from "@uiw/react-md-editor";
 import { Link } from "react-router-dom";
 
 //Axios
-import api from "../../../../apis/pagesApi";
+import api from "../../../apis/pagesApi";
 
 //Authentication
-import { AuthContext } from "../../../../contexts/authContext";
+import { AuthContext } from "../../../contexts/authContext";
 
 //Styled Components
 import { InputForm } from "../NoteStyles/events";
@@ -69,16 +69,6 @@ function Page(props) {
     }
   }
 
-  async function handleDelete(event) {
-    event.preventDefault();
-    try {
-      await api.delete(`/pages/${id}`);
-      props.history.push(`/pages`);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
   return (
     <>
       <FixHTML></FixHTML>
@@ -87,9 +77,6 @@ function Page(props) {
           <Title>Edit this note</Title>
           <div
             style={{
-              // display: "flex",
-              // flexDirection: "column",
-              // alignItems: "start",
               width: "100%",
               margin: "3% auto",
             }}

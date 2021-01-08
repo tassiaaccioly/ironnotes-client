@@ -1,17 +1,24 @@
+//dependencies
 import React, { useState, useContext } from "react";
 import MDEditor from "@uiw/react-md-editor";
 
-import { InputForm } from "../NoteStyles/events";
+//styled components
 import {
   Button,
   Container,
   Fix,
   FixHTML,
   Title,
-  TitleH3,
+  LabelH3,
 } from "../NoteStyles/page";
-import api from "../../../../apis/pagesApi";
-import { AuthContext } from "../../../../contexts/authContext";
+import { TagPillsContainer, TitleInput } from "../NoteStyles/tagstyles";
+
+//components
+import TagPills from "../TagPills";
+
+//server-link components
+import api from "../../../apis/pagesApi";
+import { AuthContext } from "../../../contexts/authContext";
 
 function NewPage(props) {
   useContext(AuthContext);
@@ -21,7 +28,9 @@ function NewPage(props) {
     text: "",
   });
 
-  function handleChange(event) {
+  const [tags, setTags] = useState([]);
+
+  function titleHandleChange(event) {
     setPage({ ...page, [event.target.name]: event.target.value });
   }
 
@@ -54,18 +63,25 @@ function NewPage(props) {
               margin: "3% auto",
             }}
           >
-            <label htmlFor="pageTitle">
-              <TitleH3>Title:</TitleH3>
-            </label>
-            <InputForm
-              type="text"
-              name="title"
-              id="pageTitle"
-              value={page.title}
-              onChange={handleChange}
+            <TagPillsContainer>
+              <LabelH3 htmlFor="pageTitle">Title:</LabelH3>
+              <TitleInput
+                type="text"
+                name="title"
+                id="pageTitle"
+                value={page.title}
+                onChange={titleHandleChange}
+              />
+            </TagPillsContainer>
+
+            <TagPills
+              tags={tags}
+              setTags={setTags}
+              page={page}
+              setPage={setPage}
             />
 
-            <label htmlFor="pageTags">
+            {/* <label htmlFor="pageTags">
               <TitleH3>Tags:</TitleH3>
             </label>
             <div>
@@ -76,7 +92,7 @@ function NewPage(props) {
                 value={page.tags}
                 onChange={handleChange}
               />
-            </div>
+            </div> */}
           </div>
 
           <MDEditor
