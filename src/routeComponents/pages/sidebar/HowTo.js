@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
 
 //Styled Components
-import { Container, FixHTML, Fix, Title, Button } from "./NoteStyles/page";
-import { Tag, TagQueue } from "./NoteStyles/tagstyles";
+import { Container, FixHTML, Fix, Title, Button } from "../notestyles/page";
+import { Tag, TagQueue } from "../notestyles/tagstyles";
 
 function HowTo() {
   return (

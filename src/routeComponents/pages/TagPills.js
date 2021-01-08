@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from "react";
 
 //styled components
-import { LabelH3 } from "./NoteStyles/page";
+import { LabelH3 } from "./notestyles/page";
 import {
   TagPillsContainer,
   TagSearch,
   TagButton,
-} from "./NoteStyles/tagstyles";
-import { InputForm } from "./NoteStyles/events";
+} from "./notestyles/tagstyles";
+import { InputForm } from "./notestyles/events";
 
 function TagPills(props) {
   const [tagInput, setTagInput] = useState("");

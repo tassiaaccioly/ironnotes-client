@@ -3,10 +3,10 @@ import api from "../../apis/pagesApi";
 import { AuthContext } from "../../contexts/authContext";
 
 //Styled Components
-import { Container, Fix, Title, FixHTML } from "./NoteStyles/page";
+import { Container, Fix, Title, FixHTML } from "./notestyles/page";
 
 //components
-import SearchTable from "./PageEvents/searchpage/SearchTable";
+import SearchTable from "./searchpage/SearchTable";
 
 function TagPage(props) {
   useContext(AuthContext);

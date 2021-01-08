@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle } from "./NoteStyles/globalStyles";
-import { LightTheme, DarkTheme } from "./NoteStyles/themes";
+import { GlobalStyle } from "./notestyles/globalStyles";
+import { LightTheme, DarkTheme } from "./notestyles/themes";
 
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar/Sidebar";
 import Page from "./Page";
-import Search from "./PageEvents/searchpage/SearchPage";
-import HowTo from "./HowTo";
-import EditPage from "./PageEvents/EditPage";
-import NewPage from "./PageEvents/NewPage";
+import Search from "./searchpage/SearchPage";
+import HowTo from "./sidebar/HowTo";
+import EditPage from "./pageevents/EditPage";
+import NewPage from "./pageevents/NewPage";
 import NewQuote from "./quotes/AddNewQuote";
-import DeletePage from "./PageEvents/DeletePage";
+import DeletePage from "./pageevents/DeletePage";
 import TagPage from "./TagPage";
 import TagPills from "./TagPills";
 

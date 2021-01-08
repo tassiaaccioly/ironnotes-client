@@ -6,16 +6,15 @@ export const PopUp = style.div`
     width: 100%;
     position: fixed;
     z-index: 200;
-    display: none;
     opacity: 0.5;
 
 `;
 
 export const ContainerPopUp = style.div`
-    height: 80%;
+    height: 70%;
     background: ${({ theme }) => theme.body};
-    width: 80%;
-    margin: 5% 10% 20% 10%;
+    width: 70%;
+    margin: 10% 15% 20% 15%;
     position: fixed;
     z-index: 201;
     border-radius: 5px;
@@ -24,7 +23,6 @@ export const ContainerPopUp = style.div`
     justify-content: center;
     oveflow-y: auto;
     overflow-x: hidden;
-    display: none;
     border: 1px black solid;
 `;
 

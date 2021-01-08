@@ -77,8 +77,6 @@ export const ListNavTitle = style.div`
     }
 `;
 
-// border-bottom: 1px solid ${({ theme }) => theme.navText};
-
 export const ListItems = style.div`
     max-width: 80%;
     overflow: scroll;
@@ -121,7 +119,6 @@ export const Options = style.div`
         box-shadow: 1px 1px 5px black;
         }
     `;
-// box-shadow: 1px 1px 5px black;
 
 export const DarkM = style.img`
 height: 20px;
@@ -149,9 +146,6 @@ export const IconRight = style.img`
     background: rgba(51,216,255,1);
     }
 `;
-
-// background: white;
-// box-shadow: 1px 1px 1px black;
 
 export const IconListArrow = style.img`
     height: 20px;
