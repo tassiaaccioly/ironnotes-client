@@ -1,3 +1,4 @@
+//dependencies
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,7 +9,7 @@ import LogoutBtn from "../../assets/icons/power_black.svg";
 //css
 import "./NavBar.css";
 
-//auth
+//contexts
 import { AuthContext } from "../../contexts/authContext.js";
 
 function NavBar(props) {
@@ -16,7 +17,7 @@ function NavBar(props) {
 
   const [mobile, setMobile] = useState(false);
 
-  function handleClick(event) {
+  function handleClick() {
     setMobile(!mobile);
   }
 
@@ -27,7 +28,7 @@ function NavBar(props) {
   }
 
   return (
-    <nav className="">
+    <nav>
       <Link className="logo" to="/">
         <img type="image/svg+xml" src={NLogoDark} alt="Home" />
       </Link>

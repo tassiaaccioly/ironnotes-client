@@ -3,42 +3,43 @@ import React from "react";
 
 //Styled Components
 import {
-  Table,
+  TableContainer,
   TableLink,
   THead,
-  TD,
-  TH,
+  TBody,
+  Div1,
+  Div2,
+  Div3,
 } from "../notestyles/searchpagestyles";
 import { TagSearch } from "../notestyles/tagstyles";
 
 function SearchTable(props) {
   return (
-    <Table>
+    <TableContainer>
       <THead>
-        <tr>
-          <TH>Title</TH>
-          <TH>Tags</TH>
-          <TH>Creator</TH>
-        </tr>
+        <Div1 style={{ justifyContent: "center" }}>Title</Div1>
+        <Div2>Tags</Div2>
+        <Div3>Creator</Div3>
       </THead>
-      <tbody>
-        {props.notes.map((note, idx) => (
-          <tr key={idx}>
-            <TD>
-              <TableLink to={`/pages/${note._id}`}>{note.title}</TableLink>
-            </TD>
-            <TD style={{ textAlign: "center" }}>
-              {note.tags.map((tag, i) => (
-                <TableLink key={i} to={`/pages/tags/${tag}`}>
-                  <TagSearch>{tag}</TagSearch>
-                </TableLink>
-              ))}
-            </TD>
-            <TD style={{ textAlign: "center" }}>{note.creatorUser.username}</TD>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
+
+      {props.notes.map((note, idx) => (
+        <TBody key={idx}>
+          <Div1>
+            <TableLink to={`/pages/${note._id}`}>{note.title}</TableLink>
+          </Div1>
+          <Div2 style={{ textAlign: "center" }}>
+            {note.tags.map((tag, i) => (
+              <TableLink key={i} to={`/pages/tags/${tag}`}>
+                <TagSearch>{tag}</TagSearch>
+              </TableLink>
+            ))}
+          </Div2>
+          <Div3 style={{ textAlign: "center" }}>
+            {note.creatorUser.username}
+          </Div3>
+        </TBody>
+      ))}
+    </TableContainer>
   );
 }
 

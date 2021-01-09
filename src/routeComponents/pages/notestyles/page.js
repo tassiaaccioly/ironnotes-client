@@ -1,4 +1,5 @@
 import style from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = style.div`
     background-color: ${({ theme }) => theme.body};
@@ -34,7 +35,7 @@ export const Button = style.button`
     color: white;
     border: none;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 1.5rem;
     border-radius: 5px;
     cursor: pointer;
     :hover{
@@ -42,6 +43,27 @@ export const Button = style.button`
         box-shadow: 1px 1px 5px black;
         color: #2a2e2f;
     }
+`;
+
+export const RedButton = style.button`
+    margin: 60px auto;
+    padding: 10px;
+    background-color: #C70039;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    :hover{
+        background-color: ${({ theme }) => theme.HoverButton};
+        box-shadow: 1px 1px 5px black;
+        color: #2a2e2f;
+    }
+`;
+
+export const BtnLink = style(Link)`
+    margin: 0 auto;
 `;
 
 export const FormButton = style.button`

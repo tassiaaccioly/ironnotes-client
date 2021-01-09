@@ -15,7 +15,12 @@ function About() {
     <div className="about-container">
       <h1>About</h1>
       <hr />
-      <p>This web application was made using MERN.</p>
+      <h3>This web application was made using MERN.</h3>
+      <p>
+        IronNotes is a collective notebook for online classes. It allows
+        students to share notes, links, images, videos and everything that may
+        be usefull when taking online classes.
+      </p>
       <hr />
       <div className="profile-container">
         <div className="infos-container">
