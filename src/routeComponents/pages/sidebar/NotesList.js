@@ -40,7 +40,7 @@ function NotesList(props) {
       }
     }
     fetchTitles();
-  }, [props.location]);
+  }, [props]);
 
   return (
     <>
