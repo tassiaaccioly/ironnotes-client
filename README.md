@@ -10,6 +10,14 @@ See the server repository [here](https://github.com/tassiaaccioly/ironnotes-serv
 
 See our slide presentation [here](https://docs.google.com/presentation/d/1eSEAhN5He4dko4dtNfNvGvgP81leUio723bO6JyHobk/edit?usp=sharing)
 
+**Latest Implementations:**
+
+-[x] Tags are now links to a page showing all the notes containing that tag;
+
+-[x] Tags can now be added with a pill system;
+
+-[x] All components after login now have dark and light mode;
+
 This project's authors:
 
 - [Tassia Accioly](https://github.com/tassiaaccioly)

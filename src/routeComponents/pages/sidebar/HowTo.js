@@ -46,7 +46,7 @@ function HowTo() {
               <h3 style='color: FireBrick; font-weight: bold'><img alt='Alert' src='https://emoji.slack-edge.com/T02CQ4EN4/alert/3d9d2c78ad310c68.gif' width='18px'>
               BEWARE
               <img alt='Alert' src='https://emoji.slack-edge.com/T02CQ4EN4/alert/3d9d2c78ad310c68.gif' width='18px'></h3>
-              <p>As a collective notebook everyone can edit and delete anyone's notes so be mindful of your choices!
+              <p>As a collective notebook everyone can edit and delete any notes so be mindful of your choices!
             </p>
             <br/>
             <h2>How does the editor work?</h2>
