@@ -7,8 +7,13 @@ import {
   TagPillsContainer,
   TagSearch,
   TagButton,
+  TagDiv,
+  DeleteTag,
 } from "./notestyles/tagstyles";
 import { InputForm } from "./notestyles/events";
+
+//images
+import CloseBtn from "../../assets/icons/close.svg";
 
 function TagPills(props) {
   const [tagInput, setTagInput] = useState("");
@@ -26,11 +31,26 @@ function TagPills(props) {
     setTagInput(event.currentTarget.value.toLowerCase());
   }
 
+  function handleTagClick(event) {
+    const tag = event.target.name;
+    const newTags = [...props.tags].filter((elem) => elem !== tag);
+    props.setTags([...newTags]);
+  }
+
   return (
     <>
       <TagPillsContainer style={{ marginTop: "2rem" }}>
         {props.tags.map((tag, idx) => (
-          <TagSearch key={idx}>{tag}</TagSearch>
+          <TagDiv key={idx} style={{ margin: "0 .5rem" }}>
+            <TagSearch>{tag}</TagSearch>
+            <img
+              onClick={handleTagClick}
+              name={tag}
+              width="13px"
+              src={CloseBtn}
+              alt="Close"
+            />
+          </TagDiv>
         ))}
       </TagPillsContainer>
       <TagPillsContainer>

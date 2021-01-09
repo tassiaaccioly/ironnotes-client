@@ -9,6 +9,7 @@ export const DarkTheme = {
   Rotate: "rotate(360deg)",
   FixColor: "#2A2E2F",
   InputBackground: "#FBFAFA",
+  SideBarBottomColor: "rgba(29,29,29, 0.8)",
 };
 
 export const LightTheme = {
@@ -22,4 +23,5 @@ export const LightTheme = {
   Rotate: "rotate(0deg)",
   FixColor: "#FBFAFA",
   InputBackground: "#FBFAFA",
+  SideBarBottomColor: "rgba(251,250,250, 0.8)",
 };

@@ -59,7 +59,7 @@ function NotesList(props) {
             Getting Started
           </ListNavTitle>
         </Link>
-        {list.map((list) => (
+        {list.reverse().map((list) => (
           <Link
             key={list._id}
             to={`/pages/${list._id}`}

@@ -80,19 +80,6 @@ function NewPage(props) {
               page={page}
               setPage={setPage}
             />
-
-            {/* <label htmlFor="pageTags">
-              <TitleH3>Tags:</TitleH3>
-            </label>
-            <div>
-              <InputForm
-                type="text"
-                name="tags"
-                id="pageTags"
-                value={page.tags}
-                onChange={handleChange}
-              />
-            </div> */}
           </div>
 
           <MDEditor

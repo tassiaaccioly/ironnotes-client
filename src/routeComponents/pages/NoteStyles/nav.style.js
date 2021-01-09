@@ -7,7 +7,7 @@ export const Nav = style.div`
     top: 0;
     height: 100%;
     background: ${({ theme }) => theme.navColor};
-    width: 15%;
+    width: 20%;
     color: ${({ theme }) => theme.navText};
     display: flex;
     flex-direction: column;
@@ -95,20 +95,24 @@ export const ListItems = style.div`
 
 export const NavOptions = style.div`
     font-size: 16px;
+    position: fixed;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
+    justify-content: center;
     margin-top: 1%;
-    width: 70%;
+    width: 20%;
+    height: 5rem;
     margin-bottom: 10px;
+    background: ${({ theme }) => theme.SideBarBottomColor};
 `;
 
-export const Options = style.div`
+export const Options = style.button`
     margin: 10px;
-    position: fixed;
-    bottom: 20px;
+    border: none;
     background: ${({ theme }) => theme.ButtonTheme};
-    padding: 5px;
+    padding: 7px 5px;
     border-radius: 5px;
     cursor: pointer;
     width: 110px;
