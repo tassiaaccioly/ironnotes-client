@@ -25,9 +25,9 @@ export const TagPillsContainer = style.form`
 export const TitleInput = style.input`
     border-radius: 5px;
     border: none;
-    font-size: 1.8rem;
-    width: 60%;
-    height: 30px;
+    font-size: 1.7rem;
+    width: 85%;
+    height: 35px;
     padding: 0 10px;
     margin: 10px auto 8px;
     background-color: ${({ theme }) => theme.InputBackground};
@@ -106,4 +106,18 @@ export const TagButton = style.button`
         box-shadow: 1px 1px 5px black;
         color: #2a2e2f;
     }
+`;
+
+export const TagDiv = style.div`
+    margin: 0 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const DeleteTag = style.button`
+    border: none;
+    background-color: transparent;
+    padding: none;
 `;

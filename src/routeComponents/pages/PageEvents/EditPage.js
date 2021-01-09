@@ -17,8 +17,13 @@ import {
   Fix,
   FixHTML,
   Title,
-  TitleH3,
+  LabelH3,
+  BtnDiv,
 } from "../notestyles/page";
+import { TagPillsContainer, TitleInput } from "../notestyles/tagstyles";
+
+//components
+import TagPills from "../TagPills";
 
 function Page(props) {
   useContext(AuthContext);
@@ -30,12 +35,15 @@ function Page(props) {
     tags: [""],
   });
 
+  const [tags, setTags] = useState([]);
+
   //Buscando o path(Caminho) da url para retirar o Id
   const { id } = props.match.params;
   useEffect(() => {
     async function Text() {
       try {
         const response = await api.get(`/pages/${id}`);
+        setTags([...response.data.tags]);
         setFile({ ...response.data });
       } catch (err) {
         console.error(err);
@@ -48,13 +56,6 @@ function Page(props) {
     setFile({ ...file, [event.currentTarget.name]: event.currentTarget.value });
   }
 
-  function handleTagChange(event) {
-    const tags = event.currentTarget.value
-      .split(",")
-      .map((tag) => tag.toLowerCase());
-    setFile({ ...file, tags: tags });
-  }
-
   function textInput(event) {
     setFile({ ...file, text: event });
   }
@@ -62,7 +63,7 @@ function Page(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await api.patch(`/pages/${id}`, file);
+      await api.patch(`/pages/${id}`, { ...file, tags: tags });
       props.history.push(`/pages/${id}`);
     } catch (err) {
       console.error(err);
@@ -81,29 +82,23 @@ function Page(props) {
               margin: "3% auto",
             }}
           >
-            <label htmlFor="pageTitle">
-              <TitleH3>Title:</TitleH3>
-            </label>
-            <InputForm
-              type="text"
-              name="title"
-              id="pageTitle"
-              value={file.title}
-              onChange={handleChange}
-            />
-
-            <label htmlFor="pageTags">
-              <TitleH3>Tags:</TitleH3>
-            </label>
-            <div>
-              <InputForm
+            <TagPillsContainer>
+              <LabelH3 htmlFor="pageTitle">Title:</LabelH3>
+              <TitleInput
                 type="text"
-                name="tags"
-                id="pageTags"
-                value={file.tags}
-                onChange={handleTagChange}
+                name="title"
+                id="pageTitle"
+                value={file.title}
+                onChange={handleChange}
               />
-            </div>
+            </TagPillsContainer>
+
+            <TagPills
+              tags={tags}
+              setTags={setTags}
+              page={file}
+              setPage={setFile}
+            />
           </div>
 
           <MDEditor
@@ -112,21 +107,14 @@ function Page(props) {
             height={350}
             width={300}
           />
-          <div
-            style={{
-              width: "30%",
-              margin: "0 auto",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+          <BtnDiv>
             <Button onClick={handleSubmit} type="submit">
               Save
             </Button>
             <Button>
               <Link to={`/pages/delete/${id}`}>Delete</Link>
             </Button>
-          </div>
+          </BtnDiv>
         </Fix>
       </Container>
     </>

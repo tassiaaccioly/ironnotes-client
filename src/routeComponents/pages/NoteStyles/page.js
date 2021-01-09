@@ -5,11 +5,11 @@ export const Container = style.div`
     color: ${({ theme }) => theme.text};
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 80%;
     min-height: 100vh;
     transition: 1s;
     position: relative;
-    left: 15%;
+    left: 20%;
     height: 100%;
     z-index: 100;
     font-size: clamp(10px, 1vw, 25px);
@@ -93,4 +93,11 @@ export const FixHTML = style.div`
     background-color: ${({ theme }) => theme.FixColor};
     z-index: -20;
     transition: 1s;
+`;
+
+export const BtnDiv = style.div`
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 `;
