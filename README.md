@@ -12,11 +12,11 @@ See our slide presentation [here](https://docs.google.com/presentation/d/1eSEAhN
 
 **Latest Implementations:**
 
--[x] Tags are now links to a page showing all the notes containing that tag;
+- [x] Tags are now links to a page showing all the notes containing that tag;
 
--[x] Tags can now be added with a pill system;
+- [x] Tags can now be added with a pill system;
 
--[x] All components after login now have dark and light mode;
+- [x] All components after login now have dark and light mode;
 
 This project's authors:
 
