@@ -32,13 +32,16 @@ export const SearchInput = style.input`
     justify-content: center;
 `;
 
-export const Table = style.table`
+export const TableContainer = style.div`
     width: 90%;
     font-size: 1.5rem;
     line-height: 5rem;
     color: ${({ theme }) => theme.text};
-    border-collapse: collapse;
-    margin-top: 50px;
+    margin: 5rem auto 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    jusitify-content: center;
 `;
 
 export const TableLink = style(Link)`
@@ -47,25 +50,65 @@ export const TableLink = style(Link)`
     color: ${({ theme }) => theme.text};
 `;
 
-export const THead = style.thead`
+export const THead = style.section`
+    width: 65vw;
+    min-width: 500px;
+    padding: 1rem 2rem;
     background-color: ${({ theme }) => theme.text};
     color: ${({ theme }) => theme.FixColor};
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 `;
 
-export const TD = style.td`
+export const TBody = style.section`
+    width: 65vw;
+    min-width: 500px;
+    padding: 1rem 2rem;
+    background-color: ${({ theme }) => theme.FixColor};
+    color: ${({ theme }) => theme.text};
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: 2px solid ${({ theme }) => theme.text};
+`;
+
+export const Div1 = style.div`
+    width: 30%;
+    overflow: auto;
+    min-width: 150px;
+    max-width: 300px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+`;
+
+export const Div2 = style.div`
     text-wrap: break;
-    word-wrap: break-word;
-    overflow: auto;
-    min-width: 100px;
+    word-wrap: normal;
+    width: 50%;
+    min-width: 200px;
     max-width: 500px;
-    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 `;
 
-export const TH = style.th`
-    border-bottom: 2px solid ${({ theme }) => theme.text};
+export const Div3 = style.div`
+    width: 20%;
     overflow: auto;
-    min-width: 100px;
-    padding: 0 20px;
+    min-width: 150px;
+    max-width: 300px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;

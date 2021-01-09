@@ -10,9 +10,9 @@ import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
 //Styled Components
-import { InputForm } from "../notestyles/events";
 import {
   Button,
+  RedButton,
   Container,
   Fix,
   FixHTML,
@@ -111,9 +111,12 @@ function Page(props) {
             <Button onClick={handleSubmit} type="submit">
               Save
             </Button>
-            <Button>
-              <Link to={`/pages/delete/${id}`}>Delete</Link>
-            </Button>
+            <Link to={`/pages/${id}`}>
+              <Button>Cancel</Button>
+            </Link>
+            <Link style={{ margin: "0 auto" }} to={`/pages/delete/${id}`}>
+              <RedButton>Delete Note</RedButton>
+            </Link>
           </BtnDiv>
         </Fix>
       </Container>

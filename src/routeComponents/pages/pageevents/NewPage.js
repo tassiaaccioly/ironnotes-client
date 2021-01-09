@@ -1,10 +1,12 @@
 //dependencies
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
 
 //styled components
 import {
   Button,
+  RedButton,
   Container,
   Fix,
   FixHTML,
@@ -99,6 +101,11 @@ function NewPage(props) {
             <Button onClick={handleSubmit} type="submit">
               Create
             </Button>
+            <RedButton>
+              <Link style={{ fontSize: "17px" }} to="/pages">
+                Cancel
+              </Link>
+            </RedButton>
           </div>
         </Fix>
       </Container>
