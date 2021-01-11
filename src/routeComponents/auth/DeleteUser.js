@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import api from "../../../apis/pagesApi";
+import api from "../../apis/pagesApi";
 
 function UserDelete(props) {
   const { id } = props.match.params;

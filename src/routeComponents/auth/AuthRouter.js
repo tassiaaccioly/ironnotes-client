@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import SignUp from "./SignUp";
 import Login from "./Login";
-import DeleteUser from "./delete/DeleteUser";
+import DeleteUser from "./DeleteUser";
 import Profile from "./Profile";
 import EditProfile from "./EditProfile";
 import About from "../../components/About";

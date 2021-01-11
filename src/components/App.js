@@ -10,13 +10,12 @@ import PagesRouter from "../routeComponents/pages/PagesRouter";
 //components
 import NavUp from "./navbar/NavUp";
 import Home from "./Home";
-import InternalServerError from "./internalservererror/InternalServerError";
-import NoMatch from "./nomatch/NoMatch";
+import InternalServerError from "./InternalServerError";
+import NoMatch from "./NoMatch";
 import About from "./About";
 
 //Contexts
 import { AuthContextComponent } from "../contexts/authContext";
-import ScrollReload from "./ScrollReload";
 
 //Styles for Styled Components
 import { GlobalStyle } from "./styles/globalStyles";
@@ -38,82 +37,80 @@ function App() {
         <GlobalStyle />
         <BrowserRouter>
           <AuthContextComponent>
-            <ScrollReload>
-              <NavUp
-                history={history}
-                theme={theme}
-                setTheme={setTheme}
-                font={font}
-                setFont={setFont}
+            <NavUp
+              history={history}
+              theme={theme}
+              setTheme={setTheme}
+              font={font}
+              setFont={setFont}
+            />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={(routeProps) => {
+                  return (
+                    <Home
+                      {...routeProps}
+                      history={history}
+                      themes={{ theme: [theme, setTheme] }}
+                      fonts={{ font: [font, setFont] }}
+                    />
+                  );
+                }}
               />
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={(routeProps) => {
-                    return (
-                      <Home
-                        {...routeProps}
-                        history={history}
-                        themes={{ theme: [theme, setTheme] }}
-                        fonts={{ font: [font, setFont] }}
-                      />
-                    );
-                  }}
-                />
 
-                {/* Login, Signup, Logout and Profile routes */}
-                <Route
-                  path="/auth"
-                  render={(routeProps) => {
-                    return (
-                      <AuthRouter
-                        {...routeProps}
-                        history={history}
-                        themes={{ theme: [theme, setTheme] }}
-                        fonts={{ font: [font, setFont] }}
-                      />
-                    );
-                  }}
-                />
+              {/* Login, Signup, Logout and Profile routes */}
+              <Route
+                path="/auth"
+                render={(routeProps) => {
+                  return (
+                    <AuthRouter
+                      {...routeProps}
+                      history={history}
+                      themes={{ theme: [theme, setTheme] }}
+                      fonts={{ font: [font, setFont] }}
+                    />
+                  );
+                }}
+              />
 
-                {/* Pages router */}
-                <Route
-                  path="/pages"
-                  render={(routeProps) => {
-                    return (
-                      <PagesRouter
-                        {...routeProps}
-                        history={history}
-                        themes={{ theme: [theme, setTheme] }}
-                        fonts={{ font: [font, setFont] }}
-                      />
-                    );
-                  }}
-                />
+              {/* Pages router */}
+              <Route
+                path="/pages"
+                render={(routeProps) => {
+                  return (
+                    <PagesRouter
+                      {...routeProps}
+                      history={history}
+                      themes={{ theme: [theme, setTheme] }}
+                      fonts={{ font: [font, setFont] }}
+                    />
+                  );
+                }}
+              />
 
-                <Route
-                  path="/about"
-                  render={(routeProps) => {
-                    return (
-                      <About
-                        {...routeProps}
-                        history={history}
-                        themes={{ theme: [theme, setTheme] }}
-                        fonts={{ font: [font, setFont] }}
-                      />
-                    );
-                  }}
-                />
+              <Route
+                path="/about"
+                render={(routeProps) => {
+                  return (
+                    <About
+                      {...routeProps}
+                      history={history}
+                      themes={{ theme: [theme, setTheme] }}
+                      fonts={{ font: [font, setFont] }}
+                    />
+                  );
+                }}
+              />
 
-                {/* error handling routes  */}
-                <Route
-                  path="/internalservererror"
-                  component={InternalServerError}
-                />
-                <Route path="*" component={NoMatch} />
-              </Switch>
-            </ScrollReload>
+              {/* error handling routes  */}
+              <Route
+                path="/internalservererror"
+                component={InternalServerError}
+              />
+              <Route path="*" component={NoMatch} />
+            </Switch>
           </AuthContextComponent>
         </BrowserRouter>
       </ThemeProvider>

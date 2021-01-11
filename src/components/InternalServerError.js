@@ -1,19 +1,19 @@
 import React from "react";
 
-import BlueBtn from "../btns/BlueBtn";
+import { BigContainer, BlueButton } from "./styles/generalAssets";
 
 function InternalServerError() {
   return (
-    <div>
+    <BigContainer>
       <img
         src="https://www.wpexplorer.com/wp-content/uploads/wordpress-500-internal-server-error-fixes.jpg"
         alt="Internal Server Error"
       />
 
-      <BlueBtn onClick={() => window.location.reload()}>
+      <BlueButton onClick={() => window.location.reload()}>
         Reload the page
-      </BlueBtn>
-    </div>
+      </BlueButton>
+    </BigContainer>
   );
 }
 

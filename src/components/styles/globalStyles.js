@@ -9,6 +9,12 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: "Roboto", Helvetica, Arial, sans-serif;
+        text-decoration: none;
+    }
+
+    a {
+        color: ${({ theme }) => theme.FixColor};
+        font-weight: 700;
     }
 
     html,

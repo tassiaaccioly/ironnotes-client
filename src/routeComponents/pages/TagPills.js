@@ -8,7 +8,7 @@ import { TagButton } from "./notestyles/page";
 import { InputForm } from "./notestyles/events";
 
 //images
-import CloseBtn from "../../assets/icons/close.svg";
+import CloseBtn from "../../assets/icons/general/close.svg";
 
 function TagPills(props) {
   const [tagInput, setTagInput] = useState("");

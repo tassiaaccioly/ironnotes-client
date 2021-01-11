@@ -15,8 +15,8 @@ import {
 } from "../notestyles/nav.style";
 
 //images
-import ArrowWhite from "../../../assets/icons/keyboard_arrow_right-white-18dp.svg";
-import ArrowBlack from "../../../assets/icons/keyboard_arrow_right-black-18dp.svg";
+import ArrowWhite from "../../../assets/icons/general/keyboard_arrow_right-white-18dp.svg";
+import ArrowBlack from "../../../assets/icons/general/keyboard_arrow_right-black-18dp.svg";
 
 function NotesList(props) {
   useContext(AuthContext);
