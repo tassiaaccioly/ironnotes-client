@@ -85,7 +85,7 @@ function Signup(props) {
       />
       <P style={{ fontSize: ".9rem", margin: "0 auto" }}>
         Already have an account?{" "}
-        <GLink style={{ fontSize: ".9rem" }} to="auth/login">
+        <GLink style={{ fontSize: ".9rem" }} to="/auth/login">
           Login here
         </GLink>
         .
