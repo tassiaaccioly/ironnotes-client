@@ -11,21 +11,15 @@ export const TagContainer = style.form`
     max-height: 100px;
 `;
 
-export const TagPillsContainer = style.form`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+export const TagPillsContainer = style(TagContainer)`
     margin: 0 auto;
     width: 60%;
-    max-height: 100px;
 `;
 
 export const TitleInput = style.input`
     border-radius: 5px;
     border: none;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     width: 85%;
     height: 35px;
     padding: 0 10px;
@@ -44,7 +38,7 @@ export const TagSearch = style.span`
     cursor: pointer;
     text-decoration: none;
     color: #fbfafa;
-    font-size: 1.4rem;
+    font-size: 1rem;
     text-align: center;
     :hover{
         animation: tagHover 0.5s ease forwards 1;
@@ -98,7 +92,7 @@ export const TagButton = style.button`
     color: white;
     border: none;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border-radius: .5rem;
     cursor: pointer;
     :hover{
@@ -114,10 +108,4 @@ export const TagDiv = style.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-`;
-
-export const DeleteTag = style.button`
-    border: none;
-    background-color: transparent;
-    padding: none;
 `;

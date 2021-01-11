@@ -9,7 +9,7 @@ import {
   CheckContainer,
 } from "../notestyles/searchpagestyles";
 
-import CheckInput from "../../../components/checkinput/CheckInput";
+import CheckInput from "../../../components/inputs/CheckInput";
 import SearchTable from "./SearchTable";
 
 function SearchPage() {

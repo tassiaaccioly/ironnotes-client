@@ -117,7 +117,7 @@ function HowTo() {
             <p>You can find gifs over on: <a target='_blank' href='https://giphy.com'>Giphy</a></p>
             <br/>
             <h2>How can I find my notes?</h2>
-            <p>This is a collective notebook so the titles of all the notes will appear on the left side of the screen on the side menu. There you'll be able to find not only your notes but all your cohorts'. To find only your notes you can go to your profile. There you can find a list of all the notes your created</p>
+            <p>This is a collective notebook so the titles of all the notes will appear on the left side of the screen on the side menu from newest to oldest. There you'll be able to find not only your notes but all your cohorts'. To find only your notes you can go to your profile. There you can find a list of all the notes your created</p>
             <h3>Using the search feature!</h3>
             <p>You can also use the search bar to find your friends' notes and using the filter you can also search by titles, user or tags!</p>
             <p>The search engine looks for parts of names too. So if you're not sure what you're looking for you can search for just half of the word or term</p>

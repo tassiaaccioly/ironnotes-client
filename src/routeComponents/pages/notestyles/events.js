@@ -15,6 +15,7 @@ export const ContainerPopUp = style.div`
     background: ${({ theme }) => theme.body};
     width: 70%;
     margin: 10% 15% 20% 15%;
+    padding: 5rem 0;
     position: fixed;
     z-index: 201;
     border-radius: 5px;
@@ -23,7 +24,6 @@ export const ContainerPopUp = style.div`
     justify-content: center;
     oveflow-y: auto;
     overflow-x: hidden;
-    border: 1px black solid;
 `;
 
 export const FormPopUp = style.form`
@@ -42,9 +42,15 @@ export const InputForm = style.input`
     border-radius: 5px;
     border: none;
     width: 60%;
-    height: 30px;
+    height: 35px;
     padding: 0 10px;
+    font-size: 1rem;
     margin: 10px auto 8px;
     background-color: ${({ theme }) => theme.InputBackground};
-    border: 0.5px solid ${({ theme }) => theme.text};
+    border: 1px solid ${({ theme }) => theme.text};
+
+    :focus {
+        outline: none;
+        border: 2px solid ${({ theme }) => theme.ButtonTheme};
+    }
 `;

@@ -3,13 +3,8 @@ import React, { useState, useEffect } from "react";
 
 //styled components
 import { LabelH3 } from "./notestyles/page";
-import {
-  TagPillsContainer,
-  TagSearch,
-  TagButton,
-  TagDiv,
-  DeleteTag,
-} from "./notestyles/tagstyles";
+import { TagPillsContainer, TagSearch, TagDiv } from "./notestyles/tagstyles";
+import { TagButton } from "./notestyles/page";
 import { InputForm } from "./notestyles/events";
 
 //images
