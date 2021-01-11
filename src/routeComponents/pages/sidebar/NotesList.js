@@ -34,7 +34,7 @@ function NotesList(props) {
     async function fetchTitles() {
       try {
         const response = await api.get("/titles");
-        setList([...response.data]);
+        setList([...response.data].reverse());
       } catch (err) {
         console.error(err);
       }
@@ -59,7 +59,7 @@ function NotesList(props) {
             Getting Started
           </ListNavTitle>
         </Link>
-        {list.reverse().map((list) => (
+        {list.map((list) => (
           <Link
             key={list._id}
             to={`/pages/${list._id}`}

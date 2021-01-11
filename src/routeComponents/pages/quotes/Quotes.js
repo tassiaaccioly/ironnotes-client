@@ -6,7 +6,7 @@ import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
 //styled components
-import { FormButton } from "../notestyles/page";
+import { BlueButton } from "../../../components/styles/generalAssets";
 import { PopUp, ContainerPopUp } from "../notestyles/events";
 import {
   QuotesContainer,
@@ -62,15 +62,15 @@ function QuotesPopUp(props) {
 
   return (
     <>
-      <PopUp id="QuotesPopUp" onClick={ClosePopUp}></PopUp>
-      <ContainerPopUp id="QuotesPopUpOne">
+      <PopUp onClick={ClosePopUp}></PopUp>
+      <ContainerPopUp>
         {!addQuote ? (
           <QuotesContainer>
             <QuoteH3>"{quote.quote}"</QuoteH3>
             <QuoteAuthor id="author">Said By: {quote.said_by}</QuoteAuthor>
             <QuotesSmallContainer>
-              <FormButton onClick={handleClick}>Random Quote</FormButton>
-              <FormButton onClick={showForm}>Add a Quote</FormButton>
+              <BlueButton onClick={handleClick}>Random Quote</BlueButton>
+              <BlueButton onClick={showForm}>Add a Quote</BlueButton>
             </QuotesSmallContainer>
           </QuotesContainer>
         ) : (

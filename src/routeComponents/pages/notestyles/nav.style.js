@@ -25,14 +25,14 @@ export const SearchBar = style.button`
     border: none;
     border-radius: 5px;
     background-color: white;
-    border: 1px solid #2a2e2f;
+    border: 2px solid #2a2e2f;
     height: 30px;
-    width: 80%;
+    width: 50%;
     font-size: 15px;
     text-align: center;
     :focus{
-        border: none;
-        outline: 0;
+        outline: none;
+        border: 2px solid ${({ theme }) => theme.ButtonTheme};
     }
 `;
 
@@ -64,7 +64,7 @@ export const Logo = style.img`
 export const ListNavTitle = style.div`
     color: white;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -122,6 +122,10 @@ export const Options = style.button`
         background: #fafbfb;
         box-shadow: 1px 1px 5px black;
         }
+
+        a {
+            font-size: 1.1rem;
+        }
     `;
 
 export const DarkM = style.img`
@@ -133,6 +137,7 @@ export const NavRight = style.nav`
     position: fixed;
     z-index: 180; 
     right: 2%;
+    padding: 5px 0 0;
     top:3%;
     transition: 1s;
     background: ${({ theme }) => theme.navColor};

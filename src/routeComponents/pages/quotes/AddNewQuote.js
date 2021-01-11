@@ -6,7 +6,7 @@ import api from "../../../apis/pagesApi";
 import { AuthContext } from "../../../contexts/authContext";
 
 //styled components
-import { FormButton } from "../notestyles/page";
+import { BlueButton } from "../../../components/styles/generalAssets";
 import { InputForm } from "../notestyles/events";
 import {
   QuotesContainer,
@@ -58,10 +58,10 @@ function NewQuote(props) {
             onChange={handleChange}
           />
           <QuotesSmallContainer id="buttons">
-            <FormButton onClick={handleSubmit} type="submit">
+            <BlueButton onClick={handleSubmit} type="submit">
               Save Quote
-            </FormButton>
-            <FormButton onClick={backTrack}>Back to Random Quote</FormButton>
+            </BlueButton>
+            <BlueButton onClick={backTrack}>Back to Random Quote</BlueButton>
           </QuotesSmallContainer>
         </QuotesContainer>
       ) : (

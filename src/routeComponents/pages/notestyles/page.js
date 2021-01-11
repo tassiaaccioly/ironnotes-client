@@ -29,13 +29,13 @@ export const Fix = style.div`
 `;
 
 export const Button = style.button`
-    margin: 60px auto;
-    padding: 10px;
+    margin: 40px auto;
+    padding: 7px 10px;
     background-color: ${({ theme }) => theme.BottomButton};
     color: white;
     border: none;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
     :hover{
@@ -45,47 +45,25 @@ export const Button = style.button`
     }
 `;
 
-export const RedButton = style.button`
-    margin: 60px auto;
-    padding: 10px;
+export const RedButton = style(Button)`
     background-color: #C70039;
-    color: white;
-    border: none;
-    font-weight: bold;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    :hover{
-        background-color: ${({ theme }) => theme.HoverButton};
-        box-shadow: 1px 1px 5px black;
-        color: #2a2e2f;
-    }
+`;
+
+export const TagButton = style(Button)`
+    margin: 1rem auto;
+`;
+
+export const FormButton = style(Button)`
+    margin: 6rem auto;
 `;
 
 export const BtnLink = style(Link)`
     margin: 0 auto;
 `;
 
-export const FormButton = style.button`
-    margin: 6rem auto;
-    padding: 7px;
-    background-color: ${({ theme }) => theme.BottomButton};
-    color: white;
-    border: none;
-    font-weight: bold;
-    font-size: 1.5rem;
-    border-radius: .5rem;
-    cursor: pointer;
-    :hover{
-        background-color: ${({ theme }) => theme.HoverButton};
-        box-shadow: 1px 1px 5px black;
-        color: #2a2e2f;
-    }
-`;
-
 export const Title = style.h1`
     text-align: center;
-    margin: 5%;
+    margin: 3.8rem auto 2rem;
     font-size: 30px;
 @media(max-width: 767px) {
    font-size: 25px;
@@ -101,7 +79,8 @@ export const TitleH3 = style.h3`
 `;
 
 export const LabelH3 = style.label`
-    font-size: 1.7rem;
+    color: ${({ theme }) => theme.text};
+    font-size: 1.2rem;
 @media(max-width: 767px) {
    font-size: 1.5rem;
    margin-right: 3rem;
@@ -118,7 +97,7 @@ export const FixHTML = style.div`
 `;
 
 export const BtnDiv = style.div`
-    width: 30%;
+    width: 30rem;
     margin: 0 auto;
     display: flex;
     justify-content: center;
