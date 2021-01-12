@@ -26,7 +26,7 @@ function SearchPage() {
   const [notesFilter, setNotesFilter] = useState([]);
 
   const [check, setCheck] = useState({
-    title: false,
+    title: true,
     tags: false,
     creator: false,
   });

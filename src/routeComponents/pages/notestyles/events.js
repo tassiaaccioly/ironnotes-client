@@ -14,16 +14,16 @@ export const ContainerPopUp = style.div`
     height: 70%;
     background: ${({ theme }) => theme.body};
     width: 70%;
-    margin: 10% 15% 20% 15%;
-    padding: 5rem 0;
+    margin: 8% 15% 20% 15%;
     position: fixed;
     z-index: 201;
-    border-radius: 5px;
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    oveflow-y: auto;
+    oveflow-y: hidden;
     overflow-x: hidden;
+    border: 2px solid #2A2E2F;
 `;
 
 export const FormPopUp = style.form`

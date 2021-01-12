@@ -100,6 +100,21 @@ export const P = style.p`
     color: ${({ theme }) => theme.text};
 `;
 
+export const SmallP = style.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+
+    p {
+      text-align: center;
+      fontSize: 12px;
+      color: #32c3ff;
+    }
+    
+`;
+
 export const GLink = style(Link)`
     color: ${({ theme }) => theme.ButtonTheme};
     font-size: clamp(1.1rem, 1vw, 1.4rem);
@@ -158,7 +173,7 @@ export const BlueButtonLink = style(BlueButton)`
       border-radius: 0.8rem;
       text-decoration: none;
       color: #fbfafa;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 600;
     }
 

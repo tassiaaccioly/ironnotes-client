@@ -6,10 +6,8 @@ import Login from "./Login";
 import DeleteUser from "./DeleteUser";
 import Profile from "./Profile";
 import EditProfile from "./EditProfile";
-import About from "../../components/About";
 
 function AuthRouter(props) {
-  const { history } = props;
   const theme = props.themes.theme[0];
 
   return (
@@ -18,42 +16,21 @@ function AuthRouter(props) {
         <Route
           path={`${props.match.path}/signup`}
           render={(routeProps) => {
-            return <SignUp {...routeProps} history={history} theme={theme} />;
+            return <SignUp {...routeProps} theme={theme} />;
           }}
         />
         <Route
           path={`${props.match.path}/login`}
           render={(routeProps) => {
-            return <Login {...routeProps} history={history} theme={theme} />;
+            return <Login {...routeProps} theme={theme} />;
           }}
         />
-        <Route
-          exact
-          path={`${props.match.path}/profile`}
-          render={(routeProps) => {
-            return <Profile {...routeProps} history={history} theme={theme} />;
-          }}
-        />
-        <Route
-          path={`${props.match.path}/about`}
-          render={(routeProps) => {
-            return <About {...routeProps} history={history} theme={theme} />;
-          }}
-        />
+        <Route exact path={`${props.match.path}/profile`} component={Profile} />
         <Route
           path={`${props.match.path}/profile/edit`}
-          render={(routeProps) => {
-            return (
-              <EditProfile {...routeProps} history={history} theme={theme} />
-            );
-          }}
+          component={EditProfile}
         />
-        <Route
-          path={`${props.match.path}/delete/:id`}
-          render={(routeProps) => {
-            return <DeleteUser {...routeProps} history={history} />;
-          }}
-        />
+        <Route path={`${props.match.path}/delete/:id`} component={DeleteUser} />
       </Switch>
     </React.Fragment>
   );

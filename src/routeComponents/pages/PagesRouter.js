@@ -12,8 +12,6 @@ import DeletePage from "./pageevents/DeletePage";
 import TagPage from "./TagPage";
 
 function PagesRouter(props) {
-  const { history } = props;
-
   const theme = props.themes.theme[0];
   const setTheme = props.themes.theme[1];
   const font = props.fonts.font[0];
@@ -22,7 +20,6 @@ function PagesRouter(props) {
   return (
     <React.Fragment>
       <Sidebar
-        history={history}
         theme={theme}
         setTheme={setTheme}
         font={font}

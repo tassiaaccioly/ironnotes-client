@@ -1,6 +1,6 @@
 //dependencies
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 //contexts
 import { AuthContext } from "../../contexts/authContext";
@@ -33,23 +33,23 @@ import FontWhite from "../../assets/icons/navbar/font_white.svg";
 
 function NavUp(props) {
   const authContext = useContext(AuthContext);
+  const history = useHistory();
 
-  const { theme, setTheme, toggleQuotes, history } = props;
+  const { theme, setTheme, toggleQuotes } = props;
 
   const logged = localStorage.getItem("loggedInUser");
 
-  const pagesURL = window.location.pathname.includes("pages");
+  const path = window.location.pathname;
+
+  const pagesURL = path.includes("pages");
 
   // const errorURL = window.location.pathname.includes("error");
-
-  console.log(pagesURL);
 
   //Function to logout
   function handleLogoutClick() {
     localStorage.clear();
     authContext.setLoggedInUser({ token: "", user: {} });
     history.push("/");
-    window.location.reload();
   }
 
   function themeToggle() {
@@ -67,9 +67,6 @@ function NavUp(props) {
         onClick={fontToggle}
         src={font === "sans-serif" ? Sun : Dark}
       /> */}
-      <Link to="/about">
-        <IconRight src={theme === "light" ? AboutBlack : AboutWhite} />
-      </Link>
       <Link to="/pages">
         <IconRight src={theme === "light" ? NotepadBlack : NotepadWhite} />
       </Link>
@@ -83,6 +80,9 @@ function NavUp(props) {
           ) : (
             <></>
           )}
+          <Link to="/about">
+            <IconRight src={theme === "light" ? AboutBlack : AboutWhite} />
+          </Link>
           <Link to="/auth/profile">
             <IconRight
               src={theme === "light" ? SettingsBlack : SettingsWhite}
@@ -95,6 +95,9 @@ function NavUp(props) {
         </>
       ) : (
         <>
+          <Link to="/about">
+            <IconRight src={theme === "light" ? AboutBlack : AboutWhite} />
+          </Link>
           <Link to="/">
             <IconRight src={theme === "light" ? NLogoBlack : NLogoWhite} />
           </Link>

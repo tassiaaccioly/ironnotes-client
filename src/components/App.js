@@ -1,6 +1,6 @@
 //dependencies
 import React, { useState } from "react";
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 //Router Components
@@ -23,7 +23,6 @@ import { LightTheme, DarkTheme } from "./styles/themes";
 import { SansSerif, Serif } from "./styles/fonts";
 
 function App() {
-  const history = useHistory();
   const [theme, setTheme] = useState("light");
 
   const [font, setFont] = useState("sans-serif");
@@ -38,7 +37,6 @@ function App() {
         <BrowserRouter>
           <AuthContextComponent>
             <NavUp
-              history={history}
               theme={theme}
               setTheme={setTheme}
               font={font}
@@ -52,7 +50,6 @@ function App() {
                   return (
                     <Home
                       {...routeProps}
-                      history={history}
                       themes={{ theme: [theme, setTheme] }}
                       fonts={{ font: [font, setFont] }}
                     />
@@ -67,7 +64,6 @@ function App() {
                   return (
                     <AuthRouter
                       {...routeProps}
-                      history={history}
                       themes={{ theme: [theme, setTheme] }}
                       fonts={{ font: [font, setFont] }}
                     />
@@ -82,7 +78,6 @@ function App() {
                   return (
                     <PagesRouter
                       {...routeProps}
-                      history={history}
                       themes={{ theme: [theme, setTheme] }}
                       fonts={{ font: [font, setFont] }}
                     />
@@ -96,7 +91,6 @@ function App() {
                   return (
                     <About
                       {...routeProps}
-                      history={history}
                       themes={{ theme: [theme, setTheme] }}
                       fonts={{ font: [font, setFont] }}
                     />

@@ -1,7 +1,8 @@
 //dependencies
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 //contexts
+import { AuthContext } from "../../contexts/authContext";
 import api from "../../apis/pagesApi";
 
 //components
@@ -12,9 +13,10 @@ import SignUpForm from "./SignUpForm";
 import { BigContainer, P, GLink } from "../../components/styles/generalAssets";
 
 function Signup(props) {
+  useContext(AuthContext);
   const { history, theme } = props;
 
-  const [state, setState] = useState({
+  const [user, setUser] = useState({
     username: "",
     password: "",
     email: "",
@@ -30,13 +32,13 @@ function Signup(props) {
 
   function handleChange(event) {
     if (event.currentTarget.files) {
-      return setState({
-        ...state,
+      return setUser({
+        ...user,
         [event.currentTarget.name]: event.currentTarget.files[0],
       });
     }
-    setState({
-      ...state,
+    setUser({
+      ...user,
       [event.currentTarget.name]: event.currentTarget.value,
     });
   }
@@ -58,12 +60,16 @@ function Signup(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const uploadedImageUrl = await handleFileUpload(state.avatar);
+      if (typeof user.avatar !== "string") {
+        const uploadedImageUrl = await handleFileUpload(user.avatar);
 
-      await api.post("/signup", {
-        ...state,
-        avatar: uploadedImageUrl,
-      });
+        await api.post("/signup", {
+          ...user,
+          avatar: uploadedImageUrl,
+        });
+      } else {
+        await api.post("/signup", { ...user });
+      }
 
       setErrors({ username: "", password: "", email: "", cohort: "" });
 
@@ -78,7 +84,7 @@ function Signup(props) {
     <BigContainer>
       <Logo theme={theme} />
       <SignUpForm
-        state={state}
+        state={user}
         errors={errors}
         onChange={handleChange}
         onSubmit={handleSubmit}
