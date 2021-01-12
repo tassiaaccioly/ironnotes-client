@@ -14,6 +14,7 @@ import {
   LabelH3,
 } from "../notestyles/page";
 import { TagPillsContainer, TitleInput } from "../notestyles/tagstyles";
+import { SmallP } from "../../../components/styles/generalAssets";
 
 //components
 import TagPills from "../TagPills";
@@ -90,6 +91,12 @@ function NewPage(props) {
             height={350}
             width={300}
           />
+          <SmallP>
+            <p>
+              Creating a new note may take a little bit, please click the create
+              button only once.
+            </p>
+          </SmallP>
           <div
             style={{
               width: "30%",

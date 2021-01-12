@@ -29,6 +29,7 @@ function NewQuote(props) {
     event.preventDefault();
     try {
       await api.post("/quote", quote);
+      setQuote({ said_by: "", quote: "" });
     } catch (err) {
       console.error(err);
     }

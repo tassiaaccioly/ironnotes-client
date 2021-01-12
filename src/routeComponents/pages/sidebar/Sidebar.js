@@ -45,7 +45,7 @@ function Sidebar(props) {
   // }
 
   //Getting theme state from props
-  const { theme, setTheme, font, setFont, history } = props;
+  const { theme, setTheme, font, setFont } = props;
 
   function toggleQuotes() {
     setPopUp(!popUp);
@@ -56,7 +56,6 @@ function Sidebar(props) {
       {popUp ? <Quotes popUp={popUp} setPopUp={setPopUp} /> : <></>}
       {/* <PullNavMobile onClick={Pull}>Menu</PullNavMobile> */}
       <NavUp
-        history={history}
         theme={theme}
         setTheme={setTheme}
         font={font}
