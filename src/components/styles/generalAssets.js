@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const BigContainer = style.main`
     width: 90vw;
     min-width: 500px;
-    margin: 6rem auto;
+    margin: 4rem auto;
     font-size: clamp(1.1rem, 1vw, 1.4rem);
     line-height: 1.3;
     text-align: center;
@@ -109,7 +109,7 @@ export const SmallP = style.div`
 
     p {
       text-align: center;
-      fontSize: 12px;
+      font-size: 13px;
       color: #32c3ff;
     }
     

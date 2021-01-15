@@ -12,6 +12,8 @@ import {
   Logo,
   NavOptions,
   Options,
+  SearchBar,
+  SidebarUp,
 } from "../notestyles/nav.style";
 
 //Components
@@ -63,9 +65,21 @@ function Sidebar(props) {
         toggleQuotes={toggleQuotes}
       />
       <Nav id="Pull">
-        <Link to="/">
-          <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
-        </Link>
+        <SidebarUp>
+          <Link to="/">
+            <Logo src={theme === "light" ? logoDark : logoWhite} alt="logo" />
+          </Link>
+          <Link
+            to="/pages/search"
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <SearchBar>Search here</SearchBar>
+          </Link>
+        </SidebarUp>
         <NotesList props={props} theme={theme} />
         <NavOptions>
           <Options>

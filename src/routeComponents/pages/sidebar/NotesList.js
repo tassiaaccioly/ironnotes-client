@@ -11,7 +11,6 @@ import {
   ListItems,
   ListNavTitle,
   IconListArrow,
-  SearchBar,
 } from "../notestyles/nav.style";
 
 //images
@@ -43,38 +42,30 @@ function NotesList(props) {
   }, [props]);
 
   return (
-    <>
-      <Link
-        to="/pages/search"
-        style={{ width: "100%", display: "flex", justifyContent: "center" }}
-      >
-        <SearchBar>Search here</SearchBar>
+    <ListItems>
+      <Link key={list._id} to={`/pages`} style={{ textDecoration: "none" }}>
+        <ListNavTitle>
+          <IconListArrow
+            src={props.theme === "light" ? ArrowBlack : ArrowWhite}
+          ></IconListArrow>{" "}
+          Getting Started
+        </ListNavTitle>
       </Link>
-      <ListItems>
-        <Link key={list._id} to={`/pages`} style={{ textDecoration: "none" }}>
+      {list.map((list) => (
+        <Link
+          key={list._id}
+          to={`/pages/${list._id}`}
+          style={{ textDecoration: "none" }}
+        >
           <ListNavTitle>
             <IconListArrow
               src={props.theme === "light" ? ArrowBlack : ArrowWhite}
             ></IconListArrow>{" "}
-            Getting Started
+            {list.title}
           </ListNavTitle>
         </Link>
-        {list.map((list) => (
-          <Link
-            key={list._id}
-            to={`/pages/${list._id}`}
-            style={{ textDecoration: "none" }}
-          >
-            <ListNavTitle>
-              <IconListArrow
-                src={props.theme === "light" ? ArrowBlack : ArrowWhite}
-              ></IconListArrow>{" "}
-              {list.title}
-            </ListNavTitle>
-          </Link>
-        ))}
-      </ListItems>
-    </>
+      ))}
+    </ListItems>
   );
 }
 

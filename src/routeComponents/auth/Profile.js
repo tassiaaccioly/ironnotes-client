@@ -44,7 +44,7 @@ function Profile(props) {
 
   // 4. "Encaixar" o state no JSX a ser renderizado pelo componente
   return (
-    <BigContainer style={{ marginTop: "4rem" }}>
+    <BigContainer>
       <MediumContainer>
         <SmallContainer>
           <img src={user.avatar} alt="Avatar" />
