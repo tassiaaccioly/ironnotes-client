@@ -21,13 +21,14 @@ export const Nav = style.div`
     
     `;
 export const SearchBar = style.button`
-    margin: 30px 0 10px;
+    margin: 30px auto 10px;
     border: none;
     border-radius: 5px;
     background-color: white;
     border: 2px solid #2a2e2f;
     height: 30px;
     width: 50%;
+    min-width: 6rem;
     font-size: 15px;
     text-align: center;
     :focus{
@@ -78,6 +79,7 @@ export const ListNavTitle = style.div`
 `;
 
 export const ListItems = style.div`
+    margin-top: 16.5rem;
     max-width: 80%;
     overflow: scroll;
     width: 100%;
@@ -103,9 +105,23 @@ export const NavOptions = style.div`
     justify-content: center;
     margin-top: 1%;
     width: 20%;
-    height: 5rem;
-    margin-bottom: 10px;
-    background: ${({ theme }) => theme.SideBarBottomColor};
+    height: 4rem;
+    background-color: ${({ theme }) => theme.SideBarBottomColor};
+    transition: 1s;
+`;
+
+export const SidebarUp = style.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 35%;
+    background-color: ${({ theme }) => theme.SideBarBottomColor};
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const Options = style.button`
